@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('roles', 'Admin\RoleController');
         Route::resource('categories', 'Admin\CategoryController');
         Route::resource('users', 'Admin\UserController');
+        Route::post('users/reset-credits', 'Admin\UserController@resetCredits')->name('users.reset-credits');
+        Route::post('users/reset-cashes', 'Admin\UserController@resetCashes')->name('users.reset-cashes');
         Route::resource('settings', 'Admin\SettingController');
     });
 

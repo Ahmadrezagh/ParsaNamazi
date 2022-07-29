@@ -37,6 +37,8 @@
                                     <div class="container">
 
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#modal-create">Create User</button>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reset-credit">Reset All Credits</button>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reset-cash">Reset All Cash</button>
                                         <!-- Create Modal -->
                                         <div class="modal fade" id="modal-create">
                                             <div class="modal-dialog">
@@ -93,6 +95,65 @@
                                                             </div>
                                                         </form>
                                                     </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <div class="modal fade" id="modal-reset-credit">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Reset All Credits</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                        <!-- form start -->
+                                                        <form  method="POST" action="{{route('users.reset-credits')}}"  enctype="multipart/form-data">
+                                                            @csrf
+
+                                                            <div class="modal-body">
+                                                            <div class="card-body">
+                                                                Are you sure to reset all credits?
+                                                            </div>
+                                                            </div>
+                                                            <!-- /.card-body -->
+
+                                                            <div class="card-footer">
+                                                                <button type="submit" class="btn btn-danger">Reset</button>
+                                                            </div>
+                                                        </form>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <div class="modal fade" id="modal-reset-cash">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Reset All Cashes</h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                        <!-- form start -->
+                                                        <form  method="POST" action="{{route('users.reset-cashes')}}"  enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="modal-body">
+                                                            <div class="card-body">
+                                                                Are you sure to reset all cashes?
+                                                            </div>
+                                                            </div>
+                                                            <!-- /.card-body -->
+
+                                                            <div class="card-footer">
+                                                                <button type="submit" class="btn btn-danger">Reset</button>
+                                                            </div>
+                                                        </form>
+
                                                 </div>
                                                 <!-- /.modal-content -->
                                             </div>

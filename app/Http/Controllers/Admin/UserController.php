@@ -116,4 +116,30 @@ class UserController extends Controller
         alert()->success('کاربر با موفقیت حذف شد');
         return back();
     }
+
+    public function resetCredits()
+    {
+        $users = User::query()->get();
+        foreach ($users as $user)
+        {
+            $user->update([
+                'credit' => 0
+            ]);
+        }
+        toastr()->success('Credit reset successfully done!!');
+        return back();
+    }
+
+    public function resetCashes()
+    {
+        $users = User::query()->get();
+        foreach ($users as $user)
+        {
+            $user->update([
+                'cash' => 0
+            ]);
+        }
+        toastr()->success('Cash reset successfully done!!');
+        return back();
+    }
 }
