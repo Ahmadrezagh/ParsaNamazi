@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 @section('title')
-    register
+    Register
 @endsection
 @section('content')
 
@@ -33,6 +33,9 @@
                                             <div class="form-group text-left">
                                                 <label>Name</label>
                                                 <input class="form-control" placeholder="Enter your Name" name="name" type="text">
+                                            </div>
+                                            <div class="form-group text-left" style="display: none">
+                                                <input class="form-control" value="{{request('key')}}" name="referral_code" type="text">
                                             </div>
                                             <div class="form-group text-left">
                                                 <label>Email</label>

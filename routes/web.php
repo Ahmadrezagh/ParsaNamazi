@@ -30,6 +30,12 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('users', 'Admin\UserController');
         Route::resource('settings', 'Admin\SettingController');
     });
+
+    Route::prefix('user')->group(function () {
+        // Amin routes
+        Route::resource('profile', 'User\ProfileController');
+    });
+
     // Default
     Route::get('/home', 'HomeController@index')->name('home');
 });

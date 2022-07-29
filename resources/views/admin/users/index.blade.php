@@ -61,6 +61,14 @@
                                                                     <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required >
                                                                 </div>
                                                                 <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Credit</label>
+                                                                    <input name="credit" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Cash</label>
+                                                                    <input name="cash" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter cash"  >
+                                                                </div>
+                                                                <div class="form-group">
                                                                     <label for="exampleInputPassword1">New Password</label>
                                                                     <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
                                                                 </div>
@@ -97,6 +105,8 @@
                                                 <th>Profile image</th>
                                                 <th>Name</th>
                                                 <th>Email</th>
+                                                <th>Credit</th>
+                                                <th>Cash</th>
                                                 <th>Registered</th>
                                                 <th>Options</th>
                                             </tr>
@@ -110,7 +120,12 @@
                                                     <td>
                                                         {{$user->name}}
                                                     </td>
+
                                                     <td>{{$user->email}}</td>
+
+                                                    <td>{{$user->credit}}</td>
+
+                                                    <td>$ {{$user->cash}}</td>
                                                     <td >
                                                         <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="{{$user->created_at}}">
                                                             {{$user->created_at->diffForHumans()}}
@@ -184,6 +199,16 @@
                                                                             <label for="exampleInputEmail1">Email address</label>
                                                                             <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required value="{{$user->email}}" required>
                                                                         </div>
+
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Credit</label>
+                                                                            <input name="credit" type="text" value="{{$user->credit}}" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Cash</label>
+                                                                            <input name="cash" type="text" value="{{$user->cash}}" class="form-control" id="exampleInputEmail1" placeholder="Enter cash"  >
+                                                                        </div>
+
                                                                         <div class="form-group">
                                                                             <label for="exampleInputPassword1">New Password</label>
                                                                             <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">

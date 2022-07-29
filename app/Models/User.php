@@ -28,7 +28,11 @@ class User extends Authenticatable
         'email',
         'password',
         'profile',
-        'type_id'
+        'type_id',
+        'credit',
+        'cash',
+        'referral_code',
+        'referral_to'
     ];
 
     /**
@@ -96,4 +100,27 @@ class User extends Authenticatable
         return $this->profile ?? '/uploads/profiles/default/user.png';
     }
 
+    public function getReferralUrlAttribute()
+    {
+        return route('register').'?key='.$this->referral_code;
+    }
+
+    public static function findByReferralCode($code)
+    {
+        if($code)
+        {
+            return User::query()->where('referral_code','=',$code)->first() ?? null;
+        }
+        return null;
+    }
+
+    public function referTo()
+    {
+        return $this->belongsTo(User::class,'referral_to','referral_code');
+    }
+
+    public function myRefers()
+    {
+        return $this->hasMany(User::class,'referral_to','referral_code');
+    }
 }

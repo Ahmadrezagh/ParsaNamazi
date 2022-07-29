@@ -54,8 +54,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'agreement' => ['required'],
-            'address' => ['required','string']
+            'referral_code' => ['nullable']
         ]);
     }
 
@@ -67,11 +66,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['referral_code'] = User::findByReferralCode($data['referral_code']) ? $data['referral_code'] : null;
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $data['password'],
+            'referral_to' => $data['referral_code']
         ]);
+        if($user->referral_to)
+        {
+            $gift_credit = setting('gift_referral_register_credit') ?? 0;
+            $gift_cash = setting('gift_referral_register_cash') ?? 0;
+            $targetUser = $user->referTo;
+            $targetUser->update([
+                'credit' => ($targetUser->credit + $gift_credit),
+                'cash' => ($targetUser->cash + $gift_cash),
+            ]);
+        }
         return $user;
     }
 }

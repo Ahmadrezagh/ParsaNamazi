@@ -64,6 +64,18 @@ class SettingSeeder extends Seeder
                 'value'=>'+1 123 456 7892',
                 'setting_group_id'=>'2'
             ],
+            [   'name' => 'gift_referral_register_cash(Cash)',
+                'type'=>'number',
+                'description'=>'Referral gift for registration',
+                'value'=>'1',
+                'setting_group_id'=>'4'
+            ],
+            [   'name' => 'gift_referral_register_credit',
+                'type'=>'number',
+                'description'=>'Referral gift for registration(Credit)',
+                'value'=>'1',
+                'setting_group_id'=>'4'
+            ],
         ];
         foreach ($settings as $setting)
         {
