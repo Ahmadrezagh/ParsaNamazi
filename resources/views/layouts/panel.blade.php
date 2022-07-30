@@ -148,6 +148,23 @@
                     </ul>
                 </li>
                 @endif
+                @if ((Auth::user()->isAdmin() && Auth::user()->can('PopUp')) || Auth::user()->isSuperAdmin() )
+                <li class="nav-item">
+                    <a class="nav-link with-sub" href="#0">
+                        <span class="shape1"></span>
+                        <span class="shape2"></span>
+                        <i class="fas fa-comment-alt sidemenu-icon"></i>
+{{--                        <i class="fas fa-comment-alt-exclamation sidemenu-icon"></i>--}}
+                        <span class="sidemenu-label">PopUp management</span>
+                        <i class="angle fe fe-chevron-right"></i>
+                    </a>
+                    <ul class="nav-sub">
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="{{route('popups.index')}}">PopUp list</a>
+                        </li>
+                    </ul>
+                </li>
+                @endif
 
                 @if ((Auth::user()->isAdmin() && Auth::user()->can('Setting')) || Auth::user()->isSuperAdmin() )
                 <li class="nav-item">

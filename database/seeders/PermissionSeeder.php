@@ -31,6 +31,10 @@ class PermissionSeeder extends Seeder
             [
                 'Setting',
                 'تنظیمات'
+            ],
+            [
+                'PopUp',
+                'پاپ آپ'
             ]
         ];
         foreach ($permissions as $permission)

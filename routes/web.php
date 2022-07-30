@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('users/reset-credits', 'Admin\UserController@resetCredits')->name('users.reset-credits');
         Route::post('users/reset-cashes', 'Admin\UserController@resetCashes')->name('users.reset-cashes');
         Route::resource('settings', 'Admin\SettingController');
+        Route::resource('popups', 'Admin\PopUpController');
     });
 
     Route::prefix('user')->group(function () {
