@@ -83,7 +83,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Expire after (minute)</label>
-                                                                    <input name="expire_after" min="1" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter referral credit"  >
+                                                                    <input name="expire_after" min="1" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter expire time"  >
                                                                 </div>
 
                                                             </div>
@@ -231,7 +231,7 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1">Expire at</label>
-                                                                            <input name="expire_at" value="{{$popup->expire_at}}"  type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter referral credit"  >
+                                                                            <input name="expire_at" value="{{$popup->expire_at}}"  type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter expire date time"  >
                                                                         </div>
 
                                                                     </div>
