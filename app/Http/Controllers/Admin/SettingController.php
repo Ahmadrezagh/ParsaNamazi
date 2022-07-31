@@ -89,10 +89,19 @@ class SettingController extends Controller
     public function update(Request $request, $id)
     {
         $group = SettingGroup::findOrFail($id);
+
         foreach ($group->settings as $setting)
         {
+            if ($setting->type == 'number')
+            {
+                Setting::where('id','=',$setting->id)->update([
+                    'value' => 0
+                ]);
+            }
             if ($request[$setting->id])
             {
+
+
                 if ($setting->type == 'file')
                 {
                     $file_url = upload_file($request[$setting->id],'/settings',$setting->name);
