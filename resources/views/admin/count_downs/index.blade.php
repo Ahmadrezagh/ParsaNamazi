@@ -64,12 +64,12 @@
 
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Start At</label>
-                                                                    <input name="start_at" type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                    <input name="start_at" type="datetime-local" step="1" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
                                                                 </div>
 
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Expire At</label>
-                                                                    <input name="expire_at" type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                    <input name="expire_at" type="datetime-local" step="1" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
                                                                 </div>
 
                                                                 <hr>
@@ -277,7 +277,7 @@
             </select>
         </div>
         <div class="form-group col-5">
-            <input type="datetime-local" class="form-control" name="user_groups[${id}][show_at]">
+            <input type="datetime-local" step="1" class="form-control" name="user_groups[${id}][show_at]">
         </div>
         <div class="form-group col-1">
             <button class="btn btn-danger" onclick="removeItem(this)" type="button">
