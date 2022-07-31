@@ -152,7 +152,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <h5>Are you sure to delete `{{$count_down->name}}` ?</h5>
+                                                                <h5>Are you sure to delete `{{$count_down->title}}` ?</h5>
                                                             </div>
                                                             <div class="modal-footer justify-content-between">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

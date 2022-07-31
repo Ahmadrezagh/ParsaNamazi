@@ -105,8 +105,10 @@ class CountDownController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CountDown $count_down)
     {
-        //
+        $count_down->delete();
+        toastr()->success('Count down deleted successfully');
+        return back();
     }
 }
