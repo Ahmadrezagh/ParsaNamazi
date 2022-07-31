@@ -29,6 +29,10 @@ class PermissionSeeder extends Seeder
                 'کاربران'
             ],
             [
+                'UserGroup',
+                'کاربران'
+            ],
+            [
                 'Setting',
                 'تنظیمات'
             ],
