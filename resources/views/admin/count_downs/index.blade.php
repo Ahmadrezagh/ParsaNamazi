@@ -53,17 +53,34 @@
                                                             @csrf
                                                             <div class="card-body">
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Name</label>
-                                                                    <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                    <label for="exampleInputEmail1">Title</label>
+                                                                    <input name="title" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title" required >
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">From Credit</label>
-                                                                    <input name="from" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                    <label for="exampleInputEmail1">Description</label>
+                                                                    <textarea name="description" class="no-ck" id="" cols="30"
+                                                                              rows="10"></textarea>
                                                                 </div>
+
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">To Credit</label>
-                                                                    <input name="to" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                    <label for="exampleInputEmail1">Start At</label>
+                                                                    <input name="start_at" type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
                                                                 </div>
+
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Expire At</label>
+                                                                    <input name="expire_at" type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                </div>
+
+                                                                <hr>
+
+                                                                <div class="form-group">
+                                                                    <button type="button" id="add_user_group_btn" class="btn btn-success" style="width: 100%">Add User Group</button>
+                                                                </div>
+                                                                <div class="form-group" id="user_groups_div">
+
+                                                                </div>
+
 
                                                             </div>
                                                             <!-- /.card-body -->
@@ -83,9 +100,10 @@
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Name</th>
-                                                <th>From Credit</th>
-                                                <th>To Credit</th>
+                                                <th>Title</th>
+                                                <th>Start At</th>
+                                                <th>Expire At</th>
+                                                <th>Status</th>
                                                 <th>Options</th>
                                             </tr>
                                             </thead>
@@ -96,13 +114,20 @@
                                                         {{$key + 1}}
                                                     </td>
                                                     <td>
-                                                        {{$count_down->name}}
+                                                        {{$count_down->title}}
                                                     </td>
                                                     <td>
-                                                        {{$count_down->from}}
+                                                        {{$count_down->start_at}}
                                                     </td>
                                                     <td>
-                                                        {{$count_down->to}}
+                                                        {{$count_down->expire_at}}
+                                                    </td>
+                                                    <td>
+                                                        @if($count_down->expired)
+                                                            <button class="btn btn-danger">Expired</button>
+                                                        @else
+                                                            <button class="btn btn-success">Active</button>
+                                                        @endif
                                                     </td>
                                                     <td class="text-center">
                                                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-hasCount Down="true" aria-expanded="false">
@@ -110,7 +135,7 @@
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                            <button type="button" class="btn btn-success dropdown-item" data-toggle="modal" data-target="#modal-edit{{$count_down->id}}" ><i  class="fas fa-Count Down-edit"></i> Edit</button>
+                                                            <button type="button" class="btn btn-success dropdown-item" data-toggle="modal" data-target="#modal-edit{{$count_down->id}}" ><i  class="fas fa-Count Down-edit"></i> Show</button>
                                                             <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-delete{{$count_down->id}}" ><i style="color:red" class="fas fa-Count Down-minus"></i> Delete</button>
                                                         </div>
                                                     </td>
@@ -152,37 +177,51 @@
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title">Edit Count Down</h4>
+                                                                <h4 class="modal-title">Show Count Down</h4>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
                                                                 <!-- form start -->
-                                                                <form  method="POST" action="{{route('count_downs.update',$count_down->id)}}"  enctype="multipart/form-data">
-                                                                    @csrf
-                                                                    @method('PATCH')
 
-                                                                    <div class="card-body">
-                                                                        <div class="form-group">
-                                                                            <label for="exampleInputEmail1">Name</label>
-                                                                            <input name="name" value="{{$count_down->name}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label for="exampleInputEmail1">From Credit</label>
-                                                                            <input name="from" value="{{$count_down->from}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label for="exampleInputEmail1">To Credit</label>
-                                                                            <input name="to" value="{{$count_down->to}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
-                                                                        </div>
+                                                                <div class="card-body">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">Title</label>
+                                                                        <input name="title" value="{{$count_down->title}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter title" required >
                                                                     </div>
-                                                                    <!-- /.card-body -->
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">Description</label>
+                                                                        <textarea name="description" class="no-ck" id="" cols="30"
+                                                                                  rows="10">
+                                                                            {{$count_down->description}}
+                                                                        </textarea>
+                                                                    </div>
 
-                                                                    <div class="card-footer">
-                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">Start At</label>
+                                                                        <input name="start_at" value="{{$count_down->start_at}}" type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
                                                                     </div>
-                                                                </form>
+
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputEmail1">Expire At</label>
+                                                                        <input name="expire_at" value="{{$count_down->expire_at}}"  type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                    </div>
+
+                                                                    <hr>
+                                                                    <div class="form-group row">
+                                                                        @foreach($count_down->countDownGroups as $group)
+                                                                            <div class="form-group col-6">
+                                                                                <input  value="{{$group->userGroup->name ?? ''}}"  type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                            </div>
+                                                                            <div class="form-group col-6">
+                                                                                <input  value="{{$group->show_at}}"  type="datetime-local" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+
+
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <!-- /.modal-content -->
@@ -211,5 +250,46 @@
         </div>
     </div>
 
+@endsection
+@section('js')
 
+    <script>
+        function makeid(length) {
+            var result = '';
+            var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for (var i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() *
+                    charactersLength));
+            }
+            return result;
+        }
+
+        $("#add_user_group_btn").on('click',function () {
+            let id = makeid(8)
+            $('#user_groups_div').append(`
+            <div class="row">
+                                                                        <div class="form-group col-6">
+                                                                            <select name="user_groups[${id}][user_group_id]" class="form-control s2" style="width: 100%">
+                                                                                @foreach(\App\Models\UserGroup::all() as $user_group)
+            <option value="{{$user_group->id}}">{{$user_group->name}}</option>
+                                                                                @endforeach
+            </select>
+        </div>
+        <div class="form-group col-5">
+            <input type="datetime-local" class="form-control" name="user_groups[${id}][show_at]">
+        </div>
+        <div class="form-group col-1">
+            <button class="btn btn-danger" onclick="removeItem(this)" type="button">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    </div>
+`)
+        })
+
+        function removeItem(e) {
+            $(e).parent().parent().remove()
+        }
+    </script>
 @endsection

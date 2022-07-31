@@ -100,8 +100,6 @@ class SettingController extends Controller
             }
             if ($request[$setting->id])
             {
-
-
                 if ($setting->type == 'file')
                 {
                     $file_url = upload_file($request[$setting->id],'/settings',$setting->name);

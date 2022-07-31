@@ -14,4 +14,14 @@ class CountDown extends Model
         'start_at',
         'expire_at'
     ];
+
+    public function countDownGroups()
+    {
+        return $this->hasMany(CountDownGroups::class);
+    }
+
+    public function getExpiredAttribute()
+    {
+        return (strtotime($this->expire_at) < time());
+    }
 }

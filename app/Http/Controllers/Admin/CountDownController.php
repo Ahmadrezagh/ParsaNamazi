@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CountDown\StoreCountDownRequest;
+use App\Http\Requests\Admin\CountDown\UpdateCountDownRequest;
 use App\Models\CountDown;
+use App\Models\CountDownGroups;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,9 +52,17 @@ class CountDownController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCountDownRequest $request)
     {
-        //
+        $count_down = CountDown::create($request->validated());
+        foreach ($request->user_groups as $user_group)
+        {
+            $user_group_object = $user_group;
+            $user_group_object['count_down_id'] = $count_down->id;
+            CountDownGroups::create($user_group_object);
+        }
+        toastr()->success('Count down created successfully');
+        return back();
     }
 
     /**
@@ -83,7 +94,7 @@ class CountDownController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCountDownRequest $request, $id)
     {
         //
     }
