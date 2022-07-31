@@ -75,10 +75,6 @@
         <div class="title m-b-md">
             {{setting('name')}}
         </div>
-
-        <div class="links">
-            <a href="https://UltimateSoft.co">Design and develop : UltimateSoft Co</a>
-        </div>
     </div>
 </div>
 </body>
