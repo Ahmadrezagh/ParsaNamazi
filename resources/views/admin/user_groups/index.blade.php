@@ -58,11 +58,11 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">From Credit</label>
-                                                                    <input name="from" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit" required >
+                                                                    <input name="from" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">To Credit</label>
-                                                                    <input name="to" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit" required >
+                                                                    <input name="to" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
                                                                 </div>
 
                                                             </div>
@@ -170,11 +170,11 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1">From Credit</label>
-                                                                            <input name="from" value="{{$user_group->from}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit" required >
+                                                                            <input name="from" value="{{$user_group->from}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1">To Credit</label>
-                                                                            <input name="to" value="{{$user_group->to}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit" required >
+                                                                            <input name="to" value="{{$user_group->to}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
                                                                         </div>
                                                                     </div>
                                                                     <!-- /.card-body -->

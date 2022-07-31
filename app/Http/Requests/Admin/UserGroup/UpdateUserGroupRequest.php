@@ -25,8 +25,8 @@ class UpdateUserGroupRequest extends FormRequest
     {
         return [
             'name' => ['required'],
-            'from' => ['required'],
-            'to' => ['required']
+            'from' => ['nullable'],
+            'to' => ['nullable']
         ];
     }
 }
