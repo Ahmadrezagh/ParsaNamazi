@@ -7,9 +7,23 @@ use App\Http\Requests\Admin\UserGroup\StoreUserGroupRequest;
 use App\Http\Requests\Admin\UserGroup\UpdateUserGroupRequest;
 use App\Models\UserGroup;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserGroupController extends Controller
 {
+    public function __construct()
+    {
+
+        $this->middleware(function ($request, $next) {
+            if ((Auth::user()->isAdmin() && Auth::user()->can('User')) || Auth::user()->isSuperAdmin())
+            {
+                return $next($request);
+            }else{
+                abort(404);
+            }
+        });
+
+    }
     /**
      * Display a listing of the resource.
      *
