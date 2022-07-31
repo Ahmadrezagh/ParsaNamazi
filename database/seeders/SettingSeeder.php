@@ -64,9 +64,9 @@ class SettingSeeder extends Seeder
                 'value'=>'+1 123 456 7892',
                 'setting_group_id'=>'2'
             ],
-            [   'name' => 'gift_referral_register_cash(Cash)',
+            [   'name' => 'gift_referral_register_cash',
                 'type'=>'number',
-                'description'=>'Referral gift for registration',
+                'description'=>'Referral gift for registration(Cash)',
                 'value'=>'1',
                 'setting_group_id'=>'4'
             ],

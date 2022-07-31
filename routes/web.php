@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('user_groups', 'Admin\UserGroupController');
         Route::resource('settings', 'Admin\SettingController');
         Route::resource('popups', 'Admin\PopUpController');
+        Route::resource('count_downs', 'Admin\CountDownController');
     });
 
     Route::prefix('user')->group(function () {
