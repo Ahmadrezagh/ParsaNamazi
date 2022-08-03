@@ -6,6 +6,7 @@ use App\Services\Permission\Traits\HasPermissions;
 use App\Services\Permission\Traits\HasRoles;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -122,5 +123,48 @@ class User extends Authenticatable
     public function myRefers()
     {
         return $this->hasMany(User::class,'referral_to','referral_code');
+    }
+
+    public function clickedPopUps()
+    {
+        return $this->belongsToMany(PopUp::class,'user_pop_ups','user_id','pop_up_id');
+    }
+
+    public function notifiable():MorphOne
+    {
+        return $this->morphOne(Notification::class, 'notifiable');
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    public function addCash($cash)
+    {
+        $newCash = $this->cash + $cash;
+        $this->update([
+            'cash' => $newCash
+        ]);
+    }
+
+    public function addCredit($cash)
+    {
+        $newCredit = $this->credit + $cash;
+        $this->update([
+            'credit' => $newCredit
+        ]);
+    }
+
+    public function listOfAllParentReferrals()
+    {
+        $listOfUserIds = [];
+        $user = User::find($this->id);
+        while($user && $user->referral_to)
+        {
+            $user = User::findByReferralCode($user->referral_to);
+            array_push($listOfUserIds,$user->id);
+        }
+        return $listOfUserIds;
     }
 }

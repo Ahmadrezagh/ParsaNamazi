@@ -230,67 +230,67 @@
                     <a href="index.html"><img src="{{url('panel/assets/img/brand/logo.png')}}" class="mobile-logo" alt="logo"></a>
                     <a href="index.html"><img src="{{url('panel/assets/img/brand/logo-light.png')}}" class="mobile-logo-dark" alt="logo"></a>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-btn search-panel">
-                        <select class="form-control select2-no-search">
-                            <option label="All categories">
-                            </option>
-                            <option value="IT Projects">
-                                IT Projects
-                            </option>
-                            <option value="Business Case">
-                                Business Case
-                            </option>
-                            <option value="Microsoft Project">
-                                Microsoft Project
-                            </option>
-                            <option value="Risk Management">
-                                Risk Management
-                            </option>
-                            <option value="Team Building">
-                                Team Building
-                            </option>
-                        </select>
-                    </div>
-                    <input type="search" class="form-control" placeholder="Search for anything...">
-                    <button class="btn search-btn"><i class="fe fe-search"></i></button>
-                </div>
+{{--                <div class="input-group">--}}
+{{--                    <div class="input-group-btn search-panel">--}}
+{{--                        <select class="form-control select2-no-search">--}}
+{{--                            <option label="All categories">--}}
+{{--                            </option>--}}
+{{--                            <option value="IT Projects">--}}
+{{--                                IT Projects--}}
+{{--                            </option>--}}
+{{--                            <option value="Business Case">--}}
+{{--                                Business Case--}}
+{{--                            </option>--}}
+{{--                            <option value="Microsoft Project">--}}
+{{--                                Microsoft Project--}}
+{{--                            </option>--}}
+{{--                            <option value="Risk Management">--}}
+{{--                                Risk Management--}}
+{{--                            </option>--}}
+{{--                            <option value="Team Building">--}}
+{{--                                Team Building--}}
+{{--                            </option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                    <input type="search" class="form-control" placeholder="Search for anything...">--}}
+{{--                    <button class="btn search-btn"><i class="fe fe-search"></i></button>--}}
+{{--                </div>--}}
             </div>
             <div class="main-header-right">
-                <div class="dropdown header-search">
-                    <a class="nav-link icon header-search">
-                        <i class="fe fe-search header-icons"></i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <div class="main-form-search p-2">
-                            <div class="input-group">
-                                <div class="input-group-btn search-panel">
-                                    <select class="form-control select2-no-search">
-                                        <option label="All categories">
-                                        </option>
-                                        <option value="IT Projects">
-                                            IT Projects
-                                        </option>
-                                        <option value="Business Case">
-                                            Business Case
-                                        </option>
-                                        <option value="Microsoft Project">
-                                            Microsoft Project
-                                        </option>
-                                        <option value="Risk Management">
-                                            Risk Management
-                                        </option>
-                                        <option value="Team Building">
-                                            Team Building
-                                        </option>
-                                    </select>
-                                </div>
-                                <input type="search" class="form-control" placeholder="Search for anything...">
-                                <button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="dropdown header-search">--}}
+{{--                    <a class="nav-link icon header-search">--}}
+{{--                        <i class="fe fe-search header-icons"></i>--}}
+{{--                    </a>--}}
+{{--                    <div class="dropdown-menu">--}}
+{{--                        <div class="main-form-search p-2">--}}
+{{--                            <div class="input-group">--}}
+{{--                                <div class="input-group-btn search-panel">--}}
+{{--                                    <select class="form-control select2-no-search">--}}
+{{--                                        <option label="All categories">--}}
+{{--                                        </option>--}}
+{{--                                        <option value="IT Projects">--}}
+{{--                                            IT Projects--}}
+{{--                                        </option>--}}
+{{--                                        <option value="Business Case">--}}
+{{--                                            Business Case--}}
+{{--                                        </option>--}}
+{{--                                        <option value="Microsoft Project">--}}
+{{--                                            Microsoft Project--}}
+{{--                                        </option>--}}
+{{--                                        <option value="Risk Management">--}}
+{{--                                            Risk Management--}}
+{{--                                        </option>--}}
+{{--                                        <option value="Team Building">--}}
+{{--                                            Team Building--}}
+{{--                                        </option>--}}
+{{--                                    </select>--}}
+{{--                                </div>--}}
+{{--                                <input type="search" class="form-control" placeholder="Search for anything...">--}}
+{{--                                <button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="dropdown d-md-flex">
                     <a class="nav-link icon full-screen-link" href="#">
                         <i class="fe fe-maximize fullscreen-button fullscreen header-icons"></i>
@@ -300,43 +300,34 @@
                 <div class="dropdown main-header-notification">
                     <a class="nav-link icon" href="#">
                         <i class="fe fe-bell header-icons"></i>
-                        <span class="badge badge-danger nav-link-badge">4</span>
+                        <span class="badge badge-danger nav-link-badge">{{\App\Models\Notification::NewNotifications()->count()}}</span>
                     </a>
                     <div class="dropdown-menu">
-                        <div class="header-navheading">
-                            <p class="main-notification-text">You have 1 unread notification<span class="badge badge-pill badge-primary ml-3">View all</span></p>
-                        </div>
                         <div class="main-notification-list">
+                            @foreach(\App\Models\Notification::NewNotifications()->take(3)->get() as $notification)
                             <div class="media new">
-                                <div class="main-img-user online"><img alt="avatar" src="{{url('panel/assets/img/users/5.jpg')}}"></div>
+                                <div class="main-img-user online">
+                                    @if($notification->notifiable_type == \App\Models\User::class)
+                                    <img alt="avatar" src="{{url($notification->notifiable->profile())}}">
+                                    @endif
+                                </div>
                                 <div class="media-body">
-                                    <p>Congratulate <strong>Olivia James</strong> for New template start</p><span>Oct 15 12:32pm</span>
+                                    <p>{{$notification->description}}</p><span>{{$notification->created_at}}</span>
                                 </div>
                             </div>
-                            <div class="media">
-                                <div class="main-img-user"><img alt="avatar" src="{{url('panel/assets/img/users/2.jpg')}}"></div>
-                                <div class="media-body">
-                                    <p><strong>Joshua Gray</strong> New Message Received</p><span>Oct 13 02:56am</span>
-                                </div>
-                            </div>
-                            <div class="media">
-                                <div class="main-img-user online"><img alt="avatar" src="{{url('panel/assets/img/users/3.jpg')}}"></div>
-                                <div class="media-body">
-                                    <p><strong>Elizabeth Lewis</strong> added new schedule realease</p><span>Oct 12 10:40pm</span>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="dropdown-footer">
-                            <a href="#">View All Notifications</a>
-                        </div>
+                            <div class="dropdown-footer">
+                                <a href="{{route('notifications.index')}}">View All Notifications</a>
+                            </div>
                     </div>
                 </div>
-                <div class="main-header-notification">
-                    <a class="nav-link icon" href="#">
-                        <i class="fe fe-message-square header-icons"></i>
-                        <span class="badge badge-success nav-link-badge">6</span>
-                    </a>
-                </div>
+{{--                <div class="main-header-notification">--}}
+{{--                    <a class="nav-link icon" href="#">--}}
+{{--                        <i class="fe fe-message-square header-icons"></i>--}}
+{{--                        <span class="badge badge-success nav-link-badge">6</span>--}}
+{{--                    </a>--}}
+{{--                </div>--}}
                 <div class="dropdown main-profile-menu">
                     <a class="d-flex" href="#">
                         <span class="main-img-user" ><img alt="avatar" src="{{url(auth()->user()->profile())}}"></span>
@@ -344,23 +335,23 @@
                     <div class="dropdown-menu">
                         <div class="header-navheading">
                             <h6 class="main-notification-title">{{auth()->user()->name}}</h6>
-                            <p class="main-notification-text">Web Designer</p>
+{{--                            <p class="main-notification-text">Web Designer</p>--}}
                         </div>
-                        <a class="dropdown-item border-top" href="#">
-                            <i class="fe fe-user"></i> My Profile
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fe fe-edit"></i> Edit Profile
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fe fe-settings"></i> Account Settings
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fe fe-settings"></i> Support
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fe fe-compass"></i> Activity
-                        </a>
+{{--                        <a class="dropdown-item border-top" href="#">--}}
+{{--                            <i class="fe fe-user"></i> My Profile--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item" href="#">--}}
+{{--                            <i class="fe fe-edit"></i> Edit Profile--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item" href="#">--}}
+{{--                            <i class="fe fe-settings"></i> Account Settings--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item" href="#">--}}
+{{--                            <i class="fe fe-settings"></i> Support--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item" href="#">--}}
+{{--                            <i class="fe fe-compass"></i> Activity--}}
+{{--                        </a>--}}
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();"
@@ -389,35 +380,35 @@
                         <a class="nav-link icon header-search">
                             <i class="fe fe-search header-icons"></i>
                         </a>
-                        <div class="dropdown-menu">
-                            <div class="main-form-search p-2">
-                                <div class="input-group">
-                                    <div class="input-group-btn search-panel">
-                                        <select class="form-control select2-no-search">
-                                            <option label="All categories">
-                                            </option>
-                                            <option value="IT Projects">
-                                                IT Projects
-                                            </option>
-                                            <option value="Business Case">
-                                                Business Case
-                                            </option>
-                                            <option value="Microsoft Project">
-                                                Microsoft Project
-                                            </option>
-                                            <option value="Risk Management">
-                                                Risk Management
-                                            </option>
-                                            <option value="Team Building">
-                                                Team Building
-                                            </option>
-                                        </select>
-                                    </div>
-                                    <input type="search" class="form-control" placeholder="Search for anything...">
-                                    <button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="dropdown-menu">--}}
+{{--                            <div class="main-form-search p-2">--}}
+{{--                                <div class="input-group">--}}
+{{--                                    <div class="input-group-btn search-panel">--}}
+{{--                                        <select class="form-control select2-no-search">--}}
+{{--                                            <option label="All categories">--}}
+{{--                                            </option>--}}
+{{--                                            <option value="IT Projects">--}}
+{{--                                                IT Projects--}}
+{{--                                            </option>--}}
+{{--                                            <option value="Business Case">--}}
+{{--                                                Business Case--}}
+{{--                                            </option>--}}
+{{--                                            <option value="Microsoft Project">--}}
+{{--                                                Microsoft Project--}}
+{{--                                            </option>--}}
+{{--                                            <option value="Risk Management">--}}
+{{--                                                Risk Management--}}
+{{--                                            </option>--}}
+{{--                                            <option value="Team Building">--}}
+{{--                                                Team Building--}}
+{{--                                            </option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                    <input type="search" class="form-control" placeholder="Search for anything...">--}}
+{{--                                    <button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="dropdown ">
                         <a class="nav-link icon full-screen-link">

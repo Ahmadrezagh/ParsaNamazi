@@ -39,6 +39,8 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('user')->group(function () {
         // Amin routes
         Route::resource('profile', 'User\ProfileController');
+        Route::resource('notifications', 'User\NotificationController');
+        Route::resource('pop_ups', 'User\PopUpController')->only('show');
     });
 
     // Default

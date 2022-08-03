@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -30,8 +31,7 @@ class HomeController extends Controller
             return view('admin.index');
         }elseif(Auth::user()->isUser())
         {
-            return view('admin.index');
+            return view('user.index');
         }
-
     }
 }

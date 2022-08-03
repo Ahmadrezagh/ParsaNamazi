@@ -82,6 +82,18 @@ class RegisterController extends Controller
                 'credit' => ($targetUser->credit + $gift_credit),
                 'cash' => ($targetUser->cash + $gift_cash),
             ]);
+
+            $user->notifiable()->create([
+                'user_id' => $targetUser->id,
+                'description' => $user->name.' registered with your referral link',
+                'type' => 'web'
+            ]);
+
+            $user->notifiable()->create([
+                'user_id' => $targetUser->id,
+                'description' => 'You get '.$gift_credit.' credit and '.$gift_cash.' cash',
+                'type' => 'web'
+            ]);
         }
         return $user;
     }
