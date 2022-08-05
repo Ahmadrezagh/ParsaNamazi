@@ -71,7 +71,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-12 img-bg ">
                                                 <h4 class="d-flex  mb-3">
-                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>
+{{--                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>--}}
                                                 </h4>
                                                 <div class="tx-white-7 mb-1">
                                                     {!! $popUp->description !!}
