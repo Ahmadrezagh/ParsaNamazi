@@ -33,7 +33,9 @@ class StoreUserRequest extends FormRequest
             'email' => ['nullable','email','unique:users'],
             'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:4096'],
             'password' => ['nullable', 'confirmed', 'min:8'],
-            'phone' => ['nullable',new IranPhoneNumberRule,'unique:users']
+            'phone' => ['nullable',new IranPhoneNumberRule,'unique:users'],
+            'credit' => ['nullable'],
+            'cash'  => ['nullable'],
         ];
     }
 }

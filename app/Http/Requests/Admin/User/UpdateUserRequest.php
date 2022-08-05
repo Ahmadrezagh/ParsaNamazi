@@ -30,7 +30,9 @@ class UpdateUserRequest extends FormRequest
             'email' => ['nullable','email',Rule::unique('users','email')->ignore($this->id,'id')],
             'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:4096'],
             'password' => ['nullable', 'confirmed', 'min:8'],
-            'phone' => ['nullable',new IranPhoneNumberRule,Rule::unique('users','phone')->ignore($this->id,'id')]
+            'phone' => ['nullable',new IranPhoneNumberRule,Rule::unique('users','phone')->ignore($this->id,'id')],
+            'credit' => ['nullable'],
+            'cash'  => ['nullable'],
         ];
     }
 }
