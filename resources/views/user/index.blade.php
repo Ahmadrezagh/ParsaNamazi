@@ -37,6 +37,29 @@
 
                 <!--Row-->
                 <div class="row row-sm">
+                    <!--Row-->
+                    <div class="row row-sm  col-12">
+                        <div class="col-sm-12 col-lg-12 col-xl-12">
+                            <div class="card bg-primary custom-card card-box">
+                                <div class="card-body p-4">
+                                    <div class="row align-items-center">
+                                        <div class="offset-xl-3 offset-sm-6 col-xl-8 col-sm-6 col-12 img-bg ">
+                                            <h4 class="d-flex  mb-3">
+                                                <span class="font-weight-bold text-white ">Title</span>
+                                            </h4>
+                                            <p class="tx-white-7 mb-1">
+                                                Jan 5, 2024 15:37:25
+
+                                            <p id="demo"></p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Row -->
+
                     <div class="col-sm-12 col-lg-12 col-xl-8">
 
                         @foreach(\App\Models\PopUp::query()->notExpired()->get() as $popUp)
@@ -560,4 +583,40 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+
+    <!-- Display the countdown timer in an element -->
+
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("{{\Carbon\Carbon::now()->addMinutes(4)->format('M d, Y H:i:s')}}").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 @endsection
