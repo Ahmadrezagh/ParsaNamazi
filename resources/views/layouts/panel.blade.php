@@ -53,7 +53,7 @@
     @toastr_css
 
 
-    <link rel="stylesheet" href="{{url('countDown/style.scss')}}">
+{{--    <link rel="stylesheet" href="{{url('countDown/style.scss')}}">--}}
 </head>
 
 <body class="main-body leftmenu">
@@ -561,7 +561,7 @@
 <script src="{{URL::to('/').'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/dataTables.responsive.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'}}"></script>
-<script src="{{url('countDown/cd.js')}}"></script>
+{{--<script src="{{url('countDown/cd.js')}}"></script>--}}
 <script>
     $(function () {
         $("#table").DataTable({
