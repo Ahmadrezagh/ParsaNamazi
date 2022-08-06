@@ -32,7 +32,9 @@ class PopUp extends Model
 
     public function scopeNotExpired(Builder $query)
     {
-        return $query->whereDate('expire_at','>=',Carbon::now());
+        return $query
+            ->whereDate('expire_at','>=',Carbon::now())
+            ->whereTime('expire_at','>=',Carbon::now());
     }
 
     public function clickedByUsers()

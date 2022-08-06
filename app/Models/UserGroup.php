@@ -18,4 +18,5 @@ class UserGroup extends Model
     {
         return $this->hasMany(CountDownGroups::class);
     }
+
 }

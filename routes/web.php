@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('profile', 'User\ProfileController');
         Route::resource('notifications', 'User\NotificationController');
         Route::resource('pop_ups', 'User\PopUpController')->only('show');
+        Route::post('count_down', 'User\CountDownController@showText')->name('show_count_down');
     });
 
     // Default

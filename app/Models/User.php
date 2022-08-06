@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Services\Permission\Traits\HasPermissions;
 use App\Services\Permission\Traits\HasRoles;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -166,5 +167,27 @@ class User extends Authenticatable
             array_push($listOfUserIds,$user->id);
         }
         return $listOfUserIds;
+    }
+
+    public function getUserGroupAttribute()
+    {
+        return UserGroup::query()->where([
+            ['from','<=',$this->credit],
+            ['to','>=',$this->credit]
+        ])->orWhere([
+            ['from','<=',$this->credit],
+            ['to','=',null]
+        ])->first();
+    }
+
+    public function getCountDownsAttribute()
+    {
+        $user_group = $this->user_group;
+        if($user_group)
+        {
+            return CountDown::query()->whereHas('countDownGroups',function (Builder $query) use ($user_group) {
+                return $query->where('user_group_id','=',$user_group->id);
+            });
+        }
     }
 }
