@@ -20,9 +20,10 @@ class UserPopUpObserve
         $user->addCash($popUp->cash);
         $user->addCredit($popUp->credit);
 
+        $description = generateCashAndCreditNotificationDescription($popUp->credit,$popUp->cash);
         $user->notifiable()->create([
             'user_id' => $user->id,
-            'description' => 'You get '.$popUp->credit.' credit and '.$popUp->cash.' cash by clicking on pop up!!!',
+            'description' => $description.' by clicking on pop up!!!',
             'type' => 'web'
         ]);
 
@@ -41,9 +42,10 @@ class UserPopUpObserve
                     'type' => 'web'
                 ]);
 
+                $description = generateCashAndCreditNotificationDescription($popUp->referral_credit,$popUp->referral_cash);
                 $user->notifiable()->create([
                     'user_id' => $_user->id,
-                    'description' => 'You get '.$popUp->referral_credit.' credit and '.$popUp->referral_cash.' cash',
+                    'description' => $description,
                     'type' => 'web'
                 ]);
             }

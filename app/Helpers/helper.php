@@ -49,6 +49,23 @@ if (!function_exists('try_catch_null')) {
     }
 }
 
-
+function generateCashAndCreditNotificationDescription($credit,$cash)
+{
+    $description = 'You get ';
+    if($credit > 0)
+    {
+        $description = $description.$credit.' credit';
+    }
+    if($cash > 0)
+    {
+        if($credit > 0)
+        {
+            $description = $description.' and'.$cash.' cash';
+        }else{
+            $description = $description.$cash.' cash';
+        }
+    }
+    return $description;
+}
 
 

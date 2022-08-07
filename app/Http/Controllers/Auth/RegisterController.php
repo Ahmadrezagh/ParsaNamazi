@@ -89,9 +89,10 @@ class RegisterController extends Controller
                 'type' => 'web'
             ]);
 
+            $description = generateCashAndCreditNotificationDescription($gift_credit,$gift_cash);
             $user->notifiable()->create([
                 'user_id' => $targetUser->id,
-                'description' => 'You get '.$gift_credit.' credit and '.$gift_cash.' cash',
+                'description' => $description,
                 'type' => 'web'
             ]);
         }
