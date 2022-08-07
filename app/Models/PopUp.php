@@ -23,7 +23,7 @@ class PopUp extends Model
 
     public function getExpiredAttribute()
     {
-        return (strtotime($this->expire_at) > time());
+        return (strtotime($this->expire_at) < time());
     }
     public function getNotExpiredAttribute()
     {
