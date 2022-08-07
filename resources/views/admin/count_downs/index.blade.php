@@ -270,14 +270,14 @@
             $('#user_groups_div').append(`
             <div class="row">
                                                                         <div class="form-group col-6">
-                                                                            <select name="user_groups[${id}][user_group_id]" class="form-control s2" style="width: 100%">
+                                                                            <select name="user_groups[${id}][user_group_id]" class="form-control s2" style="width: 100%" required>
                                                                                 @foreach(\App\Models\UserGroup::all() as $user_group)
             <option value="{{$user_group->id}}">{{$user_group->name}}</option>
                                                                                 @endforeach
             </select>
         </div>
         <div class="form-group col-5">
-            <input type="datetime-local" step="1" class="form-control" name="user_groups[${id}][show_at]">
+            <input type="datetime-local" step="1" class="form-control" name="user_groups[${id}][show_at]" required>
         </div>
         <div class="form-group col-1">
             <button class="btn btn-danger" onclick="removeItem(this)" type="button">

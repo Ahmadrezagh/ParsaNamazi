@@ -57,9 +57,12 @@ class CountDownController extends Controller
         $count_down = CountDown::create($request->validated());
         foreach ($request->user_groups as $user_group)
         {
-            $user_group_object = $user_group;
-            $user_group_object['count_down_id'] = $count_down->id;
-            CountDownGroups::create($user_group_object);
+            if(isset($user_group['user_group_id']) && isset($user_group['show_at']))
+            {
+                $user_group_object = $user_group;
+                $user_group_object['count_down_id'] = $count_down->id;
+                CountDownGroups::create($user_group_object);
+            }
         }
         toastr()->success('Count down created successfully');
         return back();

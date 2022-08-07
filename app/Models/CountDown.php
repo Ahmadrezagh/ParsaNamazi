@@ -48,6 +48,10 @@ class CountDown extends Model
     public function getShowForUserAttribute()
     {
         $user_group = auth()->user()->user_group;
-        return $this->countDownGroups()->where('user_group_id','=',$user_group->id)->first();
+        if($user_group)
+        {
+            return $this->countDownGroups()->where('user_group_id','=',$user_group->id)->first();
+        }
+        return null;
     }
 }
