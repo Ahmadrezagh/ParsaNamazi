@@ -13,3 +13,5 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::any('/'.env('TELEGRAM_TOKEN'),'TelegramController@index')->name('webhook');

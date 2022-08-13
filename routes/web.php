@@ -46,4 +46,9 @@ Route::middleware(['auth'])->group(function () {
 
     // Default
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('telegram/login/{token}','TelegramController@login')->name('telegram.login');
 });
+
+Route::resource('test','TestController');
+Route::get('telegram/webhook','TelegramController@webhook');

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Services\Permission\Traits\HasPermissions;
 use App\Services\Permission\Traits\HasRoles;
+use App\Traits\Telegram;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable,HasRoles, HasPermissions;
     use SoftDeletes;
+    use Telegram;
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = !is_null($value) ? bcrypt($value) : $this->password;
@@ -34,7 +36,8 @@ class User extends Authenticatable
         'credit',
         'cash',
         'referral_code',
-        'referral_to'
+        'referral_to',
+        'telegram_user_id',
     ];
 
     /**
@@ -189,5 +192,15 @@ class User extends Authenticatable
                 return $query->where('user_group_id','=',$user_group->id);
             });
         }
+    }
+
+    public function sendTelegramMessage($message)
+    {
+        $this->sendMessage($this->telegram_user_id,$message);
+    }
+
+    public static function findByTelegramId($user_id)
+    {
+        return User::query()->where('telegram_user_id','=',$user_id)->first();
     }
 }
