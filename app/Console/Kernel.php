@@ -6,6 +6,7 @@ use App\Console\Commands\Install;
 use App\Models\CountDown;
 use App\Models\TelegramUser;
 use App\Traits\Telegram;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -29,14 +30,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-            $active_count_downs = CountDown::query()->notExpired()->get();
+            $active_count_downs = CountDown::query()->notExpired()->whereDate('started_at','=',Carbon::now())->get();
             foreach ($active_count_downs as $count_down)
             {
                 $count_down_expire = $count_down->difference_time;
                 $telegram_users = TelegramUser::all();
                 foreach ($telegram_users as $telegram_user)
                 {
-                    $this->sendMessage($telegram_user->user_id,$count_down_expire);
+                    $this->sendMessage($telegram_user->user_id,"Only ".$count_down_expire['h']." hours and ".$count_down_expire['m']." minute to start special count down!!!");
                 }
             }
         })->everyMinute();
