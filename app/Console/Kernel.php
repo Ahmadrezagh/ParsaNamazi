@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\Install;
+use App\Models\CountDown;
 use App\Models\TelegramUser;
 use App\Traits\Telegram;
 use Illuminate\Console\Scheduling\Schedule;
@@ -28,10 +29,15 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-            $telegram_users = TelegramUser::all();
-            foreach ($telegram_users as $telegram_user)
+            $active_count_downs = CountDown::query()->notExpired()->get();
+            foreach ($active_count_downs as $count_down)
             {
-                $this->sendMessage($telegram_user->user_id,'Hi');
+                $count_down_expire = $count_down->DifferenceTime;
+                $telegram_users = TelegramUser::all();
+                foreach ($telegram_users as $telegram_user)
+                {
+                    $this->sendMessage($telegram_user->user_id,'Hi');
+                }
             }
         })->everyMinute();
     }
