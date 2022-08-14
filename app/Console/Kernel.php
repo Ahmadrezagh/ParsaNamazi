@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 $telegram_users = TelegramUser::all();
                 foreach ($telegram_users as $telegram_user)
                 {
-                    $this->sendMessage($telegram_user->user_id,'Hi');
+                    $this->sendMessage($telegram_user->user_id,$count_down_expire);
                 }
             }
         })->everyMinute();
