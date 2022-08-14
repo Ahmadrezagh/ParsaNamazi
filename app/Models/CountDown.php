@@ -20,6 +20,7 @@ class CountDown extends Model
     protected $with = [
         'countDownGroups'
     ];
+
     public function countDownGroups()
     {
         return $this->hasMany(CountDownGroups::class);
@@ -55,10 +56,23 @@ class CountDown extends Model
         return null;
     }
 
+    public function getFirstShowAttribute()
+    {
+        return $this->countDownGroups()->first();
+    }
+    public function getShowedAttribute()
+    {
+        if($this->first_show)
+        {
+           return (strtotime($this->countDownGroups()->first()->show_at)) < time();
+        }
+        return true;
+    }
+
     public function getDifferenceTimeAttribute()
     {
         $now = Carbon::now();
-        $start_at =  Carbon::parse($this->start_at);
+        $start_at =  Carbon::parse($this->first_show->show_at);
         $difference = [];
         $difference['h'] = $now->diff($start_at)->format('%H');
         $difference['m'] = $now->diff($start_at)->format('%I');

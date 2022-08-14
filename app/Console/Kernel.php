@@ -33,11 +33,73 @@ class Kernel extends ConsoleKernel
             $active_count_downs = CountDown::query()->notExpired()->whereDate('start_at','=',Carbon::now())->get();
             foreach ($active_count_downs as $count_down)
             {
-                $count_down_expire = $count_down->difference_time;
-                $telegram_users = TelegramUser::all();
-                foreach ($telegram_users as $telegram_user)
+                if(!$count_down->showed)
                 {
-                    $this->sendMessage($telegram_user->user_id,"Only ".$count_down_expire['h']." hours and ".$count_down_expire['m']." minute to start special count down!!!");
+                    $count_down_expire = $count_down->difference_time;
+                    if($count_down_expire['h'] == 4 && $count_down_expire['m'] == 0)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"4 hours left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 3 && $count_down_expire['m'] == 0)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"3 hours left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 2 && $count_down_expire['m'] == 0)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"2 hours left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 1 && $count_down_expire['m'] == 0)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"1 hours left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 30)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"About 30 minutes left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 15)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"About 15 minutes left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 5)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"About 5 minutes left to our huge pump 🚀");
+                        }
+                    }
+                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 1)
+                    {
+                        $telegram_users = TelegramUser::all();
+                        foreach ($telegram_users as $telegram_user)
+                        {
+                            $this->sendMessage($telegram_user->user_id,"Only 1 minute left to our huge pump check the website now !!! 🚀\nWhalepumpers.com");
+                        }
+                    }
                 }
             }
         })->everyMinute();
