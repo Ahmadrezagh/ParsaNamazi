@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
             $active_count_downs = CountDown::query()->notExpired()->get();
             foreach ($active_count_downs as $count_down)
             {
-                $count_down_expire = $count_down->DifferenceTime;
+                $count_down_expire = $count_down->difference_time;
                 $telegram_users = TelegramUser::all();
                 foreach ($telegram_users as $telegram_user)
                 {
