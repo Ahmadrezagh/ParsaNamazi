@@ -58,7 +58,7 @@ class CountDown extends Model
     public function getDifferenceTimeAttribute()
     {
         $now = Carbon::now();
-        $start_at = new Carbon($this->start_at);
+        $start_at =  Carbon::parse($this->start_at);
 
         return $now->diff($start_at)->format('%H:%I:%S');
     }
