@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-            $active_count_downs = CountDown::query()->notExpired()->whereDate('started_at','=',Carbon::now())->get();
+            $active_count_downs = CountDown::query()->notExpired()->whereDate('start_at','=',Carbon::now())->get();
             foreach ($active_count_downs as $count_down)
             {
                 $count_down_expire = $count_down->difference_time;
