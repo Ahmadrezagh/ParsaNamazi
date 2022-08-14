@@ -18,7 +18,7 @@ class SettingSeeder extends Seeder
             [   'name' => 'name',
                 'type'=>'string',
                 'description'=>'Website name',
-                'value'=>'New Project',
+                'value'=>'Whale pumpers',
                 'setting_group_id'=>'1'
             ],
             [   'name' => 'logo',

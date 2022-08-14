@@ -53,10 +53,22 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+
     </style>
 </head>
 <body >
-<div class="flex-center position-ref full-height">
+<img src="{{url('img/1920_1080.jpg')}}" alt="" style="
+opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+">
+{{--<div class="flex-center position-ref full-height" style="background-image: url('{{url('img/1920_1080.jpg')}}');background-position:bottom;">--}}
+<div class="flex-center position-ref full-height" >
     @if (Route::has('login'))
         <div class="top-right links">
             @auth
