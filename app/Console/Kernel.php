@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 if(!$count_down->showed)
                 {
                     $count_down_expire = $count_down->difference_time;
-                    if($count_down_expire['h'] == 4 && $count_down_expire['m'] == 0)
+                    if($count_down_expire['h'] == "04" && $count_down_expire['m'] == "00")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -44,7 +44,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"4 hours left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 3 && $count_down_expire['m'] == 0)
+                    if($count_down_expire['h'] == "03" && $count_down_expire['m'] == "00")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -52,7 +52,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"3 hours left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 2 && $count_down_expire['m'] == 0)
+                    if($count_down_expire['h'] == "02" && $count_down_expire['m'] == "00")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -60,7 +60,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"2 hours left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 1 && $count_down_expire['m'] == 0)
+                    if($count_down_expire['h'] == "01" && $count_down_expire['m'] == "00")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -68,7 +68,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"1 hours left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 30)
+                    if($count_down_expire['h'] == "00" && $count_down_expire['m'] == "30")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -76,7 +76,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"About 30 minutes left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 15)
+                    if($count_down_expire['h'] == "00" && $count_down_expire['m'] == "15")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -84,7 +84,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"About 15 minutes left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 5)
+                    if($count_down_expire['h'] == "00" && $count_down_expire['m'] == "5")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
@@ -92,7 +92,7 @@ class Kernel extends ConsoleKernel
                             $this->sendMessage($telegram_user->user_id,"About 5 minutes left to our huge pump 🚀");
                         }
                     }
-                    if($count_down_expire['h'] == 0 && $count_down_expire['m'] == 1)
+                    if($count_down_expire['h'] == "00" && $count_down_expire['m'] == "1")
                     {
                         $telegram_users = TelegramUser::all();
                         foreach ($telegram_users as $telegram_user)
