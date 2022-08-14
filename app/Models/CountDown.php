@@ -60,7 +60,6 @@ class CountDown extends Model
         $now = Carbon::now();
         $start_at = new Carbon($this->start_at);
 
-        $now->diff($start_at)->format('%H:%I:%S');
-
+        return $now->diff($start_at)->format('%H:%I:%S');
     }
 }
