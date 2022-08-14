@@ -3,11 +3,14 @@
 namespace App\Console;
 
 use App\Console\Commands\Install;
+use App\Models\TelegramUser;
+use App\Traits\Telegram;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    use Telegram;
     /**
      * The Artisan commands provided by your application.
      *
@@ -24,7 +27,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            $telegram_users = TelegramUser::all();
+            foreach ($telegram_users as $telegram_user)
+            {
+                $this->sendMessage($telegram_user->user_id,'Hi');
+            }
+        })->everyMinute();
     }
 
     /**
