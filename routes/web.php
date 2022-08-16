@@ -52,3 +52,4 @@ Route::middleware(['auth'])->group(function () {
 
 Route::resource('test','TestController');
 Route::get('telegram/webhook','TelegramController@webhook');
+Route::resource('contact_us','ContactUsController');

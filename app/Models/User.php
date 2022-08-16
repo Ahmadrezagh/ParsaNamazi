@@ -107,7 +107,7 @@ class User extends Authenticatable
 
     public function getReferralUrlAttribute()
     {
-        return route('register').'?key='.$this->referral_code;
+        return url('/').'?key='.$this->referral_code;
     }
 
     public static function findByReferralCode($code)
