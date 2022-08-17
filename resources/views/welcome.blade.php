@@ -111,7 +111,7 @@ opacity: 1;
                         <label>Email</label>
                         <input class="form-control" placeholder="Enter your email" type="text" name="email">
                     </div>
-                    <div class="form-group text-left">
+                    <div class="form-group text-left mt-3">
                         <label>Password</label>
                         <input class="form-control" placeholder="Enter your password" type="password" name="password">
                     </div>
@@ -141,18 +141,18 @@ opacity: 1;
                         <label>Name</label>
                         <input class="form-control" placeholder="Enter your Name" name="name" type="text">
                     </div>
-                    <div class="form-group text-left" style="display: none">
+                    <div class="form-group mt-3 text-left" style="display: none">
                         <input class="form-control" value="{{request('key')}}" name="referral_code" type="text">
                     </div>
-                    <div class="form-group text-left">
+                    <div class="form-group mt-3 text-left">
                         <label>Email</label>
                         <input class="form-control" placeholder="Enter your email" name="email" type="text">
                     </div>
-                    <div class="form-group text-left">
+                    <div class="form-group mt-3 text-left">
                         <label>Password</label>
                         <input class="form-control" placeholder="Enter your password" name="password" type="password">
                     </div>
-                    <div class="form-group text-left">
+                    <div class="form-group mt-3 text-left">
                         <label>Password Confirmation</label>
                         <input class="form-control" placeholder="Enter your password" name="password_confirmation" type="password">
                     </div>
@@ -181,11 +181,11 @@ opacity: 1;
                         <label>Name</label>
                         <input class="form-control" placeholder="Enter your name" name="name" type="text">
                     </div>
-                    <div class="form-group text-left">
+                    <div class="form-group mt-3 text-left">
                         <label>Email</label>
                         <input class="form-control" placeholder="Enter your email" name="email" type="text">
                     </div>
-                    <div class="form-group text-left">
+                    <div class="form-group mt-3 text-left">
                         <label>Message</label>
                         <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
                     </div>
