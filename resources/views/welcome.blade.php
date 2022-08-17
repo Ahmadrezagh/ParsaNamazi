@@ -186,6 +186,10 @@ opacity: 1;
                         <input class="form-control" placeholder="Enter your email" name="email" type="text">
                     </div>
                     <div class="form-group mt-3 text-left">
+                        <label>Telegram ID</label>
+                        <input class="form-control" placeholder="Enter your telegram id" name="telegram_id" type="text">
+                    </div>
+                    <div class="form-group mt-3 text-left">
                         <label>Message</label>
                         <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
                     </div>

@@ -26,7 +26,8 @@ class ContactUsRequest extends FormRequest
         return [
             'name' => ['required'],
             'email' => ['required'],
-            'message' => ['required']
+            'telegram_id' => ['nullable'],
+            'message' => ['required'],
         ];
     }
 }

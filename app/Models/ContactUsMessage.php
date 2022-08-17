@@ -11,6 +11,7 @@ class ContactUsMessage extends Model
     protected $fillable = [
         'name',
         'email',
-        'message'
+        'message',
+        'telegram_id'
     ];
 }
