@@ -62,12 +62,12 @@
                 </li>
             </ul>
             </div>
-            <div class="col-lg-8 text-center d-none d-md-block d-lg-block">
+            <div class="col-xl-8 col-lg-7 text-center d-none d-md-block d-lg-block">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{url(setting('logo'))}}" alt="" style="max-width: 50px;max-height: 50px">
                 </a>
             </div>
-            <div class="col-lg-2 col-sm-12">
+            <div class="col-xl-2 col-lg-3 col-sm-12 text-end">
                 <button class="btn btn-outline-primary " type="button" data-bs-toggle="modal" data-bs-target="#login">Log in</button>
                 <button class="btn btn-outline-primary mx-lg-2 " type="button"  data-bs-toggle="modal" data-bs-target="#register">Sign up</button>
             </div>
