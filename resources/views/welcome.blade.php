@@ -68,6 +68,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #d9d9d9;z-index: 1">
+
     <div class="container-fluid" >
         <a class="navbar-brand d-lg-none d-md-none d-xl-none d-sm-block" href="{{url('/')}}">
             <img src="{{url(setting('logo'))}}" alt="" style="max-width: 50px;max-height: 50px">
@@ -205,6 +206,10 @@ opacity: 1;
                     <div class="form-group mt-3 text-left">
                         <label>Email</label>
                         <input class="form-control" placeholder="Enter your email" name="email" type="text">
+                    </div>
+                    <div class="form-group mt-3 text-left">
+                        <label>Telegram ID</label>
+                        <input class="form-control" placeholder="Enter your telegram id" name="telegram_id" type="text">
                     </div>
                     <div class="form-group mt-3 text-left">
                         <label>Message</label>
