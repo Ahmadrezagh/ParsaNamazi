@@ -28,6 +28,26 @@
             background-color: #6B0087;
             border-color: #6B0087;
         }
+        .btn-telegram {
+            background-color: white;
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+        .btn-telegram:hover {
+            background-color: #0088cc;
+            border-color: #0088cc;
+            color: white;
+        }
+        .btn-email {
+            background-color: white;
+            border-color: #BB001B;
+            color: #BB001B;
+        }
+        .btn-email:hover {
+            background-color: #BB001B;
+            border-color: #BB001B;
+            color: white;
+        }
         .modal-content {
             border-radius: 20px;
         }
@@ -43,11 +63,12 @@
 
     </style>
     @toastr_css
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid black;z-index: 1">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #d9d9d9;z-index: 1">
+    <div class="container-fluid" >
         <a class="navbar-brand d-lg-none d-md-none d-xl-none d-sm-block" href="{{url('/')}}">
             <img src="{{url(setting('logo'))}}" alt="" style="max-width: 50px;max-height: 50px">
         </a>
@@ -188,6 +209,21 @@ opacity: 1;
                     <div class="form-group mt-3 text-left">
                         <label>Message</label>
                         <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="row mt-3">
+                        <label>Contacts</label>
+                        <div class="col-6">
+                            <a href="https://t.me/whpsupport" target="_blank" class="btn btn-telegram" style="width: 100%;">
+                                <i class="fab fa-telegram-plane"></i>
+                                Telegram
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="mailto:support@whalepumpers.com" class="btn btn-email" style="width: 100%">
+                                <i class="fa-solid fa-envelope"></i>
+                                E-mail
+                            </a>
+                        </div>
                     </div>
             </div>
             <div class="modal-footer">
