@@ -10,58 +10,8 @@
 
     <title>{{setting('name')}}</title>
     <link rel="stylesheet" href="{{url('custom.scss')}}">
+    <link rel="stylesheet" href="{{url('app.css')}}">
 
-    <style>
-        .btn-outline-primary {
-            color: #6B0087;
-            border-color: #6B0087;
-        }
-        .btn-outline-primary:hover {
-            background-color: #6B0087;
-            border-color: #6B0087;
-        }
-        .btn-primary {
-            background-color: #6B0087;
-            border-color: #6B0087;
-        }
-        .btn-primary:hover {
-            background-color: #6B0087;
-            border-color: #6B0087;
-        }
-        .btn-telegram {
-            background-color: white;
-            border-color: #0088cc;
-            color: #0088cc;
-        }
-        .btn-telegram:hover {
-            background-color: #0088cc;
-            border-color: #0088cc;
-            color: white;
-        }
-        .btn-email {
-            background-color: white;
-            border-color: #BB001B;
-            color: #BB001B;
-        }
-        .btn-email:hover {
-            background-color: #BB001B;
-            border-color: #BB001B;
-            color: white;
-        }
-        .modal-content {
-            border-radius: 20px;
-        }
-
-        @font-face {
-            font-family: sfpro-bold;
-            src: url({{url('fonts/SFPro-BlackItalic.ttf')}});
-        }
-        @font-face {
-            font-family: sfpro;
-            src: url({{url('fonts/SFPro-LightItalic.ttf')}});
-        }
-
-    </style>
     @toastr_css
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
@@ -88,7 +38,7 @@
             </div>
             <div class="col-xl-8 col-lg-7 text-center d-none d-md-block d-lg-block">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{url(setting('logo'))}}" alt="" style="max-width: 50px;max-height: 50px">
+                    <img src="{{url('/logo/gradient&w.png')}}" alt="" style="max-width: 50px;max-height: 50px">
                 </a>
             </div>
             <div class="col-xl-2 col-lg-3 col-sm-12 text-end">
@@ -113,9 +63,9 @@ opacity: 1;
 ">
 
 </div>
-<div class="text-center justify-content-center mt-5" style="padding-top: 5%;" >
-    <h1 style="z-index: 1;font-size: xxx-large;color: #303030;font-family: sfpro-bold" >Welcome</h1>
-    <h5 style=";font-family: sfpro">to the greatest crypto pump community</h5>
+<div class="text-center justify-content-center mt-5"  >
+    <h1 class="welcome-Title" >Welcome</h1>
+    <h5 class="welcome-description">to the greatest crypto pump community</h5>
 </div>
 
 
@@ -141,7 +91,7 @@ opacity: 1;
                         <input autocomplete="off" class="form-control" placeholder="Enter your password" type="password" name="password">
                     </div>
                     <div class="mt-3">
-                        Forgot password?<a href="#" type="button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#reset-pass"> reset your password</a>
+                        Forgot password?<a href="#" class="p-2" type="button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#reset-pass"> reset your password</a>
                     </div>
             </div>
             <div class="modal-footer">

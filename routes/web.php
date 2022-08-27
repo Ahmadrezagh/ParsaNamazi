@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/where', function () {
+    return view('where');
+});
+
 Auth::routes();
 
 // Admin Part
