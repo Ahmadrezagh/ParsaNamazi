@@ -14,6 +14,7 @@
 
     @toastr_css
     <link rel="stylesheet" href="{{url('plugins/fontawesome/css/all.min.css')}}" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url('plugins/videoPlayer/css/rtop.videoPlayer.1.0.2.min.css')}}" />
     <!-- Favicon -->
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon"/>
 </head>
@@ -24,70 +25,100 @@
         <img src="{{url('/img/background_where.png')}}" alt="">
     </div>
     <div class="steps-boxes">
-        <div class="step-box step-one">
-            <div class="step-logo">
-                <img src="{{url('/logo/currency.png')}}" alt="">
+        <div class="step-box">
+            <div class="step-child-box step-one">
+                <div class="step-logo">
+                    <img src="{{url('/logo/currency.png')}}" alt="">
+                </div>
+                <h5 class="step-title">Exchange Sign up</h5>
+                <button class="step-button" data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                    learn more 
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span> 
+                </button>
             </div>
-            <h5 class="step-title">Exchange Sign up</h5>
-            <button class="step-button" > 
-                learn more 
-                <span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </span> 
-            </button>
         </div>
-        <div class="step-box step-two">
-            <div class="step-logo">
-                <img src="{{url('/logo/currency.png')}}" alt="">
+        <div class="step-box">
+            <div class="step-child-box step-two">
+                <div class="step-logo">
+                    <img src="{{url('/logo/valid.png')}}" alt="">
+                </div>
+                <h5 class="step-title">Exchange Sign up</h5>
+                <button class="step-button" data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                    learn more 
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span> 
+                </button>
             </div>
-            <h5 class="step-title">Exchange Sign up</h5>
-            <button class="step-button" > 
-                learn more 
-                <span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </span> 
-            </button>
         </div>
-        <div class="step-box step-three">
-            <div class="step-logo">
-                <img src="{{url('/logo/currency.png')}}" alt="">
+        <div class="step-box">
+            <div class="step-child-box step-three">
+                <div class="step-logo">
+                    <img src="{{url('/logo/group.png')}}" alt="">
+                </div>
+                <h5 class="step-title">Exchange Sign up</h5>
+                <button class="step-button"  data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                    learn more 
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span> 
+                </button>
             </div>
-            <h5 class="step-title">Exchange Sign up</h5>
-            <button class="step-button" > 
-                learn more 
-                <span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </span> 
-            </button>
         </div>
-        <div class="step-box step-four">
-            <div class="step-logo">
-                <img src="{{url('/logo/currency.png')}}" alt="">
+        <div class="step-box">
+            <div class="step-child-box step-four">
+                <div class="step-logo">
+                    <img src="{{url('/logo/notification.png')}}" alt="">
+                </div>
+                <h5 class="step-title">Exchange Sign up</h5>
+                <button class="step-button"  data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                    learn more 
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span> 
+                </button>
             </div>
-            <h5 class="step-title">Exchange Sign up</h5>
-            <button class="step-button" > 
-                learn more 
-                <span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </span> 
-            </button>
         </div>
-        <div class="step-box step-five">
-            <div class="step-logo">
-                <img src="{{url('/logo/currency.png')}}" alt="">
+        <div class="step-box">
+            <div class="step-child-box step-five">
+
+                <div class="step-logo">
+                    <img src="{{url('/logo/money-bag.png')}}" alt="">
+                </div>
+                <h5 class="step-title">Exchange Sign up</h5>
+                <button class="step-button" data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                    learn more 
+                    <span>
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span> 
+                </button>
             </div>
-            <h5 class="step-title">Exchange Sign up</h5>
-            <button class="step-button" > 
-                learn more 
-                <span>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </span> 
-            </button>
         </div>
     </div>
 </div>
 
 
+<div class="modal fade" id="learnMore" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div id="example">
+                <video src="{{url('/video/test.mp4')}}" type="video/mp4" poster="sample.jpg" playsinline>
+                    <source src="{{url('/video/test.mp4')}}" type="video/mp4">
+                </video>    
+            </div>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -101,6 +132,9 @@
 @jquery
 @toastr_js
 @toastr_render
+
+<script type="text/javascript" src="{{url('plugins/videoPlayer/js/rtop.videoPlayer.1.0.2.min.js')}}"></script>
+
 <!-- Option 2: Separate Popper and Bootstrap JS -->
 <!--
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -118,6 +152,20 @@
         toastr.info('{{session('status')}}')
     </script>
 @endif
+
+<script>
+    var myPlayer = $('#example').RTOP_VideoPlayer({
+        showControls: true,
+        showControlsOnHover: true,
+        controlsHoverSensitivity: 3000,
+        showScrubber: true,
+        showTimer: false,
+        showPlayPauseBtn: true,
+        showSoundControl: true,
+        showFullScreen: true,
+        keyboardControls: true,
+    });
+</script>
 
 </body>
 </html>

@@ -107,15 +107,20 @@ button:focus {
 }
 
 .step-box {
+    position: relative;
+}
+
+.step-child-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    max-width: 250px;
+
 }
 
 .step-box .step-logo{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
 }
 
 .step-box .step-logo img{
@@ -126,7 +131,7 @@ button:focus {
 
 .step-box .step-title {
     color: white;
-    font-size: 30px;
+    font-size: 26px;
     font-family: sfpro-bold;
     padding-top: 10px ;
     margin-bottom: 0px;
@@ -136,7 +141,16 @@ button:focus {
     background-color: transparent;
     border: unset;
     color: #04d5ff;
-    font-size: 20px;
+    font-size: 22px;
+    z-index: 20;
+}
+
+.step-box .step-button:active, 
+.step-box .step-button:focus {
+    background-color: transparent !important;
+    border: unset;
+    color: #04d5ff !important;
+    font-size: 22px;
 }
 
 .step-box .step-button span{
@@ -144,23 +158,216 @@ button:focus {
 }
 
 
-.step-box.step-one {
+.step-child-box.step-one {
     margin: 0 auto;
 
 }
-.step-box.step-two {
-    margin-left: 0;
-    margin-right: auto;
+.step-child-box.step-two {
+    margin-left: 65px;
+    margin-right: auto;    
+
 }
-.step-box.step-three {
+.step-child-box.step-three {
     margin-right: 0;
-    margin-left: auto;
+    margin-left: auto;    
+
 }
-.step-box.step-four {
-    margin-left: 10%;
-    margin-right: auto;
+.step-child-box.step-four {
+    margin-left: 20%;
+    margin-right: auto;    
 }
-.step-box.step-five {
+.step-child-box.step-five {
     margin-right: 15%;
     margin-left: auto;
+}
+
+.step-line  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.step-child-box.step-one:before {
+    content: "";
+    background-image: url(./img/Lines/slice1.png);
+    width: 26%;
+    height: 100%;
+    bottom: -120px;
+    left: 212px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+
+.step-child-box.step-two:before {
+    content: "";
+    background-image: url(./img/Lines/slice2.png);
+    width: 65%;
+    height: 100%;
+    bottom: -110px;
+    left: 150px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+
+.step-child-box.step-three:before {
+    content: "";
+    background-image: url(./img/Lines/slice3.png);
+    width: 52%;
+    height: 100%;
+    bottom: -119px;
+    right: 98px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.step-child-box.step-four:before {
+    content: "";
+    background-image: url(./img/Lines/slice4.png);
+    width: 26%;
+    height: 100%;
+    bottom: -117px;
+    left: 315px;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+
+@media (max-width:767px){
+    .steps-boxes{
+        padding: 20px 5px;
+        max-width: 420px;
+    }
+    .step-child-box {
+        max-width: 150px;
+    }
+    .step-box .step-logo{
+        width: 40px;
+        height: 40px;
+    }
+    .step-child-box.step-three .step-logo{
+        width: 50px;
+        height: 50px;
+    }
+    .step-box .step-title {
+        font-size: 16px;
+    }
+    .step-box .step-button{
+        font-size: 14px;
+    }
+    .step-child-box.step-two {
+        margin-left: 0px;
+        margin-right: auto;    
+    }
+    .step-child-box.step-three {
+        margin-right: 0;
+        margin-left: auto;    
+    
+    }
+    .step-child-box.step-four {
+        margin-left: 0;
+        margin-right: auto;    
+    }
+    .step-child-box.step-five {
+        margin-right: 0;
+        margin-left: auto;
+    }
+    .step-child-box.step-one:before {
+        width: 33%;
+        bottom: -94px;
+        left: 59px;
+    }
+    
+    .step-child-box.step-two:before {
+        width: 58%;
+        bottom: -106%;
+        left: 55px;
+    }
+    
+    .step-child-box.step-three:before {
+        width: 55%;
+        bottom: -106%;
+        right: 70px;
+    }
+    
+    .step-child-box.step-four:before {
+        width: 55%;
+        bottom: -78px;
+        left: 57px;
+    }
+}
+
+
+@media ( min-width: 768px ) and ( max-width:1024px ){
+    .steps-boxes{
+        padding: 20px 5px;
+        max-width: 680px;
+    }
+    .step-child-box {
+        max-width: 180px;
+    }
+    .step-box .step-logo{
+        width: 50px;
+        height: 50px;
+    }
+    .step-child-box.step-three .step-logo{
+        width: 60px;
+        height: 60px;
+    }
+    .step-box .step-title {
+        font-size: 18px;
+    }
+    .step-box .step-button{
+        font-size: 16px;
+    }
+    .step-child-box.step-two {
+        margin-left: 0px;
+        margin-right: auto;    
+    }
+    .step-child-box.step-three {
+        margin-right: 0;
+        margin-left: auto;    
+    
+    }
+    .step-child-box.step-four {
+        margin-left: 15%;
+        margin-right: auto;    
+    }
+    .step-child-box.step-five {
+        margin-right: 25%;
+        margin-left: auto;
+    }
+    .step-child-box.step-one:before {
+        width: 36%;
+        bottom: -117px;
+        left: 106px;
+    }
+    
+    .step-child-box.step-two:before {
+        width: 74%;
+        bottom: -116px;
+        left: 55px;
+    }
+    
+    .step-child-box.step-three:before {
+        width: 60%;
+        bottom: -130px;
+        right: 70px;
+    }
+    
+    .step-child-box.step-four:before {
+        width: 55%;
+        bottom: -95px;
+        left: 172px;
+    }
 }
