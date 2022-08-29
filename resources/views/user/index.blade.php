@@ -42,13 +42,29 @@
                             <div class="card-body p-4">
                                 <div class="row align-items-center">
                                     <div class="col-12 img-bg ">
-                                        <!-- <h4 class="d-flex  mb-3">
-                                            {{--                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>--}}
-                                        </h4> -->
                                         <div class="tx-white-7 mb-1 text-center">
-                                            <div class='container-timer'>
-                                                <h1 class='countDown-timer' data-seconds-left="25300" ></h1>
-                                                <section class='actions'></section>
+                                            <div class="countDown-timer">
+                                                <!-- <div class="dash day_dash"> 
+                                                    <div class="digit">0</div>
+                                                    <div class="digit">0</div>
+                                                    <div class="digit">0</div>
+                                                    <span class="dash_title">d</span>
+
+                                                </div> -->
+                                                <div class="dash hour_dash"> 
+                                                    <div class="digit">0</div>
+                                                    <div class="digit">0</div>
+                                                    <span class="dash_title">:</span>
+                                                </div>
+                                                <div class="dash min_dash"> 
+                                                    <div class="digit">0</div>
+                                                    <div class="digit">0</div>
+                                                    <span class="dash_title">:</span>
+                                                </div>
+                                                <div class="dash sec_dash"> 
+                                                    <div class="digit">0</div>
+                                                    <div class="digit">0</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -760,7 +776,24 @@
 
 
 
-        $(".countDown-timer").startTimer({});
+        $(".countDown-timer").countdown({
+            diff: null,
+            year: 0,
+            month: 0,
+            day: 0,
+            hour: 1,
+            min: 1,
+            sec: 1,
+            refresh: 1000,
+            easing: 'linear',
+            dash: [
+            {key: 'year', duration: 950},
+            {key: 'day', duration: 950},
+            {key: 'hour', duration: 950},
+            {key: 'min', duration: 950},
+            {key: 'sec', duration: 750}
+            ],
+        });
 
 
 

@@ -631,7 +631,7 @@
 <script src="{{URL::to('/').'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/dataTables.responsive.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'}}"></script>
-<script src="{{url('plugins/countdown-timer/jquery.simple.timer.js')}}"></script>
+<script src="{{url('plugins/countdown-timer/jquery.countdown.min.js')}}"></script>
 <script>
     $(function () {
         $("#table").DataTable({
