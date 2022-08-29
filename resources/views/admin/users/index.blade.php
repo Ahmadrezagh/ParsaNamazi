@@ -233,23 +233,23 @@
                                                             <img class="rounded-circle" src="{{URL::to('/').$user->profile()}}" alt="" width="50" height="50">
                                                         </td>
                                                         <td>
-                                                            {{$user->name}}
+                                                            {{$user->name ??  ' - '}}
                                                         </td>
 
-                                                        <td>{{$user->email}}</td>
+                                                        <td>{{$user->email ?? ' - '}}</td>
 
-                                                        <td>{{$user->credit}}</td>
+                                                        <td>{{$user->credit ?? ' - '}}</td>
 
-                                                        <td>$ {{$user->cash}}</td>
+                                                        <td>$ {{$user->cash ?? ' - '}}</td>
                                                         <td >
                                                             <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="{{$user->created_at->diffForHumans()}}">
-                                                                {{$user->created_at}}
+                                                                {{$user->created_at ?? ' - '}}
                                                             </button>
                                                         </td>
 
-                                                        <td>{{$user->ip}}</td>
+                                                        <td>{{$user->ip ?? ' - '}}</td>
 
-                                                        <td>{{$user->user_group->name ?? ''}}</td>
+                                                        <td>{{$user->user_group->name ?? ' - '}}</td>
 
                                                         <td class="text-center">
                                                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

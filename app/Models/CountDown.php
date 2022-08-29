@@ -31,19 +31,24 @@ class CountDown extends Model
         return (strtotime($this->expire_at) < time());
     }
 
-
     public function scopeNotExpired(Builder $query)
     {
+        $date = Carbon::now()->format('Y-m-d');
+        $time = Carbon::now()->toTimeString();
         return $query
-            ->whereDate('expire_at','>=',Carbon::now())
-            ->whereTime('expire_at','>=',Carbon::now());
+            ->whereDate('expire_at','=',Carbon::now())
+            ->whereTime('expire_at','>=',Carbon::now())
+            ->orWhereDate('expire_at','>',Carbon::now());
     }
 
     public function scopeStarted(Builder $query)
     {
+        $date = Carbon::now()->format('Y-m-d');
+        $time = Carbon::now()->toTimeString();
         return $query
-            ->whereDate('start_at','<=',Carbon::now())
-            ->whereTime('start_at','<=',Carbon::now());
+            ->whereDate('start_at','=',Carbon::now())
+            ->whereTime('start_at','<=',Carbon::now())
+            ->orWhereDate('start_at','<',Carbon::now());
     }
 
     public function getShowForUserAttribute()
