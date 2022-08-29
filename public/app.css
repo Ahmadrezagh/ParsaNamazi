@@ -1,8 +1,19 @@
-button:active {
+
+@font-face {
+    font-family: sfpro-bold;
+    src: url(./fonts/SFPro-BlackItalic.ttf);
+}
+@font-face {
+    font-family: sfpro;
+    src: url(./fonts/SFPro-LightItalic.ttf);
+
+}
+
+button:active, a:active {
     background-color:unset !important;
     border-color: unset !important;
 }
-button:focus {
+button:focus, a:focus {
     box-shadow:unset !important;
     background-color: unset !important;
     color: unset !important;
@@ -65,14 +76,12 @@ button:focus {
 
 }
 
-@font-face {
-    font-family: sfpro-bold;
-    src: url(./fonts/SFPro-BlackItalic.ttf);
-}
-@font-face {
-    font-family: sfpro;
-    src: url(./fonts/SFPro-LightItalic.ttf);
 
+.btn-redirect-where {
+       font-size: calc(0.1rem + 1.7vw);
+       padding: 5px 20px;
+       margin-top: 15px;
+       border-radius: 12px;
 }
 
 
@@ -371,3 +380,5 @@ button:focus {
         left: 172px;
     }
 }
+
+

@@ -66,6 +66,7 @@ opacity: 1;
 <div class="text-center justify-content-center mt-5"  >
     <h1 class="welcome-Title" >Welcome</h1>
     <h5 class="welcome-description">to the greatest crypto pump community</h5>
+    <a href="{{ url('/where') }}" class="btn btn-primary btn-redirect-where" >Where To Start</a>
 </div>
 
 

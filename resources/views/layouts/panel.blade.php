@@ -53,7 +53,7 @@
     @toastr_css
 
 
-{{--    <link rel="stylesheet" href="{{url('countDown/style.scss')}}">--}}
+<link rel="stylesheet" href="{{url('css/countdown-timer.css')}}">
 </head>
 
 <body class="main-body leftmenu">
@@ -71,10 +71,10 @@
     <div class="main-sidebar main-sidebar-sticky side-menu">
         <div class="sidemenu-logo">
             <a class="main-logo" href="{{url('/')}}">
-                <img src="{{url(setting('logo'))}}" class="header-brand-img desktop-logo" alt="logo" style="max-height: 52px">
-                <img src="{{url(setting('logo'))}}" class="header-brand-img icon-logo" alt="logo" style="max-height: 52px">
-                <img src="{{url(setting('logo'))}}" class="header-brand-img desktop-logo theme-logo" alt="logo" style="max-height: 52px">
-                <img src="{{url(setting('logo'))}}" class="header-brand-img icon-logo theme-logo" alt="logo" style="max-height: 52px">
+                <img src="{{url('/logo/transparent-gray.png')}}" class="header-brand-img desktop-logo" alt="logo" style="max-height: 52px">
+                <img src="{{url('/logo/transparent-gray.png')}}" class="header-brand-img icon-logo" alt="logo" style="max-height: 52px">
+                <img src="{{url('/logo/transparent-gray.png')}}" class="header-brand-img desktop-logo theme-logo" alt="logo" style="max-height: 52px">
+                <img src="{{url('/logo/transparent-gray.png')}}" class="header-brand-img icon-logo theme-logo" alt="logo" style="max-height: 52px">
             </a>
         </div>
         <div class="main-sidebar-body">
@@ -631,7 +631,7 @@
 <script src="{{URL::to('/').'/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/dataTables.responsive.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'}}"></script>
-{{--<script src="{{url('countDown/cd.js')}}"></script>--}}
+<script src="{{url('plugins/countdown-timer/jquery.simple.timer.js')}}"></script>
 <script>
     $(function () {
         $("#table").DataTable({

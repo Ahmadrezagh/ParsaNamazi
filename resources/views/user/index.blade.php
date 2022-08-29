@@ -35,6 +35,29 @@
                 </div>
                 <!-- End Page Header -->
 
+
+                <div class="row row-sm  col-12">
+                    <div class="col-sm-12 col-lg-12 col-xl-12">
+                        <div class="card bg-primary custom-card card-box">
+                            <div class="card-body p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-12 img-bg ">
+                                        <!-- <h4 class="d-flex  mb-3">
+                                            {{--                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>--}}
+                                        </h4> -->
+                                        <div class="tx-white-7 mb-1 text-center">
+                                            <div class='container-timer'>
+                                                <h1 class='countDown-timer' data-seconds-left="25300" ></h1>
+                                                <section class='actions'></section>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 @foreach(\App\Models\CountDown::query()->started()->notExpired()->get() as $countDown)
                     @if($countDown->show_for_user)
                         <div class="row row-sm  col-12">
@@ -684,7 +707,7 @@
             var x = setInterval(function() {
 
                 // Get today's date and time
-                {{--var now = new Date("{{\Carbon\Carbon::now()}}").getTime();--}}
+                var now = new Date("{{\Carbon\Carbon::now()}}").getTime();
                 var now = new Date().getTime();
 
                 // Find the distance between now and the count down date
@@ -733,7 +756,11 @@
 
                 }
             }, 1000);
-        }
+        };
+
+
+
+        $(".countDown-timer").startTimer({});
 
 
 
