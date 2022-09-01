@@ -11,8 +11,7 @@
     <meta name="keywords" content="admin laravel template, template laravel admin, laravel css template, best admin template for laravel, laravel blade admin template, template admin laravel, laravel admin template bootstrap 4, laravel bootstrap 4 admin template, laravel admin bootstrap 4, admin template bootstrap 4 laravel, bootstrap 4 laravel admin template, bootstrap 4 admin template laravel, laravel bootstrap 4 template, bootstrap blade template, laravel bootstrap admin template">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{url('panel/assets/img/brand/favicon.ico')}}" type="image/x-icon"/>
-
+    <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon"/>
     <!-- Title -->
     <title>@yield('title')</title>
 
@@ -40,9 +39,14 @@
 
 
 
+    <link href="{{url('css/custom.css')}}" rel="stylesheet">
+    <!-- Include this in your blade layout -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body class="main-body leftmenu">
+@include('sweetalert::alert')
 
 
 <!-- End Switcher -->
