@@ -583,164 +583,12 @@
                                         </div>
                                     </td>
                                     <td class="text-right">
-{{--                                        <div class="d-inline-block">--}}
-{{--                                            <h6 class="mb-2 tx-15 font-weight-semibold">$45.234<i class="fas fa-level-up-alt ml-2 text-success m-l-10"></i></h6>--}}
-{{--                                            <p class="mb-0 tx-11 text-muted">12 Jan 2020</p>--}}
-{{--                                        </div>--}}
                                     </td>
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
-{{--                        <div class="card custom-card">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="row row-sm">--}}
-{{--                                    <div class="col-6">--}}
-{{--                                        <div class="card-item-title">--}}
-{{--                                            <label class="main-content-label tx-13 font-weight-bold mb-2">Project Launch</label>--}}
-{{--                                            <span class="d-block tx-12 mb-0 text-muted">the project is going to launch</span>--}}
-{{--                                        </div>--}}
-{{--                                        <p class="mb-0 tx-24 mt-2"><b class="text-primary">145 days</b></p>--}}
-{{--                                        <a href="#" class="text-muted">12 Monday, Oct 2020 </a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-6">--}}
-{{--                                        <img src="panel/assets/img/pngs/work.png" alt="image" class="best-emp">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="card custom-card">--}}
-{{--                            <div class="card-header border-bottom-0 pb-0 d-flex pl-3 ml-1">--}}
-{{--                                <div>--}}
-{{--                                    <label class="main-content-label mb-2 pt-2">On goiong projects</label>--}}
-{{--                                    <span class="d-block tx-12 mb-2 text-muted">Projects where development work is on completion</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="card-body pt-2 mt-0">--}}
-{{--                                <div class="list-card">--}}
-{{--                                    <div class="d-flex">--}}
-{{--                                        <div class="demo-avatar-group my-auto float-right">--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/1.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/2.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/3.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/4.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="">Design team</div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="ml-auto float-right">--}}
-{{--                                            <div class="">--}}
-{{--                                                <a href="#" class="option-dots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-horizontal"></i></a>--}}
-{{--                                                <div class="dropdown-menu dropdown-menu-right" style="">--}}
-{{--                                                    <a class="dropdown-item" href="#">Today</a>--}}
-{{--                                                    <a class="dropdown-item" href="#">Last Week</a>--}}
-{{--                                                    <a class="dropdown-item" href="#">Last Month</a>--}}
-{{--                                                    <a class="dropdown-item" href="#">Last Year</a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-item mt-4">--}}
-{{--                                        <div class="card-item-icon bg-transparent card-icon">--}}
-{{--                                            <span class="peity-donut" data-peity='{ "fill": ["#6259ca", "rgba(204, 204, 204,0.3)"], "innerRadius": 15, "radius": 20}'>6/7</span>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="card-item-body">--}}
-{{--                                            <div class="card-item-stat">--}}
-{{--                                                <small class="tx-10 text-primary font-weight-semibold">25 August 2020</small>--}}
-{{--                                                <h6 class=" mt-2">Mobile app design</h6>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="list-card mb-0">--}}
-{{--                                    <div class="d-flex">--}}
-{{--                                        <div class="demo-avatar-group my-auto float-right">--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/5.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/6.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/7.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="main-img-user avatar-xs">--}}
-{{--                                                <img alt="avatar" class="rounded-circle" src="panel/assets/img/users/8.jpg">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="">Design team</div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="ml-auto float-right">--}}
-{{--                                            <div class="">--}}
-{{--                                                <a href="#" class="option-dots" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fe fe-more-horizontal"></i></a>--}}
-{{--                                                <div class="dropdown-menu dropdown-menu-right" style="">--}}
-{{--                                                    <a class="dropdown-item" href="#">Today</a>--}}
-{{--                                                    <a class="dropdown-item" href="#">Last Week</a>--}}
-{{--                                                    <a class="dropdown-item" href="#">Last Month</a>--}}
-{{--                                                    <a class="dropdown-item" href="#">Last Year</a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-item mt-4">--}}
-{{--                                        <div class="card-item-icon bg-transparent card-icon">--}}
-{{--                                            <span class="peity-donut" data-peity='{ "fill": ["#6259ca", "rgba(204, 204, 204,0.3)"], "innerRadius": 15, "radius": 20}'>5/7</span>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="card-item-body">--}}
-{{--                                            <div class="card-item-stat">--}}
-{{--                                                <small class="tx-10 text-primary font-weight-semibold">12 JUNE 2020</small>--}}
-{{--                                                <h6 class=" mt-2">Website Redesign</h6>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="card custom-card">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <div class="d-flex">--}}
-{{--                                    <label class="main-content-label my-auto">Website Design</label>--}}
-{{--                                    <div class="ml-auto  d-flex">--}}
-{{--                                        <div class="mr-3 d-flex text-muted tx-13">Running</div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="mt-2">--}}
-{{--                                    <div>--}}
-{{--                                        <span class="tx-15 text-muted">Task completed : 7/10</span>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="container mt-2 mb-2">--}}
-{{--                                        <canvas id="bar-chart" class="ht-180"></canvas>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="row">--}}
-{{--                                    <div class="col">--}}
-{{--                                        <div class="mt-4">--}}
-{{--                                            <div class="d-flex mb-2">--}}
-{{--                                                <h5 class="tx-15 my-auto text-muted font-weight-normal">Client :</h5>--}}
-{{--                                                <h5 class="tx-15 my-auto ml-3">John Deo</h5>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="d-flex mb-0">--}}
-{{--                                                <h5 class="tx-13 my-auto text-muted font-weight-normal">Deadline :</h5>--}}
-{{--                                                <h5 class="tx-13 my-auto text-muted ml-2">25 Dec 2020</h5>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col col-auto">--}}
-{{--                                        <div class="mt-3">--}}
-{{--                                            <div class="">--}}
-{{--                                                <img alt="" class="ht-50" src="panel/assets/img/media/project-logo.png">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div><!-- col end -->
                 </div><!-- Row end -->
 
@@ -751,76 +599,11 @@
 @endsection
 @section('js')
 
-    <!-- Display the countdown timer in an element -->
-
-
-    <script>
-        function countDown(countDownDateTime,countDownID) {
-            var countDownTextID = 'cd-'+countDownID;
-            // Set the date we're counting down to
-            var countDownDate = new Date(countDownDateTime).getTime();
-
-            // Update the count down every 1 second
-            var x = setInterval(function() {
-
-                // Get today's date and time
-                var now = new Date("{{\Carbon\Carbon::now()}}").getTime();
-                var now = new Date().getTime();
-
-                // Find the distance between now and the count down date
-                var distance = countDownDate - now;
-
-                // Time calculations for days, hours, minutes and seconds
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Display the result in the element with id="demo"
-                document.getElementById(countDownTextID).innerHTML = days + "d " + hours + "h "
-                    + minutes + "m " + seconds + "s ";
-
-                // If the count down is finished, write some text
-                if (distance < 0) {
-                    clearInterval(x);
-
-                    $.ajax({
-                        url: "{{ route('show_count_down') }}",
-                        type: "POST",
-                        data: {
-                            _token: "{{ csrf_token() }}",
-                            count_down_id: countDownID,
-                        },
-                        success: function(data) {
-                            console.log('Success')
-                            document.getElementById(countDownTextID).innerHTML = data.description;
-                            // $(".input-number-product").val(0)
-                            // $(".btn-dropdown-color").text("انتخاب رنگ")
-                            // toastr.success(data.message)
-
-                        },
-                        error: function(data) {
-
-                            console.log('Success')
-                            toastr.error("something went wrong")
-                            // toastr.error(JSON.parse(data.responseText).message)
-                            // console.log(data.responseText)
-                            // $(".input-number-product").val(0)
-                            // $(".btn-dropdown-color").text("انتخاب رنگ")
-
-                        }
-                    });
-
-                }
-            }, 1000);
-        };
-    </script>
-
     @foreach(\App\Models\CountDown::query()->notExpired()->get() as $countDown)
         @if($countDown->show_for_user)
             <script>
-                {{--countDown('{{date('M d, Y H:i:s',strtotime($countDown->show_for_user->show_at))}}','{{$countDown->id}}')--}}
-
+                let countDownID = {{$countDown->id}};
+                let countDownTextID = "countDown-timer-{{$countDown->id}}";
                 $("#countDown-timer-{{$countDown->id}}").countdown({
                     diff: null,
                     year: 0,
@@ -839,7 +622,24 @@
                         {key: 'sec', duration: 750}
                     ],
                     onEnd:() => {
-                        alert("fuck")
+                        $.ajax({
+                            url: "{{ route('show_count_down') }}",
+                            type: "POST",
+                            data: {
+                                _token: "{{ csrf_token() }}",
+                                count_down_id: countDownID,
+                            },
+                            success: function(data) {
+                                console.log('Success')
+                                countDownTextID.empty()
+                                document.getElementById(countDownTextID).innerHTML = data.description;
+                            },
+                            error: function(data) {
+                                console.log('Success')
+                                toastr.error("something went wrong")
+                            }
+                        });
+
                     }
                 });
             </script>
