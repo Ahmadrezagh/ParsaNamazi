@@ -54,7 +54,7 @@ class FlagController extends Controller
     public function store(StoreFlagRequest $request)
     {
         Flag::create($request->validated());
-        toastr()->success('Flag created successfully');
+        alert()->success('Flag created successfully');
         return back();
     }
 
@@ -90,7 +90,7 @@ class FlagController extends Controller
     public function update(UpdateFlagRequest $request, Flag $flag)
     {
         $flag->update($request->validated());
-        toastr()->success('Flag updated successfully');
+        alert()->success('Flag updated successfully');
         return back();
     }
 
@@ -108,7 +108,7 @@ class FlagController extends Controller
             $user->flags()->detach();
         }
         $flag->delete();
-        toastr()->success('Flag deleted successfully');
+        alert()->success('Flag deleted successfully');
         return back();
     }
 }

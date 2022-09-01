@@ -57,7 +57,7 @@
 </head>
 
 <body class="main-body leftmenu">
-
+@include('sweetalert::alert')
 <!-- Loader -->
 <div id="global-loader">
     <img src="{{url('panel/assets/img/loader.svg')}}" class="loader-img" alt="Loader">

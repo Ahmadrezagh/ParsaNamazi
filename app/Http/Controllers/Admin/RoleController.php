@@ -58,7 +58,7 @@ class RoleController extends Controller
     {
         $role = Role::create($request->validated());
         $role->refreshPermissions($request->permissions);
-        alert()->success('نقش با موفقیت ایجاد شد');
+        alert()->success('Role created successfully');
         return back();
     }
 
@@ -95,7 +95,7 @@ class RoleController extends Controller
     {
         $role->update($request->only('name'));
         $role->refreshPermissions($request->permissions);
-        alert()->success('نقش با موفقیت ویرایش شد');
+        alert()->success('Role updated successfully');
         return back();
     }
 
@@ -108,7 +108,7 @@ class RoleController extends Controller
     public function destroy(Role $role)
     {
         $role->delete();
-        alert()->success('نقش با موفقیت حذف شد');
+        alert()->success('Role deleted successfully');
         return back();
     }
 }

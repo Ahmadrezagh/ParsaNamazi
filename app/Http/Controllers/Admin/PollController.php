@@ -48,7 +48,7 @@ class PollController extends Controller
                 'title' => $option
             ]);
         }
-        toastr()->success('Poll created successfully');
+        alert()->success('Poll created successfully');
         return back();
     }
 
@@ -96,7 +96,7 @@ class PollController extends Controller
     {
         $poll->options()->delete();
         $poll->delete();
-        toastr()->success('Poll deleted successfully');
+        alert()->success('Poll deleted successfully');
         return back();
     }
 
@@ -106,7 +106,7 @@ class PollController extends Controller
         $poll->update([
             'active' => $newStatus
         ]);
-        toastr()->success('Poll status changed');
+        alert()->success('Poll status changed');
         return back();
     }
 }

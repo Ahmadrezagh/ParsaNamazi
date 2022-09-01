@@ -125,16 +125,16 @@ class TelegramController extends Controller
                         'used' => 1
                     ]);
                     $user->sendTelegramMessage("Dear ".$user->name."\nYou logged in successfully!!!");
-                    toastr()->success('You are logged in successfully');
+                    alert()->success('You are logged in successfully');
                     return redirect(route('home'));
                 }
-                toastr()->warning('Request used before');
+                alert()->warning('Request used before');
                 return redirect(route('home'));
             }
-            toastr()->warning('Request expired');
+            alert()->warning('Request expired');
             return redirect(route('home'));
         }
-        toastr()->warning('Invalid request');
+        alert()->warning('Invalid request');
         return redirect(route('home'));
     }
 }

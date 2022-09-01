@@ -54,7 +54,7 @@ class UserGroupController extends Controller
     public function store(StoreUserGroupRequest $request)
     {
         UserGroup::create($request->validated());
-        toastr()->success('User group created successfully');
+        alert()->success('User group created successfully');
         return back();
     }
 
@@ -90,7 +90,7 @@ class UserGroupController extends Controller
     public function update(UpdateUserGroupRequest $request, UserGroup $user_group)
     {
         $user_group->update($request->validated());
-        toastr()->success('User group created successfully');
+        alert()->success('User group created successfully');
         return back();
     }
 
@@ -103,7 +103,7 @@ class UserGroupController extends Controller
     public function destroy(UserGroup $user_group)
     {
         $user_group->delete();
-        toastr()->success('User group deleted successfully');
+        alert()->success('User group deleted successfully');
         return back();
     }
 }

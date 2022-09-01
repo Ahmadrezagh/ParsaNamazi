@@ -37,7 +37,7 @@ class ContactUsController extends Controller
     public function store(ContactUsRequest $request)
     {
         ContactUsMessage::create($request->validated());
-        toastr()->success('You message sent successfully!!!');
+        alert()->success('You message sent successfully!!!');
         return back();
     }
 

@@ -15,7 +15,7 @@ class PollController extends Controller
         $pollOption = PollOption::findOrFail($id);
         $poll = $pollOption->poll;
         if($poll->users()->where('user_id','=',$user->id)->exists()){
-            toastr()->warning('You have already participated in this survey');
+            alert()->warning('You have already participated in this survey');
             return back();
         }
         PollUser::create([
@@ -23,7 +23,7 @@ class PollController extends Controller
             'poll_id' => $poll->id,
             'poll_option_id' => $pollOption->id
         ]);
-        toastr()->success('Your vote has been successfully registered');
+        alert()->success('Your vote has been successfully registered');
         return back();
     }
 }

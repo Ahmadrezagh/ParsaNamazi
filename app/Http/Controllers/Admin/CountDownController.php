@@ -64,7 +64,7 @@ class CountDownController extends Controller
                 CountDownGroups::create($user_group_object);
             }
         }
-        toastr()->success('Count down created successfully');
+        alert()->success('Count down created successfully');
         return back();
     }
 
@@ -111,7 +111,7 @@ class CountDownController extends Controller
     public function destroy(CountDown $count_down)
     {
         $count_down->delete();
-        toastr()->success('Count down deleted successfully');
+        alert()->success('Count down deleted successfully');
         return back();
     }
 }

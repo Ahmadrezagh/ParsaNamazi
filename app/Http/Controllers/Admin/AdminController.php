@@ -61,8 +61,8 @@ class AdminController extends Controller
         $user = User::create($request->validated());
         if($request->role)
             $user->refreshRoles($request->role);
-        alert()->success('مدیر با موفقیت ایجاد شد');
-        return redirect()->route('admin.index');
+        alert()->success('Admin created successfully');
+        return redirect()->route('admins.index');
     }
 
     /**
@@ -107,7 +107,7 @@ class AdminController extends Controller
         }
         if($request->role)
             $admin->refreshRoles($request->role);
-        alert()->success('مدیر با موفقیت ویرایش شد');
+        alert()->success('Admin updated successfully');
         return back();
     }
 
@@ -120,7 +120,7 @@ class AdminController extends Controller
     public function destroy(User $admin)
     {
         $admin->delete();
-        alert()->success('مدیر با موفقیت حذف شد');
+        alert()->success('Admin deleted successfully');
         return back();
     }
 }

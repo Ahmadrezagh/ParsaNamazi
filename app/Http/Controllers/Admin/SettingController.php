@@ -113,7 +113,7 @@ class SettingController extends Controller
                 }
             }
         }
-        alert()->success('ویرایش انجام شد');
+        alert()->success('Setting updated');
         return back();
     }
 

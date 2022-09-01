@@ -57,7 +57,7 @@ class PopUpController extends Controller
         $validated = $request->validated();
         $validated['expire_at'] = Carbon::now()->addMinutes($validated['expire_after']);
         PopUp::create($validated);
-        toastr()->success('PopUp created successfully');
+        alert()->success('PopUp created successfully');
         return back();
     }
 
@@ -93,7 +93,7 @@ class PopUpController extends Controller
     public function update(UpdatePopUpRequest $request, PopUp $popup)
     {
         $popup->update($request->validated());
-        toastr()->success('PopUp updated successfully');
+        alert()->success('PopUp updated successfully');
         return back();
     }
 
@@ -106,7 +106,7 @@ class PopUpController extends Controller
     public function destroy(PopUp $popup)
     {
         $popup->delete();
-        toastr()->success('PopUp deleted successfully');
+        alert()->success('PopUp deleted successfully');
         return back();
     }
 }

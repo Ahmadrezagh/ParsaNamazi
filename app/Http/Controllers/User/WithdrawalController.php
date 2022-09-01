@@ -44,11 +44,11 @@ class WithdrawalController extends Controller
         $validated['withdrawal_status_id'] = 1;
         if($user->hasPendingWithdrawalRequest)
         {
-            toastr()->warning('You have 1 pending request');
+            alert()->warning('You have 1 pending request');
             return back();
         }
         WithdrawalRequest::create($validated);
-        toastr()->success('Withdrawal request created successfully');
+        alert()->success('Withdrawal request created successfully');
         return back();
     }
 

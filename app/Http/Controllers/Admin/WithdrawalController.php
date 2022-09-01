@@ -73,7 +73,7 @@ class WithdrawalController extends Controller
     public function update(UpdateWithdrawalRequest $request, WithdrawalRequest $withdrawal_request)
     {
         $withdrawal_request->update($request->validated());
-        toastr()->success('Withdrawal request updated successfully');
+        alert()->success('Withdrawal request updated successfully');
         return back();
     }
 

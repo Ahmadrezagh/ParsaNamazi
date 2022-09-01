@@ -139,7 +139,7 @@ class UserController extends Controller
                 'credit' => 0
             ]);
         }
-        toastr()->success('Credit reset successfully done!!');
+        alert()->success('Credit reset successfully done!!');
         return back();
     }
 
@@ -152,7 +152,7 @@ class UserController extends Controller
                 'cash' => 0
             ]);
         }
-        toastr()->success('Cash reset successfully done!!');
+        alert()->success('Cash reset successfully done!!');
         return back();
     }
 }
