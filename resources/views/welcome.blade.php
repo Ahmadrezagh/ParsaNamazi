@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon"/>
+    <link href="{{url('css/custom.css')}}" rel="stylesheet">
 
 
     <!-- Include this in your blade layout -->
@@ -26,13 +27,13 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #d9d9d9;z-index: 1;background-color: white !important;">
 
     <div class="container-fluid" >
-        <a class="navbar-brand d-lg-none d-md-none d-xl-none d-sm-block" href="{{url('/')}}">
+        <a class="navbar-brand d-lg-none  d-xl-none d-sm-block" href="{{url('/')}}">
             <img src="{{url(setting('logo'))}}" alt="" style="max-width: 50px;max-height: 50px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse row navbar-mobile-size" id="navbarSupportedContent">
             <div class="col-sm-12 col-lg-2">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li class="nav-item">
@@ -40,14 +41,14 @@
                 </li>
             </ul>
             </div>
-            <div class="col-xl-8 col-lg-7 text-center d-none d-md-block d-lg-block">
+            <div class="col-xl-8 col-lg-7 text-center d-none d-md-none d-lg-block ">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{url('/logo/gradient&w.png')}}" alt="" style="max-width: 50px;max-height: 50px">
                 </a>
             </div>
-            <div class="col-xl-2 col-lg-3 col-sm-12 text-end">
-                <button class="btn btn-outline-primary " type="button" data-bs-toggle="modal" data-bs-target="#login">Log in</button>
-                <button class="btn btn-outline-primary mx-lg-2 " type="button"  data-bs-toggle="modal" data-bs-target="#register">Sign up</button>
+            <div class="col-xl-2 col-lg-3 col-sm-12 text-end button-in-navbar ">
+                <button class="btn btn-outline-primary button-login-in-navbar " type="button" data-bs-toggle="modal" data-bs-target="#login">Log in</button>
+                <button class="btn btn-outline-primary mx-lg-2 button-register-in-navbar" type="button"  data-bs-toggle="modal" data-bs-target="#register">Sign up</button>
             </div>
         </div>
     </div>

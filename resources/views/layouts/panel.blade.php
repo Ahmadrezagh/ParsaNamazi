@@ -29,6 +29,7 @@
     <link href="{{url('panel/assets/css/skins.css')}}" rel="stylesheet">
     <link href="{{url('panel/assets/css/dark-style.css')}}" rel="stylesheet">
     <link href="{{url('panel/assets/css/colors/default.css')}}" rel="stylesheet">
+    <link href="{{url('css/custom.css')}}" rel="stylesheet">
 
     <!-- Color css-->
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{url('panel/assets/css/colors/color.css')}}">
@@ -644,7 +645,7 @@
     })
 
     $("textarea").each(function(){
-        CKEDITOR.replace( this );
+        CKEDITOR.not(".swal2-textarea").replace( this );
     });
 </script>
 @foreach ($errors->all() as $error)

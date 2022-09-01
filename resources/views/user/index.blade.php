@@ -111,7 +111,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-12 img-bg ">
                                                 <div class="tx-white-7 mb-1 text-center">
-                                                    <div id="countDown-timer-{{$countDown->id}}">
+                                                    <div class="countDown-timer" id="countDown-timer-{{$countDown->id}}">
                                                         <!-- <div class="dash day_dash">
                                                             <div class="digit">0</div>
                                                             <div class="digit">0</div>
@@ -814,30 +814,6 @@
                 }
             }, 1000);
         };
-
-
-
-        // $(".countDown-timer").countdown({
-        //     diff: null,
-        //     year: 0,
-        //     month: 0,
-        //     day: 0,
-        //     hour: 1,
-        //     min: 1,
-        //     sec: 1,
-        //     refresh: 1000,
-        //     easing: 'linear',
-        //     dash: [
-        //     {key: 'year', duration: 950},
-        //     {key: 'day', duration: 950},
-        //     {key: 'hour', duration: 950},
-        //     {key: 'min', duration: 950},
-        //     {key: 'sec', duration: 750}
-        //     ],
-        // });
-
-
-
     </script>
 
     @foreach(\App\Models\CountDown::query()->notExpired()->get() as $countDown)
@@ -862,6 +838,9 @@
                         {key: 'min', duration: 950},
                         {key: 'sec', duration: 750}
                     ],
+                    onEnd:() => {
+                        alert("fuck")
+                    }
                 });
             </script>
         @endif
