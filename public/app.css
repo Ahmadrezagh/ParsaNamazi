@@ -68,11 +68,13 @@ button:focus, a:focus {
     font-size: calc(2rem + 6vw);
     color: #303030;
     font-family: sfpro-bold;
+    line-height: 0.8;
 }
 
 .welcome-description {
     font-family: sfpro;
     font-size: calc(1.5rem + 2vw);
+    line-height: 0.6;
 
 }
 
@@ -80,7 +82,7 @@ button:focus, a:focus {
 .btn-redirect-where {
        font-size: calc(0.1rem + 1.7vw);
        padding: 5px 20px;
-       margin-top: 15px;
+       margin-top: 60px;
        border-radius: 12px;
 }
 
@@ -255,7 +257,10 @@ button:focus, a:focus {
 @media (max-width:767px){
     .steps-boxes{
         padding: 20px 5px;
-        max-width: 420px;
+        max-width: 375px;
+        max-height: 670px;
+        bottom: 0;
+        margin: auto;
     }
     .step-child-box {
         max-width: 150px;
@@ -321,6 +326,9 @@ button:focus, a:focus {
     .steps-boxes{
         padding: 20px 5px;
         max-width: 680px;
+        max-height: 800px;
+        bottom: 0;
+        margin: auto;
     }
     .step-child-box {
         max-width: 180px;
