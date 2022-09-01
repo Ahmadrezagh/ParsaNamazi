@@ -36,34 +36,104 @@
                 <!-- End Page Header -->
 
 
-                <div class="row row-sm  col-12">
-                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                        <div class="card bg-primary custom-card card-box">
-                            <div class="card-body p-4">
-                                <div class="row align-items-center">
-                                    <div class="col-12 img-bg ">
-                                        <div class="tx-white-7 mb-1 text-center">
-                                            <div class="countDown-timer">
-                                                <!-- <div class="dash day_dash"> 
-                                                    <div class="digit">0</div>
-                                                    <div class="digit">0</div>
-                                                    <div class="digit">0</div>
-                                                    <span class="dash_title">d</span>
+{{--                <div class="row row-sm  col-12">--}}
+{{--                    <div class="col-sm-12 col-lg-12 col-xl-12">--}}
+{{--                        <div class="card bg-primary custom-card card-box">--}}
+{{--                            <div class="card-body p-4">--}}
+{{--                                <div class="row align-items-center">--}}
+{{--                                    <div class="col-12 img-bg ">--}}
+{{--                                        <div class="tx-white-7 mb-1 text-center">--}}
+{{--                                            <div class="countDown-timer">--}}
+{{--                                                <!-- <div class="dash day_dash"> --}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <span class="dash_title">d</span>--}}
 
-                                                </div> -->
-                                                <div class="dash hour_dash"> 
-                                                    <div class="digit">0</div>
-                                                    <div class="digit">0</div>
-                                                    <span class="dash_title">:</span>
-                                                </div>
-                                                <div class="dash min_dash"> 
-                                                    <div class="digit">0</div>
-                                                    <div class="digit">0</div>
-                                                    <span class="dash_title">:</span>
-                                                </div>
-                                                <div class="dash sec_dash"> 
-                                                    <div class="digit">0</div>
-                                                    <div class="digit">0</div>
+{{--                                                </div> -->--}}
+{{--                                                <div class="dash hour_dash"> --}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <span class="dash_title">:</span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="dash min_dash"> --}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <span class="dash_title">:</span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="dash sec_dash"> --}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                    <div class="digit">0</div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+                @foreach(\App\Models\CountDown::query()->started()->notExpired()->get() as $countDown)
+                    @if($countDown->show_for_user)
+{{--                        <div class="row row-sm  col-12">--}}
+{{--                    <div class="col-sm-12 col-lg-12 col-xl-12">--}}
+{{--                        <div class="card bg-primary custom-card card-box">--}}
+{{--                            <div class="card-body p-4">--}}
+{{--                                <div class="row align-items-center">--}}
+{{--                                    <div class="col-12 img-bg ">--}}
+{{--                                        <h4 class="d-flex  mb-3">--}}
+{{--                                            --}}{{--                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>--}}
+{{--                                        </h4>--}}
+{{--                                        <div class="tx-white-7 mb-1 text-center">--}}
+{{--                                            {!! $countDown->description !!} <br>--}}
+{{--                                            <h5 id="cd-{{$countDown->id}}"></h5>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-12 text-center mt-3">--}}
+
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                        <script>--}}
+{{--                            countDown('{{\Carbon\Carbon::parse(strtotime($countDown->show_for_user->show_at))->format('M d, Y H:i:s')}}','cd-{{$countDown->id}}')--}}
+{{--                        </script>--}}
+
+
+
+                        <div class="row row-sm  col-12">
+                            <div class="col-sm-12 col-lg-12 col-xl-12">
+                                <div class="card bg-primary custom-card card-box">
+                                    <div class="card-body p-4">
+                                        <div class="row align-items-center">
+                                            <div class="col-12 img-bg ">
+                                                <div class="tx-white-7 mb-1 text-center">
+                                                    <div id="countDown-timer-{{$countDown->id}}">
+                                                        <!-- <div class="dash day_dash">
+                                                            <div class="digit">0</div>
+                                                            <div class="digit">0</div>
+                                                            <div class="digit">0</div>
+                                                            <span class="dash_title">d</span>
+
+                                                        </div> -->
+                                                        <div class="dash hour_dash">
+                                                            <div class="digit">0</div>
+                                                            <div class="digit">0</div>
+                                                            <span class="dash_title">:</span>
+                                                        </div>
+                                                        <div class="dash min_dash">
+                                                            <div class="digit">0</div>
+                                                            <div class="digit">0</div>
+                                                            <span class="dash_title">:</span>
+                                                        </div>
+                                                        <div class="dash sec_dash">
+                                                            <div class="digit">0</div>
+                                                            <div class="digit">0</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,37 +141,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                @foreach(\App\Models\CountDown::query()->started()->notExpired()->get() as $countDown)
-                    @if($countDown->show_for_user)
-                        <div class="row row-sm  col-12">
-                    <div class="col-sm-12 col-lg-12 col-xl-12">
-                        <div class="card bg-primary custom-card card-box">
-                            <div class="card-body p-4">
-                                <div class="row align-items-center">
-                                    <div class="col-12 img-bg ">
-                                        <h4 class="d-flex  mb-3">
-                                            {{--                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>--}}
-                                        </h4>
-                                        <div class="tx-white-7 mb-1 text-center">
-{{--                                            {!! $countDown->description !!} <br>--}}
-                                            <h5 id="cd-{{$countDown->id}}"></h5>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 text-center mt-3">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-{{--                        <script>--}}
-{{--                            countDown('{{\Carbon\Carbon::parse(strtotime($countDown->show_for_user->show_at))->format('M d, Y H:i:s')}}','cd-{{$countDown->id}}')--}}
-{{--                        </script>--}}
-                    @endif
+                @endif
                 @endforeach
                 <!--Row-->
                 <div class="row row-sm">
@@ -776,24 +817,24 @@
 
 
 
-        $(".countDown-timer").countdown({
-            diff: null,
-            year: 0,
-            month: 0,
-            day: 0,
-            hour: 1,
-            min: 1,
-            sec: 1,
-            refresh: 1000,
-            easing: 'linear',
-            dash: [
-            {key: 'year', duration: 950},
-            {key: 'day', duration: 950},
-            {key: 'hour', duration: 950},
-            {key: 'min', duration: 950},
-            {key: 'sec', duration: 750}
-            ],
-        });
+        // $(".countDown-timer").countdown({
+        //     diff: null,
+        //     year: 0,
+        //     month: 0,
+        //     day: 0,
+        //     hour: 1,
+        //     min: 1,
+        //     sec: 1,
+        //     refresh: 1000,
+        //     easing: 'linear',
+        //     dash: [
+        //     {key: 'year', duration: 950},
+        //     {key: 'day', duration: 950},
+        //     {key: 'hour', duration: 950},
+        //     {key: 'min', duration: 950},
+        //     {key: 'sec', duration: 750}
+        //     ],
+        // });
 
 
 
@@ -802,7 +843,26 @@
     @foreach(\App\Models\CountDown::query()->notExpired()->get() as $countDown)
         @if($countDown->show_for_user)
             <script>
-                countDown('{{date('M d, Y H:i:s',strtotime($countDown->show_for_user->show_at))}}','{{$countDown->id}}')
+                {{--countDown('{{date('M d, Y H:i:s',strtotime($countDown->show_for_user->show_at))}}','{{$countDown->id}}')--}}
+
+                $("#countDown-timer-{{$countDown->id}}").countdown({
+                    diff: null,
+                    year: 0,
+                    month: 0,
+                    day: 0,
+                    hour: {{$countDown->show_for_user->show_at_in_hour ?? 0}},
+                    min: {{$countDown->show_for_user->show_at_in_minute ?? 0}},
+                    sec: {{$countDown->show_for_user->show_at_in_second ?? 0}},
+                    refresh: 1000,
+                    easing: 'linear',
+                    dash: [
+                        {key: 'year', duration: 950},
+                        {key: 'day', duration: 950},
+                        {key: 'hour', duration: 950},
+                        {key: 'min', duration: 950},
+                        {key: 'sec', duration: 750}
+                    ],
+                });
             </script>
         @endif
     @endforeach

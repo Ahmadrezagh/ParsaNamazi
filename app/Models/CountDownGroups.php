@@ -35,4 +35,23 @@ class CountDownGroups extends Model
         return (strtotime($this->expire_at) < time());
     }
 
+    public function getShowAtInHourAttribute()
+    {
+        $now = Carbon::now();
+        $target = Carbon::parse($this->show_at);
+        return $now->diff($target)->format('%H');
+    }
+    public function getShowAtInMinuteAttribute()
+    {
+        $now = Carbon::now();
+        $target = Carbon::parse($this->show_at);
+        return $now->diff($target)->format('%I');
+    }
+    public function getShowAtInSecondAttribute()
+    {
+        $now = Carbon::now();
+        $target = Carbon::parse($this->show_at);
+        return $now->diff($target)->format('%S');
+    }
+
 }
