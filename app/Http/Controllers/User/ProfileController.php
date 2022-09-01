@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\Profile\UpdateProfileRequest;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -68,9 +69,20 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProfileRequest $request, $id)
     {
-        //
+        $user = auth()->user();
+        $image = $user->profile();
+        if($request->profile)
+        {
+            $image = upload_file($request->profile,'/profiles/'.$user->id);
+        }
+        $user->update([
+            'name' => $request->name,
+            'profile' => $image
+        ]);
+        alert()->success('Profile updated successfully');
+        return back();
     }
 
     /**

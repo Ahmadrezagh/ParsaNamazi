@@ -35,8 +35,9 @@
                             <div class="card-body pl-0">
                                 <div class="col-12">
                                     <div class="container">
-                                        <form action="{{route('profile.update',$user->id)}}">
-
+                                        <form action="{{route('profile.update',$user->id)}}" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PATCH')
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Name</label>
                                                 <input value="{{$user->name}}" name="name" type="text" class="form-control" placeholder="Enter name" required>

@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        alert()->success('Admin created successfully');
+//        alert()->success('Admin created successfully');
         if(Auth::user()->isAdmin() || Auth::user()->isSuperAdmin())
         {
             return view('admin.index');
