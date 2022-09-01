@@ -16,9 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
     <link rel="icon" href="{{url('favicon.ico')}}" type="image/x-icon"/>
+
+
+    <!-- Include this in your blade layout -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-
+@include('sweetalert::alert')
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 1px solid #d9d9d9;z-index: 1;background-color: white !important;">
 
     <div class="container-fluid" >
