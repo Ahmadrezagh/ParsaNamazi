@@ -33,7 +33,12 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::Users()->fromCredit($request->from_credit)->toCredit($request->to_credit)->latest()->get();
+        $users = User::Users()
+            ->fromCredit($request->from_credit)
+            ->toCredit($request->to_credit)
+            ->withFlag($request->flag_id)
+            ->latest()
+            ->get();
         if($request->group && $request->group != -1)
         {
             $users = $users->where('user_group_idd','=',$request->group);

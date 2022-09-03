@@ -56,14 +56,14 @@
                                                 <label for="exampleInputEmail1">Your Referral link</label>
                                                 <input value="{{$user->referral_url}}"  type="text" class="form-control"  >
                                             </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">My Credit</label>
-                                                <input value="{{$user->credit}}"  type="text" class="form-control"  >
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">My Cash</label>
-                                                <input value="{{$user->cash}}"  type="text" class="form-control"  >
-                                            </div>
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="exampleInputEmail1">My Credit</label>--}}
+{{--                                                <input value="{{$user->credit}}"  type="text" class="form-control"  >--}}
+{{--                                            </div>--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="exampleInputEmail1">My Cash</label>--}}
+{{--                                                <input value="{{$user->cash}}"  type="text" class="form-control"  >--}}
+{{--                                            </div>--}}
 {{--                                            <div class="form-group">--}}
 {{--                                                <label for="exampleInputEmail1">Your Referral code</label>--}}
 {{--                                                <input value="{{$user->referral_code}}"  type="text" class="form-control"  >--}}

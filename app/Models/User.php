@@ -263,6 +263,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Flag::class,'flag_users','user_id','flag_id');
     }
 
+    public function scopeWithFlag(Builder $query,$flag_id = null)
+    {
+        if($flag_id && is_numeric($flag_id) && ($flag_id > 0))
+        {
+            return $query->whereHas('flags',function ($q) use ($flag_id) {
+                return $q->where('flag_id','=',$flag_id);
+            });
+        }
+        return $query;
+    }
     public function withdrawals()
     {
         return $this->hasMany(WithdrawalRequest::class);

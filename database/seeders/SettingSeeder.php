@@ -76,13 +76,13 @@ This website should not be considered a solicitation or obligation to buy or mak
                 'type'=>'number',
                 'description'=>'Referral gift for registration(Credit)',
                 'value'=>'1',
-                'setting_group_id'=>'4'
+                'setting_group_id'=>'5'
             ],
             [   'name' => 'withdrawal_min',
                 'type'=>'number',
                 'description'=>'Withdrawal minimum amount in USD',
                 'value'=>'3',
-                'setting_group_id'=>'4'
+                'setting_group_id'=>'5'
             ],
         ];
         foreach ($settings as $setting)
