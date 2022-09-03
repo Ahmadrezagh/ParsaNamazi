@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Address;
+use App\Notifications\WelcomeEmailNotification;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -98,6 +99,7 @@ class RegisterController extends Controller
                 'type' => 'web'
             ]);
         }
+        $user->notify(new WelcomeEmailNotification());
         return $user;
     }
 

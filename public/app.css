@@ -103,18 +103,33 @@ button:focus, a:focus {
 
     .button-login-in-navbar {
         margin-bottom: 10px;
-        text-align: left;
-        border-right: unset;
-        border-left: unset;
-        border-radius: 0;
-        padding: 12px 0;
+        text-align: center;
+
+    }
+    .button-login-in-navbar:hover {
+        margin-bottom: 10px;
+        text-align: center;
+
     }
 
     .button-register-in-navbar {
-        border: none;
-        text-align: left;
+        /*border: none;*/
+        /*text-align: left;*/
         padding-left: 0;
-    }  
+
+
+        background-color: #6B0087 ;
+        color: white;
+    }
+    .button-register-in-navbar:hover {
+        /*border: none;*/
+        /*text-align: left;*/
+        padding-left: 0;
+
+
+        background-color: white ;
+        color: #6B0087;
+    }
 }
 
 
@@ -431,6 +446,12 @@ button:focus, a:focus {
         width: 55%;
         bottom: -95px;
         left: 172px;
+    }
+
+    .btn-primary.disabled, .btn-primary:disabled {
+        color: #fff;
+        background-color: #6B0087;
+        border-color: #6B0087;
     }
 }
 

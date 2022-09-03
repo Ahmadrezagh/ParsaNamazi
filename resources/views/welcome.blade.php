@@ -37,7 +37,7 @@
             <div class="col-sm-12 col-lg-2">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" style="color: #6B0087" data-bs-toggle="modal" data-bs-target="#contact-us">Contact us</a>
+                    <a class="nav-link active d-none d-sm-none d-lg-block d-md-block d-xl-block d-xxl-block" aria-current="page" href="#" style="color: #6B0087" data-bs-toggle="modal" data-bs-target="#contact-us">Contact us</a>
                 </li>
             </ul>
             </div>
@@ -49,6 +49,9 @@
             <div class="col-xl-2 col-lg-3 col-sm-12 text-end button-in-navbar ">
                 <button class="btn btn-outline-primary button-login-in-navbar " type="button" data-bs-toggle="modal" data-bs-target="#login">Log in</button>
                 <button class="btn btn-outline-primary mx-lg-2 button-register-in-navbar" type="button"  data-bs-toggle="modal" data-bs-target="#register">Sign up</button>
+                <div class="text-center">
+                    <a class="nav-link active d-block d-sm-block d-lg-none d-md-none d-xl-none d-xxl-none" aria-current="page" href="#" style="color: #6B0087" data-bs-toggle="modal" data-bs-target="#contact-us">Contact us</a>
+                </div>
             </div>
         </div>
     </div>
@@ -68,9 +71,9 @@ opacity: 1;
 ">
 
 </div>
-<div class="text-center justify-content-center mt-5"  >
+<div class="text-center justify-content-center mt-5" id="text-content-of-page" >
     <h1 class="welcome-Title" >Welcome</h1>
-    <h5 class="welcome-description">to the greatest crypto pump community</h5>
+    <h5 class="welcome-description mt-4" style="padding-top: 5px">to the greatest crypto pump community</h5>
     <a href="{{ url('/where') }}" class="btn btn-primary btn-redirect-where" >Where To Start</a>
 </div>
 
@@ -122,22 +125,24 @@ opacity: 1;
                     @csrf
                     <div class="form-group text-left">
                         <label>Name</label>
-                        <input class="form-control" placeholder="Enter your Name" name="name" type="text">
+                        <input class="form-control" placeholder="Enter your Name" name="name" type="text" required>
                     </div>
                     <div class="form-group mt-3 text-left" style="display: none">
-                        <input class="form-control" value="{{request('key')}}" name="referral_code" type="text">
+                        <input class="form-control" value="{{request('key')}}" name="referral_code" type="text" >
                     </div>
                     <div class="form-group mt-3 text-left">
                         <label>Email</label>
-                        <input autocomplete="off" class="form-control" placeholder="Enter your email" name="email" type="text">
+                        <input autocomplete="off" class="form-control" placeholder="Enter your email" name="email" type="text" required>
                     </div>
                     <div class="form-group mt-3 text-left">
                         <label>Password</label>
-                        <input autocomplete="off" class="form-control" placeholder="Enter your password" name="password" type="password">
+                        <input autocomplete="off" class="form-control passwd" placeholder="Enter your password" name="password" type="password"  required>
+                        <span class="passwd-error" style="color: red"></span>
                     </div>
                     <div class="form-group mt-3 text-left">
                         <label>Password Confirmation</label>
-                        <input autocomplete="off" class="form-control" placeholder="Enter your password" name="password_confirmation" type="password">
+                        <input autocomplete="off" class="form-control passwd_confirm" placeholder="Enter your password" name="password_confirmation" type="password"  required>
+                        <span class="passwd-confirm-error" style="color: red"></span>
                     </div>
                     <div class="form-check mt-3">
                         <input class="form-check-input" name="agreement" type="checkbox" value="1" id="flexCheckDefault" required>
@@ -147,7 +152,9 @@ opacity: 1;
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" >Sign up</button>
+                <button type="submit" class="btn btn-primary" id="sign_up_submit_btn" style="color: #fff;
+        background-color: #6B0087;
+        border-color: #6B0087;" >Sign up</button>
             </div>
             </form>
         </div>
@@ -274,6 +281,58 @@ opacity: 1;
         toastr.info('{{session('status')}}')
     </script>
 @endif
+<script>
+    let text_content_of_page_visible = true;
+    let text_content_of_page = $("#text-content-of-page")
+    $(".navbar-toggler").on('click',function () {
+        if(text_content_of_page_visible)
+        {
+            text_content_of_page.fadeOut()
+            text_content_of_page_visible = false;
+        }else{
+            text_content_of_page.fadeIn()
+            text_content_of_page_visible = true;
+        }
+    })
 
+    let sign_up_submit_btn = $("#sign_up_submit_btn")
+    let passwd_error = $(".passwd-error")
+    let passwd_confirm_error = $(".passwd-confirm-error")
+
+    $(".passwd").on('keyup',function (){
+        let passwdInput = $(this).val()
+        if(passwdInput.length < 5)
+        {
+            passwd_error.text("Your password can not be less than 5 characters")
+            sign_up_submit_btn.attr("disabled",true)
+        }else{
+            passwd_error.text("")
+            sign_up_submit_btn.attr("disabled",false)
+        }
+    })
+
+    $(".passwd_confirm").on('keyup',function (){
+        let passwdInput = $(".passwd").val()
+        let passwdConfirmInput = $(this).val()
+        if(passwdConfirmInput.length < 5)
+        {
+            passwd_confirm_error.text("Your password confirmation can not be less than 5 characters")
+            sign_up_submit_btn.attr("disabled",true)
+        }else
+        if(passwdConfirmInput !== passwdInput)
+        {
+            passwd_confirm_error.text("Password confirmation doesn't match")
+            sign_up_submit_btn.attr("disabled",true)
+        }
+        else{
+            passwd_confirm_error.text("")
+            sign_up_submit_btn.attr("disabled",false)
+        }
+        console.log({
+            "password :" : passwdInput,
+            "password confirmation :" : passwdConfirmInput
+        })
+    })
+</script>
 </body>
 </html>
