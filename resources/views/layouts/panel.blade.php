@@ -102,74 +102,8 @@
                     </a>
                 </li>
 
-                @if ((Auth::user()->isAdmin() && Auth::user()->can('Admin')) || Auth::user()->isSuperAdmin() )
-                <li class="nav-item">
-                    <a class="nav-link with-sub" href="#">
-                        <span class="shape1"></span>
-                        <span class="shape2"></span>
-                        <i class="fas fa-user sidemenu-icon"></i>
-                        <span class="sidemenu-label">Admins</span>
-                        <i class="angle fe fe-chevron-right"></i>
-                    </a>
-                    <ul class="nav-sub">
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="{{route('admins.index')}}">Admin list</a>
-                        </li>
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="{{route('roles.index')}}">Roles</a>
-                        </li>
-                    </ul>
-                </li>
-                @endif
-{{--                @if ((Auth::user()->isAdmin() && Auth::user()->can('Category')) || Auth::user()->isSuperAdmin() )--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link with-sub" href="#0">--}}
-{{--                        <span class="shape1"></span>--}}
-{{--                        <span class="shape2"></span>--}}
-{{--                        <i class="ti-list sidemenu-icon"></i>--}}
-{{--                        <span class="sidemenu-label">Categories</span>--}}
-{{--                        <i class="angle fe fe-chevron-right"></i>--}}
-{{--                    </a>--}}
-{{--                    <ul class="nav-sub">--}}
-{{--                        <li class="nav-sub-item">--}}
-{{--                            <a class="nav-sub-link" href="{{route('categories.index')}}">Category list</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </li>--}}
-{{--                @endif--}}
 
-                @if ((Auth::user()->isAdmin() && Auth::user()->can('Poll')) || Auth::user()->isSuperAdmin() )
-                <li class="nav-item">
-                    <a class="nav-link with-sub" href="#0">
-                        <span class="shape1"></span>
-                        <span class="shape2"></span>
-                        <i class="fas fa-clipboard-list sidemenu-icon"></i>
-                        <span class="sidemenu-label">Polls</span>
-                        <i class="angle fe fe-chevron-right"></i>
-                    </a>
-                    <ul class="nav-sub">
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="{{route('polls.index')}}">poll list</a>
-                        </li>
-                    </ul>
-                </li>
-                @endif
-                @if ((Auth::user()->isAdmin() && Auth::user()->can('Flag')) || Auth::user()->isSuperAdmin() )
-                <li class="nav-item">
-                    <a class="nav-link with-sub" href="#0">
-                        <span class="shape1"></span>
-                        <span class="shape2"></span>
-                        <i class="fas fa-flag sidemenu-icon"></i>
-                        <span class="sidemenu-label">Flags</span>
-                        <i class="angle fe fe-chevron-right"></i>
-                    </a>
-                    <ul class="nav-sub">
-                        <li class="nav-sub-item">
-                            <a class="nav-sub-link" href="{{route('flags.index')}}">Flag list</a>
-                        </li>
-                    </ul>
-                </li>
-                @endif
+
                 @if ((Auth::user()->isAdmin() && Auth::user()->can('User')) || Auth::user()->isSuperAdmin() )
                 <li class="nav-item">
                     <a class="nav-link with-sub" href="#0">
@@ -206,24 +140,6 @@
                     </ul>
                 </li>
                 @endif
-
-                @if ( (Auth::user()->isAdmin() && Auth::user()->can('Withdrawal')) || Auth::user()->isSuperAdmin()  )
-                    <li class="nav-item">
-                        <a class="nav-link with-sub" href="#0">
-                            <span class="shape1"></span>
-                            <span class="shape2"></span>
-                            <i class="fas fa-money-check-alt sidemenu-icon"></i>
-                            {{--                        <i class="fas fa-comment-alt-exclamation sidemenu-icon"></i>--}}
-                            <span class="sidemenu-label">Withdrawals </span>
-                            <i class="angle fe fe-chevron-right"></i>
-                        </a>
-                        <ul class="nav-sub">
-                            <li class="nav-sub-item">
-                                <a class="nav-sub-link" href="{{route('withdrawal_requests.index')}}">Withdrawal requests</a>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
                 @if ((Auth::user()->isAdmin() && Auth::user()->can('CountDown')) || Auth::user()->isSuperAdmin() )
                 <li class="nav-item">
                     <a class="nav-link with-sub" href="#0">
@@ -242,6 +158,77 @@
                 </li>
                 @endif
 
+                @if ( (Auth::user()->isAdmin() && Auth::user()->can('Withdrawal')) || Auth::user()->isSuperAdmin()  )
+                    <li class="nav-item">
+                        <a class="nav-link with-sub" href="#0">
+                            <span class="shape1"></span>
+                            <span class="shape2"></span>
+                            <i class="fas fa-money-check-alt sidemenu-icon"></i>
+                            {{--                        <i class="fas fa-comment-alt-exclamation sidemenu-icon"></i>--}}
+                            <span class="sidemenu-label">Withdrawals </span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('withdrawal_requests.index')}}">Withdrawal requests</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
+                @if ((Auth::user()->isAdmin() && Auth::user()->can('Poll')) || Auth::user()->isSuperAdmin() )
+                    <li class="nav-item">
+                        <a class="nav-link with-sub" href="#0">
+                            <span class="shape1"></span>
+                            <span class="shape2"></span>
+                            <i class="fas fa-clipboard-list sidemenu-icon"></i>
+                            <span class="sidemenu-label">Polls</span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('polls.index')}}">poll list</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
+                @if ((Auth::user()->isAdmin() && Auth::user()->can('Flag')) || Auth::user()->isSuperAdmin() )
+                    <li class="nav-item">
+                        <a class="nav-link with-sub" href="#0">
+                            <span class="shape1"></span>
+                            <span class="shape2"></span>
+                            <i class="fas fa-flag sidemenu-icon"></i>
+                            <span class="sidemenu-label">Flags</span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('flags.index')}}">Flag list</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+
+                @if ((Auth::user()->isAdmin() && Auth::user()->can('Admin')) || Auth::user()->isSuperAdmin() )
+                    <li class="nav-item">
+                        <a class="nav-link with-sub" href="#">
+                            <span class="shape1"></span>
+                            <span class="shape2"></span>
+                            <i class="fas fa-user sidemenu-icon"></i>
+                            <span class="sidemenu-label">Admins</span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('admins.index')}}">Admin list</a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('roles.index')}}">Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
 
                 @if ((Auth::user()->isAdmin() && Auth::user()->can('Setting')) || Auth::user()->isSuperAdmin() )
                 <li class="nav-item">
