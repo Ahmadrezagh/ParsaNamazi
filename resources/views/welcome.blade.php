@@ -20,7 +20,8 @@
 
 
     <!-- Include this in your blade layout -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{{--    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 @include('sweetalert::alert')
@@ -272,13 +273,20 @@ opacity: 1;
 
 @foreach ($errors->all() as $error)
     <script>
-        Swal.error('{{$error}}')
+        {{--swal.fire('{{$error}}')--}}
+        Swal.fire({
+            icon: 'error',
+            title: '{{$error}}',
+        })
     </script>
 @endforeach
 
 @if (session('status'))
     <script>
-        toastr.info('{{session('status')}}')
+        Swal.fire({
+            icon: 'info',
+            title: '{{session('status')}}',
+        })
     </script>
 @endif
 <script>

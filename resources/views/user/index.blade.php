@@ -170,7 +170,7 @@
                                             </div>
                                             <div class="col-12 text-center mt-3">
                                                 @if($popUp->total_clicks > $popUp->count_limit)
-                                                    <button class="btn btn-danger">Limited</button>
+                                                    <button class="btn btn-danger">Expired</button>
                                                 @elseif($popUp->alreadyClicked)
                                                     <button class="btn btn-warning">Already clicked</button>
                                                 @else

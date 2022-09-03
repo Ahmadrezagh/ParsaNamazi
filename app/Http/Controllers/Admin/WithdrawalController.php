@@ -14,7 +14,7 @@ class WithdrawalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $withdrawals = WithdrawalRequest::query()->latest()->get();
         return view('admin.withdrawals.index',compact('withdrawals'));

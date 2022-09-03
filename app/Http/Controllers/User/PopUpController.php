@@ -61,13 +61,13 @@ class PopUpController extends Controller
                             'user_id' => $user->id,
                             'pop_up_id' => $pop_up->id
                         ]);
-                        alert()->success('You successfully clicked on pop up and got cash and credit');
+                        alert()->success('Pop up successfully got clicked');
                         return back();
                     }
                     alert()->warning('You already clicked on this pop up');
                     return back();
                 }
-                alert()->warning('Pop up request is over the limit');
+                alert()->warning('Pop up has expired, maybe next time');
                 return back();
             }
             alert()->warning('Pop up has expired');

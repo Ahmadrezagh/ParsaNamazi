@@ -34,7 +34,7 @@ class UserWithdrawalRequest extends FormRequest
     {
         return [
             'amount.max' => 'Your cash is not enough',
-            'amount.min' => 'Minimum amount for withdrawal is: $'.intval(setting('withdrawal_min')),
+            'amount.min' => 'Minimum withdrawal is: $'.intval(setting('withdrawal_min')),
         ];
     }
 }

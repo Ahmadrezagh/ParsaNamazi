@@ -120,7 +120,8 @@
                                                                                 @endforeach
                                                                             </select>
                                                                         </div>
-                                                                        <div class="form-group">
+
+                                                                        <div class="form-group" id="fail-reason-{{$withdrawal->id}}">
                                                                             <label for="exampleInputEmail1">Fail reason</label>
                                                                             <input type="text" name="fail_reason" value="{{$withdrawal->fail_reason}}" class="form-control">
                                                                         </div>

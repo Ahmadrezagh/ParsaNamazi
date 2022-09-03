@@ -110,7 +110,7 @@
 
                                                     </td>
                                                     <td>
-                                                        {{$withdrawal->fail_reason}}
+                                                        {{$withdrawal->fail_reason ?? ' - '}}
                                                     </td>
                                                     <td>
                                                         {{$withdrawal->created_at}}

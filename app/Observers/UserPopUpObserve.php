@@ -23,7 +23,7 @@ class UserPopUpObserve
         $description = generateCashAndCreditNotificationDescription($popUp->credit,$popUp->cash);
         $user->notifiable()->create([
             'user_id' => $user->id,
-            'description' => $description.' by clicking on pop up!!!',
+            'description' => $description.' from pop up',
             'type' => 'web'
         ]);
 

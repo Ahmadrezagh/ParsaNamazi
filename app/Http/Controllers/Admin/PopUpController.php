@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PopUp\StorePopUpRequest;
 use App\Http\Requests\Admin\PopUp\UpdatePopUpRequest;
 use App\Models\PopUp;
+use App\Models\TelegramUser;
+use App\Traits\Telegram;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PopUpController extends Controller
 {
+    use Telegram;
     public function __construct()
     {
 
@@ -58,6 +61,14 @@ class PopUpController extends Controller
         $validated['expire_at'] = Carbon::now()->addMinutes($validated['expire_after']);
         PopUp::create($validated);
         alert()->success('PopUp created successfully');
+
+        $telegram_users = TelegramUser::all();
+
+        foreach ($telegram_users as $telegram_user)
+        {
+            $this->sendMessage($telegram_user->user_id,'Pop up just got generated, don’t miss the prize');
+        }
+
         return back();
     }
 
