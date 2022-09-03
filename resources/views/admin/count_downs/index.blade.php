@@ -64,12 +64,12 @@
 
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Start At</label>
-                                                                    <input name="start_at" type="datetime-local" step="1" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required value="{{\Carbon\Carbon::now()}}">
+                                                                    <input name="start_at" type="datetime-local" step="1" class="form-control" id="start_at" placeholder="Enter name" required value="{{\Carbon\Carbon::now()}}" min="{{\Carbon\Carbon::now()}}">
                                                                 </div>
 
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Expire At</label>
-                                                                    <input name="expire_at" type="datetime-local" step="1" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required  value="{{\Carbon\Carbon::now()}}" >
+                                                                    <input name="expire_at" type="datetime-local" step="1" class="form-control" id="expire_at" placeholder="Enter name" required  value="{{\Carbon\Carbon::now()}}" min="{{\Carbon\Carbon::now()}}" >
                                                                 </div>
 
                                                                 <hr>
@@ -267,6 +267,9 @@
 
         $("#add_user_group_btn").on('click',function () {
             let id = makeid(8)
+            let start_at = $("#start_at").val()
+            let expire_at = $("#expire_at").val()
+
             $('#user_groups_div').append(`
             <div class="row">
                                                                         <div class="form-group col-6">
@@ -277,7 +280,7 @@
             </select>
         </div>
         <div class="form-group col-5">
-            <input type="datetime-local" step="1" class="form-control" name="user_groups[${id}][show_at]" value='{{\Carbon\Carbon::now()}}' required>
+            <input type="datetime-local" step="1" class="form-control" name="user_groups[${id}][show_at]" min='${start_at}' max='${expire_at}' required>
         </div>
         <div class="form-group col-1">
             <button class="btn btn-danger" onclick="removeItem(this)" type="button">
@@ -287,7 +290,10 @@
     </div>
 `)
         })
-
+        $("#start_at").on('change',function () {
+            let start_at = $(this).val()
+            $("#expire_at").attr('min',start_at)
+        })
         function removeItem(e) {
             $(e).parent().parent().remove()
         }
