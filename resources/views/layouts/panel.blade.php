@@ -650,7 +650,7 @@
 </script>
 @foreach ($errors->all() as $error)
     <script>
-        toastr.error('{{$error}}')
+        Swal.error('{{$error}}')
     </script>
 
 @endforeach
