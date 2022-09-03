@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => $data['password'],
             'referral_to' => $data['referral_code'],
-            'ip'=> request()->ip()
+            'ip'=> request()->getClientIp()
         ]);
         if($user->referral_to)
         {
