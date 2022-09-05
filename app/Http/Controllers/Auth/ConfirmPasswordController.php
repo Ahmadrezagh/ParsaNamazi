@@ -37,4 +37,13 @@ class ConfirmPasswordController extends Controller
     {
         $this->middleware('auth');
     }
+
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => ['required', 'confirmed'],
+        ];
+    }
 }

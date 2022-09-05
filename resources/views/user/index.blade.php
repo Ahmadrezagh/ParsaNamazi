@@ -195,13 +195,53 @@
                                             </div>
                                             <div class="card-item-title mb-2">
                                                 <label class="main-content-label tx-13 font-weight-bold mb-1">Total Revenue</label>
-                                                <span class="d-block tx-12 mb-0 text-muted">Previous month vs this months</span>
+{{--                                                <span class="d-block tx-12 mb-0 text-muted">Previous month vs this months</span>--}}
                                             </div>
                                             <div class="card-item-body">
                                                 <div class="card-item-stat">
-                                                    <h4 class="font-weight-bold">$5,900.00</h4>
-                                                    <small><b class="text-success">55%</b> higher</small>
+                                                    <h4 class="font-weight-bold">${{number_format(auth()->user()->cash)}}</h4>
+                                                    <small>
+                                                        <button class="btn btn-primary"  data-toggle="modal" data-target="#modal-create">withdrawal</button></small>
                                                 </div>
+
+                                                <!-- Create Modal -->
+                                                <div class="modal fade" id="modal-create" data-backdrop="static">
+                                                    <div class="modal-dialog ">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Withdrawal Request</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <!-- form start -->
+                                                                <form  method="POST" action="{{route('withdrawals.store')}}"  enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    <div class="card-body">
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Amount (USD)</label>
+                                                                            <input name="amount" type="number" min="{{setting('withdrawal_min')}}"  class="form-control" id="exampleInputEmail1" placeholder="Amount in usd" required >
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="exampleInputEmail1">Wallet address</label>
+                                                                            <input name="wallet_address" type="text" class="form-control" id="exampleInputEmail1" placeholder="Wallet address" required >
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <!-- /.card-body -->
+
+                                                                    <div class="card-footer">
+                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

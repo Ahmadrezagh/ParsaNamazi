@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('users', 'Admin\UserController');
         Route::post('users/reset-credits', 'Admin\UserController@resetCredits')->name('users.reset-credits');
         Route::post('users/reset-cashes', 'Admin\UserController@resetCashes')->name('users.reset-cashes');
+        Route::get('users/block/{id}', 'Admin\UserController@block')->name('users.block');
+        Route::get('users/unBlock/{id}', 'Admin\UserController@unBlock')->name('users.unblock');
         Route::resource('user_groups', 'Admin\UserGroupController');
         Route::resource('settings', 'Admin\SettingController');
         Route::resource('popups', 'Admin\PopUpController');

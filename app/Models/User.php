@@ -60,6 +60,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
     public function isSuperAdmin()
     {
         return $this->type_id == 1  ? true : false;
@@ -281,5 +283,23 @@ class User extends Authenticatable
     public function getHasPendingWithdrawalRequestAttribute()
     {
         return (bool)($this->withdrawals()->where('withdrawal_status_id','=',1)->first());
+    }
+
+//    public function findRefers($users,$allRefers)
+//    {
+//        foreach ($users as $user)
+//        {
+//            array_push($allRefers,$user);
+//            if($user->myRefers && count($user->myRefers))
+//            {
+//                $this->findRefers($user->myRefers,$allRefers);
+//            }
+//        }
+//    }
+
+    public function getAllRefersAttribute()
+    {
+        $allRefers = (findRefers($this->myRefers));
+        return collect($allRefers);
     }
 }

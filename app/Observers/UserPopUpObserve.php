@@ -36,16 +36,10 @@ class UserPopUpObserve
                 $_user->addCash($popUp->referral_cash);
                 $_user->addCredit($popUp->referral_credit);
 
-                $user->notifiable()->create([
-                    'user_id' => $_user->id,
-                    'description' => $user->name.' clicked on pop up!!!',
-                    'type' => 'web'
-                ]);
-
                 $description = generateCashAndCreditNotificationDescription($popUp->referral_credit,$popUp->referral_cash);
                 $user->notifiable()->create([
                     'user_id' => $_user->id,
-                    'description' => $description,
+                    'description' => $description.' from '.$user->name,
                     'type' => 'web'
                 ]);
             }

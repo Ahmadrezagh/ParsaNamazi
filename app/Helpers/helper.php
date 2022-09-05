@@ -67,5 +67,15 @@ function generateCashAndCreditNotificationDescription($credit,$cash)
     }
     return $description;
 }
-
+function findRefers($users)
+{
+    foreach ($users as $user)
+    {
+        echo $user.",";
+        if($user->myRefers && count($user->myRefers))
+        {
+            findRefers($user->myRefers);
+        }
+    }
+}
 

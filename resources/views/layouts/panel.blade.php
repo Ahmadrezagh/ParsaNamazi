@@ -376,18 +376,20 @@
                     </a>
                     <div class="dropdown-menu">
                         <div class="main-notification-list">
-                            @foreach(\App\Models\Notification::NewNotifications()->take(3)->get() as $notification)
-                            <div class="media new">
-                                <div class="main-img-user online">
-                                    @if($notification->notifiable_type == \App\Models\User::class)
-                                    <img alt="avatar" src="{{url($notification->notifiable->profile())}}">
-                                    @endif
+                            @if(auth()->check() && auth()->user()->isUser())
+                                @foreach(\App\Models\Notification::NewNotifications()->take(3)->get() as $notification)
+                                <div class="media new">
+                                    <div class="main-img-user online">
+                                        @if($notification->notifiable_type == \App\Models\User::class)
+                                        <img alt="avatar" src="{{url($notification->notifiable->profile())}}">
+                                        @endif
+                                    </div>
+                                    <div class="media-body">
+                                        <p>{{$notification->description}}</p><span>{{$notification->created_at}}</span>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <p>{{$notification->description}}</p><span>{{$notification->created_at}}</span>
-                                </div>
-                            </div>
-                            @endforeach
+                                @endforeach
+                            @endif
                         </div>
                             <div class="dropdown-footer">
                                 <a href="{{route('notifications.index')}}">View All Notifications</a>

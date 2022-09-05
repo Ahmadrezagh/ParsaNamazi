@@ -33,7 +33,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::Users()
+        $users = User::withTrashed()
+            ->Users()
             ->fromCredit($request->from_credit)
             ->toCredit($request->to_credit)
             ->withFlag($request->flag_id)
@@ -130,7 +131,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
+        $user->forceDelete();
         alert()->success('User deleted successfully');
         return back();
     }
@@ -158,6 +159,23 @@ class UserController extends Controller
             ]);
         }
         alert()->success('Cash reset successfully done!!');
+        return back();
+    }
+
+    public function block($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        alert()->success('User blocked successfully');
+        return back();
+    }
+    public function unBlock($id)
+    {
+        $user = User::withTrashed()->find($id);
+        $user->update([
+            'deleted_at' => null
+        ]);
+        alert()->success('User unblocked successfully');
         return back();
     }
 }

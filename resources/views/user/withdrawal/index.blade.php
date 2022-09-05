@@ -36,45 +36,8 @@
                                 <div class="col-12">
                                     <div class="container">
 
-                                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-create">Withdrawal Request</button>
-                                       <!-- Create Modal -->
-                                        <div class="modal fade" id="modal-create" data-backdrop="static">
-                                            <div class="modal-dialog ">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title">Withdrawal Request</h4>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <!-- form start -->
-                                                        <form  method="POST" action="{{route('withdrawals.store')}}"  enctype="multipart/form-data">
-                                                            @csrf
-                                                            <div class="card-body">
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Amount (USD)</label>
-                                                                    <input name="amount" type="number" min="{{setting('withdrawal_min')}}"  class="form-control" id="exampleInputEmail1" placeholder="Amount in usd" required >
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputEmail1">Wallet address</label>
-                                                                    <input name="wallet_address" type="text" class="form-control" id="exampleInputEmail1" placeholder="Wallet address" required >
-                                                                </div>
-
-                                                            </div>
-                                                            <!-- /.card-body -->
-
-                                                            <div class="card-footer">
-                                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <!-- /.modal-content -->
-                                            </div>
-                                            <!-- /.modal-dialog -->
-                                        </div>
-                                        <!-- withdrawals table -->
+{{--                                        <button class="btn btn-primary">Withdrawal Request</button>--}}
+                                       <!-- withdrawals table -->
                                         <table id="table" class="table table-bordered table-striped text-center">
                                             <thead>
                                             <tr>

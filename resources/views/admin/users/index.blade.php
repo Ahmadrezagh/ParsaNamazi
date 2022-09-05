@@ -237,7 +237,7 @@
                                                 </thead>
                                                 <tbody >
                                                 @foreach ($users as $user)
-                                                    <tr>
+                                                    <tr @if($user->deleted_at) style="background-color: red" @endif >
                                                         <td>
                                                             <img class="rounded-circle" src="{{URL::to('/').$user->profile()}}" alt="" width="50" height="50">
                                                         </td>
@@ -267,6 +267,11 @@
                                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                                                 <button type="button" class="btn btn-success dropdown-item" data-toggle="modal" data-target="#modal-edit{{$user->id}}" ><i  class="fas fa-user-edit"></i> Edit</button>
+                                                                @if($user->deleted_at)
+                                                                    <a href="{{route('users.unblock',$user->id)}}" class="btn btn-success dropdown-item"  ><i  class="fas fa-lock-open"></i> UnBlock</a>
+                                                                @else
+                                                                    <a href="{{route('users.block',$user->id)}}" class="btn btn-success dropdown-item"  ><i  class="fas fa-lock"></i> Block</a>
+                                                                @endif
                                                                 <button type="button" class="dropdown-item" data-toggle="modal" data-target="#modal-delete{{$user->id}}" ><i style="color:red" class="fas fa-user-minus"></i> Delete</button>
                                                             </div>
                                                         </td>
