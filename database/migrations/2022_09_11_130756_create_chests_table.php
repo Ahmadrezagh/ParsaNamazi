@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_groups', function (Blueprint $table) {
+        Schema::create('chests', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('from')->nullable();
-            $table->integer('to')->nullable();
-            $table->integer('percentage')->nullable();
-            $table->integer('priority')->nullable();
+            $table->string('title')->nullable();
+            $table->integer('required_online_days')->default(0);
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_groups');
+        Schema::dropIfExists('chests');
     }
 };

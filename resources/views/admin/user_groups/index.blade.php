@@ -57,12 +57,12 @@
                                                                     <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">From Credit</label>
-                                                                    <input name="from" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                    <label for="exampleInputEmail1">Percentage</label>
+                                                                    <input name="percentage" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter percentage"  >
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">To Credit</label>
-                                                                    <input name="to" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                    <label for="exampleInputEmail1">Priority</label>
+                                                                    <input name="priority" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter priority"  >
                                                                 </div>
 
                                                             </div>
@@ -84,8 +84,8 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
-                                                <th>From Credit</th>
-                                                <th>To Credit</th>
+                                                <th>Percentage</th>
+                                                <th>Priority</th>
                                                 <th>Options</th>
                                             </tr>
                                             </thead>
@@ -99,10 +99,10 @@
                                                         {{$user_group->name}}
                                                     </td>
                                                     <td>
-                                                        {{$user_group->from}}
+                                                        %{{$user_group->percentage}}
                                                     </td>
                                                     <td>
-                                                        {{$user_group->to}}
+                                                        {{$user_group->priority}}
                                                     </td>
                                                     <td class="text-center">
                                                         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-hasUser Group="true" aria-expanded="false">
@@ -169,12 +169,12 @@
                                                                             <input name="name" value="{{$user_group->name}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" required >
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="exampleInputEmail1">From Credit</label>
-                                                                            <input name="from" value="{{$user_group->from}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                            <label for="exampleInputEmail1">Percentage</label>
+                                                                            <input name="percentage" value="{{$user_group->percentage}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter percentage"  >
                                                                         </div>
                                                                         <div class="form-group">
-                                                                            <label for="exampleInputEmail1">To Credit</label>
-                                                                            <input name="to" value="{{$user_group->to}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter credit"  >
+                                                                            <label for="exampleInputEmail1">Priority</label>
+                                                                            <input name="priority" value="{{$user_group->priority}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter priority"  >
                                                                         </div>
                                                                     </div>
                                                                     <!-- /.card-body -->

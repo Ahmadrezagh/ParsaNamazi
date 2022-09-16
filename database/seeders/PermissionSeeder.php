@@ -55,6 +55,10 @@ class PermissionSeeder extends Seeder
             [
                 'Withdrawal',
                 'درخواست برداشت'
+            ],
+            [
+                'Chest',
+                'جعبه های شانسی'
             ]
         ];
         foreach ($permissions as $permission)

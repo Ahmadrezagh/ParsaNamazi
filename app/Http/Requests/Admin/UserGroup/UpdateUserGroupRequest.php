@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin\UserGroup;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateUserGroupRequest extends FormRequest
 {
@@ -26,7 +27,9 @@ class UpdateUserGroupRequest extends FormRequest
         return [
             'name' => ['required'],
             'from' => ['nullable'],
-            'to' => ['nullable']
+            'to' => ['nullable'],
+            'percentage' => ['required'],
+            'priority' => ['required',Rule::unique('user_groups','priority')->ignore($this->priority,'priority')],
         ];
     }
 }

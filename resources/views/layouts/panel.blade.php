@@ -21,7 +21,8 @@
 
     <!-- Icons css-->
     <link href="{{url('panel/assets/plugins/web-fonts/icons.css')}}" rel="stylesheet"/>
-    <link href="{{url('panel/assets/plugins/web-fonts/font-awesome/font-awesome.min.css')}}" rel="stylesheet">
+{{--    <link href="{{url('panel/assets/plugins/web-fonts/font-awesome/font-awesome.min.css')}}" rel="stylesheet">--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{url('panel/assets/plugins/web-fonts/plugin.css')}}" rel="stylesheet"/>
 
     <!-- Style css-->
@@ -225,6 +226,25 @@
                             </li>
                             <li class="nav-sub-item">
                                 <a class="nav-sub-link" href="{{route('roles.index')}}">Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
+                @if ((Auth::user()->isAdmin() && Auth::user()->can('Chest')) || Auth::user()->isSuperAdmin() )
+                    <li class="nav-item">
+                        <a class="nav-link with-sub" href="#">
+                            <span class="shape1"></span>
+                            <span class="shape2"></span>
+                            <i class="fas fa-box-open sidemenu-icon"></i>
+                            <span class="sidemenu-label">Chest</span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="nav-sub">
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('chests.index')}}">Chests list</a>
+                            </li>
+                            <li class="nav-sub-item">
+                                <a class="nav-sub-link" href="{{route('chest_gifts.index')}}">Chest gifts</a>
                             </li>
                         </ul>
                     </li>
@@ -638,6 +658,19 @@
     </script>
 
 @endforeach
+@if(auth()->check() && auth()->user()->isUser())
+    <script>
+        let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+        $.ajax({
+            url: "{{ route('user.logActivity') }}",
+            type: "POST",
+            data: {
+                _token: "{{ csrf_token() }}",
+                timezone: timezone,
+            }
+        });
+    </script>
+@endif
 <script>
 
     $(document).ready(function() {

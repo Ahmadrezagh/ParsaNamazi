@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\UserGroup;
+namespace App\Http\Requests\Admin\Chests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserGroupRequest extends FormRequest
+class UpdateChestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,10 @@ class StoreUserGroupRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required'],
-            'from' => ['nullable'],
-            'to' => ['nullable'],
-            'percentage' => ['required'],
-            'priority' => ['required','unique:user_groups'],
-
+            'title' => ['required'],
+            'required_online_days' => ['required'],
+            'active' => ['required'],
+            'gifts' => ['required']
         ];
     }
 }

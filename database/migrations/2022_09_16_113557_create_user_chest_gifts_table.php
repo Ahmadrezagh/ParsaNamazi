@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_groups', function (Blueprint $table) {
+        Schema::create('user_chest_gifts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('from')->nullable();
-            $table->integer('to')->nullable();
-            $table->integer('percentage')->nullable();
-            $table->integer('priority')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('CASCADE');
+            $table->foreignId('chest_id')->constrained('chests')->onDelete('CASCADE');
+            $table->foreignId('gift_id')->constrained('chest_gifts')->onDelete('CASCADE');
+            $table->timestamp('expire_at');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_groups');
+        Schema::dropIfExists('user_chest_gifts');
     }
 };

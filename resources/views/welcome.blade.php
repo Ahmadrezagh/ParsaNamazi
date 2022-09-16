@@ -48,8 +48,12 @@
                 </a>
             </div>
             <div class="col-xl-2 col-lg-3 col-sm-12 text-end button-in-navbar ">
+                @if(auth()->check())
+                    <a href="{{route('home')}}" class="btn btn-outline-primary button-login-in-navbar " type="button" >Home</a>
+                @else
                 <button class="btn btn-outline-primary button-login-in-navbar " type="button" data-bs-toggle="modal" data-bs-target="#login">Log in</button>
                 <button class="btn btn-outline-primary mx-lg-2 button-register-in-navbar" type="button"  data-bs-toggle="modal" data-bs-target="#register">Sign up</button>
+                @endif
                 <div class="text-center">
                     <a class="nav-link active d-block d-sm-block d-lg-none d-md-none d-xl-none d-xxl-none" aria-current="page" href="#" style="color: #6B0087" data-bs-toggle="modal" data-bs-target="#contact-us">Contact us</a>
                 </div>

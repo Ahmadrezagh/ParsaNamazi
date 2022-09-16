@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserGroup\StoreUserGroupRequest;
-use App\Http\Requests\Admin\UserGroup\UpdateUserGroupRequest;
-use App\Models\UserGroup;
+use App\Http\Requests\Admin\Chests\StoreChestRequest;
+use App\Http\Requests\Admin\Chests\UpdateChestRequest;
+use App\Models\Chest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserGroupController extends Controller
+class ChestController extends Controller
 {
     public function __construct()
     {
 
         $this->middleware(function ($request, $next) {
-            if ((Auth::user()->isAdmin() && Auth::user()->can('User')) || Auth::user()->isSuperAdmin())
+            if ((Auth::user()->isAdmin() && Auth::user()->can('Chest')) || Auth::user()->isSuperAdmin())
             {
                 return $next($request);
             }else{
@@ -31,8 +31,8 @@ class UserGroupController extends Controller
      */
     public function index()
     {
-        $user_groups = UserGroup::query()->orderBy('priority')->get();
-        return view('admin.user_groups.index',compact('user_groups'));
+        $chests = Chest::query()->latest()->get();
+        return view('admin.chests.index',compact('chests'));
     }
 
     /**
@@ -51,10 +51,16 @@ class UserGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserGroupRequest $request)
+    public function store(StoreChestRequest $request)
     {
-        UserGroup::create($request->validated());
-        alert()->success('User group created successfully');
+        $chest = Chest::create($request->validated());
+        $gifts = $request->gifts;
+        foreach ($gifts as $gift)
+        {
+            $gift['chest_id'] = $chest->id;
+        }
+        $chest->gifts()->sync($gifts);
+        alert()->success('Chest created successfully');
         return back();
     }
 
@@ -87,10 +93,16 @@ class UserGroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserGroupRequest $request, UserGroup $user_group)
+    public function update(UpdateChestRequest $request, Chest $chest)
     {
-        $user_group->update($request->validated());
-        alert()->success('User group created successfully');
+        $chest->update($request->validated());
+        $gifts = $request->gifts;
+        foreach ($gifts as $gift)
+        {
+            $gift['chest_id'] = $chest->id;
+        }
+        $chest->gifts()->sync($gifts);
+        alert()->success('Chest created successfully');
         return back();
     }
 
@@ -100,10 +112,18 @@ class UserGroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserGroup $user_group)
+    public function destroy(Chest $chest)
     {
-        $user_group->delete();
-        alert()->success('User group deleted successfully');
+        $chest->delete();
+        alert()->success('Chest deleted successfully');
+        return back();
+    }
+
+    public function testChest($id)
+    {
+        $chest = Chest::find($id);
+        $gift = $chest->selectRandomGift();
+        alert()->success('You win chest: '.$gift->title);
         return back();
     }
 }

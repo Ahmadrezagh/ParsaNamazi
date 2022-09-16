@@ -31,7 +31,7 @@
                     <img src="{{url('/logo/currency.png')}}" alt="">
                 </div>
                 <h5 class="step-title">Exchange Sign up</h5>
-                <button class="step-button" data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                <button class="step-button" data-bs-toggle="modal" data-bs-target="#where_to_start_1" >
                     learn more 
                     <span>
                         <i class="fa-solid fa-chevron-right"></i>
@@ -44,8 +44,8 @@
                 <div class="step-logo">
                     <img src="{{url('/logo/valid.png')}}" alt="">
                 </div>
-                <h5 class="step-title">Exchange Sign up</h5>
-                <button class="step-button" data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                <h5 class="step-title">Earn Credits</h5>
+                <button class="step-button" data-bs-toggle="modal" data-bs-target="#where_to_start_2" >
                     learn more 
                     <span>
                         <i class="fa-solid fa-chevron-right"></i>
@@ -58,8 +58,8 @@
                 <div class="step-logo">
                     <img src="{{url('/logo/group.png')}}" alt="">
                 </div>
-                <h5 class="step-title">Exchange Sign up</h5>
-                <button class="step-button"  data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                <h5 class="step-title">Members Grouping</h5>
+                <button class="step-button"  data-bs-toggle="modal" data-bs-target="#where_to_start_3" >
                     learn more 
                     <span>
                         <i class="fa-solid fa-chevron-right"></i>
@@ -72,8 +72,8 @@
                 <div class="step-logo">
                     <img src="{{url('/logo/notification.png')}}" alt="">
                 </div>
-                <h5 class="step-title">Exchange Sign up</h5>
-                <button class="step-button"  data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                <h5 class="step-title">Stay Notified</h5>
+                <button class="step-button"  data-bs-toggle="modal" data-bs-target="#where_to_start_4" >
                     learn more 
                     <span>
                         <i class="fa-solid fa-chevron-right"></i>
@@ -87,8 +87,8 @@
                 <div class="step-logo">
                     <img src="{{url('/logo/money-bag.png')}}" alt="">
                 </div>
-                <h5 class="step-title">Exchange Sign up</h5>
-                <button class="step-button" data-bs-toggle="modal" data-bs-target="#learnMore" > 
+                <h5 class="step-title">Buy & Sell for Profit</h5>
+                <button class="step-button" data-bs-toggle="modal" data-bs-target="#where_to_start_5" >
                     learn more 
                     <span>
                         <i class="fa-solid fa-chevron-right"></i>
@@ -99,27 +99,31 @@
     </div>
 </div>
 
-
-<div class="modal fade" id="learnMore" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach(\App\Models\Setting::query()->where('name','like','where_to_start_%')->get() as $where_to_start)
+    <div class="modal fade" id="{{$where_to_start->name}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered ">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <h5 class="modal-title" id="exampleModalLabel">{{$where_to_start->description}}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div id="example">
-                <video src="{{url('/video/test.mp4')}}" type="video/mp4" poster="sample.jpg" playsinline>
-                    <source src="{{url('/video/test.mp4')}}" type="video/mp4">
+            @if($where_to_start->type == 'file')
+            <div id="videoPlayer">
+                <video src="{{url($where_to_start->value)}}" type="video/mp4"  playsinline>
+                    <source src="{{url($where_to_start->value)}}" type="video/mp4">
                 </video>    
             </div>
+            @else
+                {!! $where_to_start->value !!}
+            @endif
         </div>
         <div class="modal-footer">
         </div>
     </div>
   </div>
 </div>
-
+@endforeach
 
 
 
@@ -154,7 +158,7 @@
 @endif
 
 <script>
-    var myPlayer = $('#example').RTOP_VideoPlayer({
+    var myPlayer = $('.videoPlayer').RTOP_VideoPlayer({
         showControls: true,
         showControlsOnHover: true,
         controlsHoverSensitivity: 3000,

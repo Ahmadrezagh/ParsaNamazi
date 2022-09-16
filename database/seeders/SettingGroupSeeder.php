@@ -20,6 +20,7 @@ class SettingGroupSeeder extends Seeder
             'Contact us',
             'Gifts',
             'Withdrawal',
+            'Where To Start',
         ];
         foreach ($groups as $group)
         {

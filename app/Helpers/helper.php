@@ -71,7 +71,7 @@ function findRefers($users)
 {
     foreach ($users as $user)
     {
-        echo $user.",";
+        echo view('sections.user_referral_item',compact('user'));
         if($user->myRefers && count($user->myRefers))
         {
             findRefers($user->myRefers);

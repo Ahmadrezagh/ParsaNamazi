@@ -84,6 +84,36 @@ This website should not be considered a solicitation or obligation to buy or mak
                 'value'=>'3',
                 'setting_group_id'=>'5'
             ],
+            [   'name' => 'where_to_start_1',
+                'type'=>'file',
+                'description'=>'Exchange Sign up',
+                'value'=>'#',
+                'setting_group_id'=>'6'
+            ],
+            [   'name' => 'where_to_start_2',
+                'type'=>'textarea',
+                'description'=>'Earn Credits',
+                'value'=>'#',
+                'setting_group_id'=>'6'
+            ],
+            [   'name' => 'where_to_start_3',
+                'type'=>'textarea',
+                'description'=>'Members Grouping',
+                'value'=>'#',
+                'setting_group_id'=>'6'
+            ],
+            [   'name' => 'where_to_start_4',
+                'type'=>'textarea',
+                'description'=>'Stay Notified',
+                'value'=>'3',
+                'setting_group_id'=>'6'
+            ],
+            [   'name' => 'where_to_start_5',
+                'type'=>'file',
+                'description'=>'Buy & Sell for Profit',
+                'value'=>'#',
+                'setting_group_id'=>'6'
+            ],
         ];
         foreach ($settings as $setting)
         {

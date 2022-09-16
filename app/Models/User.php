@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Services\Permission\Traits\HasPermissions;
 use App\Services\Permission\Traits\HasRoles;
 use App\Traits\Telegram;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -182,13 +183,29 @@ class User extends Authenticatable
         {
             return UserGroup::find($this->user_group_id);
         }
-        return UserGroup::query()->where([
-            ['from','<=',$this->credit],
-            ['to','>=',$this->credit]
-        ])->orWhere([
-            ['from','<=',$this->credit],
-            ['to','=',null]
-        ])->first();
+        if($this->credit > 0)
+        {
+            $used_users_ids = [];
+
+            $users = User::query()->users()->where('credit','>',0)->orderBy('credit','desc');
+            $user_groups = UserGroup::query()->orderBy('priority')->get();
+
+            foreach ($user_groups as $user_group)
+            {
+                if ($user_group->percentage > 0){
+                    $all_users_count = $users->count();
+                    $percentage = $user_group->percentage;
+                    $users_count = intval($all_users_count * ($percentage/100) );
+                    $user_group['users_count'] = $users_count;
+                    $user_ids = $users->whereNotIn('id',$used_users_ids)->take($user_group['users_count'])->pluck('id')->toArray();
+                    if(in_array($this->id,$user_ids))
+                    {
+                        return $user_group;
+                    }
+                    $used_users_ids = array_merge($used_users_ids,$user_ids);
+                }
+            }
+        }
     }
 
     public function getUserGroupIddAttribute($value)
@@ -297,9 +314,71 @@ class User extends Authenticatable
 //        }
 //    }
 
-    public function getAllRefersAttribute()
+    public function activeChest($chest_id)
     {
-        $allRefers = (findRefers($this->myRefers));
-        return collect($allRefers);
+        $now = Carbon::now();
+        return UserChestGift::query()
+            ->where('user_id','=',$this->id)
+            ->where('chest_id','=',$chest_id)
+            ->whereDate('expire_at','=',$now)
+            ->whereTime('expire_at','>',$now)
+            ->orWhereDate('expire_at','>',$now)
+            ->first();
+    }
+    public function hasActiveChest($chest_id):bool
+    {
+        return (bool) $this->activeChest($chest_id);
+    }
+
+    public function chestGift()
+    {
+        return $this->hasMany(UserChestGift::class);
+    }
+
+    public function chestActivities()
+    {
+        return $this->hasMany(UserChestActivity::class);
+    }
+
+    public function checkActivityAndGetGift($chest_id)
+    {
+        $chest = Chest::find($chest_id);
+        $userChestActivitiesCount = $this->chestActivities()
+            ->where('chest_id','=',$chest_id)
+            ->count();
+        if($chest && ($userChestActivitiesCount) == $chest->required_online_days ){
+            $gift = $chest->selectRandomGift();
+            $expire_at = $this->calculateExpireAt($gift->years,$gift->months,$gift->days);
+            $this->registerGift($chest_id,$gift->id,$expire_at);
+            $this->removePreviousLogOfChest($chest->id);
+        }
+    }
+
+    public function calculateExpireAt($years,$months,$days)
+    {
+        return Carbon::now()->addYears($years ?? 0)->addMonths($months ?? 0)->addDays($days ?? 0);
+    }
+
+    public function registerGift($chest_id,$gift_id,$expire_at)
+    {
+        $gift = ChestGift::find($gift_id);
+        if($gift->type == 2)
+        {
+            $this->update([
+                'user_group_id' => $gift->user_group_id
+            ]);
+        }
+        $this->chestGift()->create([
+            'chest_id' => $chest_id,
+            'gift_id' => $gift_id,
+            'expire_at' => $expire_at
+        ]);
+    }
+
+    public function removePreviousLogOfChest($chest_id)
+    {
+        $this->chestActivities()
+            ->where('chest_id','=',$chest_id)
+            ->delete();
     }
 }
