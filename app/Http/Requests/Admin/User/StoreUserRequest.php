@@ -28,7 +28,7 @@ class StoreUserRequest extends FormRequest
             'name' => ['required','string'],
             'email' => ['nullable','email','unique:users'],
             'image' => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:4096'],
-            'password' => ['nullable', 'confirmed', 'min:8'],
+            'password' => ['nullable', 'confirmed', 'min:5'],
             'phone' => ['nullable',new IranPhoneNumberRule,'unique:users'],
             'credit' => ['nullable'],
             'cash'  => ['nullable'],
