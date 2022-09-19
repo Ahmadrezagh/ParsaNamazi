@@ -189,11 +189,10 @@ class User extends Authenticatable
 
             $users = User::query()->users()->where('credit','>',0)->orderBy('credit','desc');
             $user_groups = UserGroup::query()->orderBy('priority')->get();
-
+            $all_users_count = $users->count();
             foreach ($user_groups as $user_group)
             {
                 if ($user_group->percentage > 0){
-                    $all_users_count = $users->count();
                     $percentage = $user_group->percentage;
                     $users_count = intval($all_users_count * ($percentage/100) );
                     $user_group['users_count'] = $users_count;
