@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserGroup\StoreUserGroupRequest;
 use App\Http\Requests\Admin\UserGroup\UpdateUserGroupRequest;
+use App\Models\User;
 use App\Models\UserGroup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -102,6 +103,9 @@ class UserGroupController extends Controller
      */
     public function destroy(UserGroup $user_group)
     {
+        $users = User::query()->where('user_group_id','=',$user_group->id)->update([
+            'user_group_id' => null
+        ]);
         $user_group->delete();
         alert()->success('User group deleted successfully');
         return back();
