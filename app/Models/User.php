@@ -187,16 +187,16 @@ class User extends Authenticatable
         {
             $used_users_ids = [];
 
-            $users = User::query()->users()->where('credit','>',0)->orderBy('credit','desc');
+//            $users = User::query()->users()->where('credit','>',0)->orderBy('credit','desc');
             $user_groups = UserGroup::query()->orderBy('priority')->get();
-            $all_users_count = $users->count();
+            $all_users_count = User::query()->users()->where('credit','>',0)->orderBy('credit','desc')->count();
             foreach ($user_groups as $user_group)
             {
                 if ($user_group->percentage > 0){
                     $percentage = $user_group->percentage;
                     $users_count = intval($all_users_count * ($percentage/100) );
                     $user_group['users_count'] = $users_count;
-                    $user_ids = $users->whereNotIn('id',$used_users_ids)->take($user_group['users_count'])->pluck('id')->toArray();
+                    $user_ids = User::query()->users()->where('credit','>',0)->orderBy('credit','desc')->whereNotIn('id',$used_users_ids)->take($users_count)->pluck('id')->toArray();
                     if(in_array($this->id,$user_ids))
                     {
                         return $user_group;
