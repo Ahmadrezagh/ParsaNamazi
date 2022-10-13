@@ -24,6 +24,7 @@ class UserChestActivity extends Model
     {
         return $this->belongsTo(Chest::class);
     }
+
     public static function logActivity($timezone = null)
     {
         $today_in_user_timezone = Carbon::now($timezone);

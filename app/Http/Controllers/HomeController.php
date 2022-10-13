@@ -33,7 +33,10 @@ class HomeController extends Controller
             return view('admin.index');
         }elseif(Auth::user()->isUser())
         {
-            return view('user.index');
+//            auth()->user()->ches
+
+            $new_gifts = auth()->user()->newGifts();
+            return view('user.index',compact('new_gifts'));
         }
     }
 }

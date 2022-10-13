@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('CASCADE');
             $table->foreignId('chest_id')->constrained('chests')->onDelete('CASCADE');
             $table->foreignId('gift_id')->constrained('chest_gifts')->onDelete('CASCADE');
-            $table->timestamp('expire_at');
+            $table->integer('seen')->default(0);
+            $table->timestamp('expire_at')->nullable();
             $table->timestamps();
         });
     }

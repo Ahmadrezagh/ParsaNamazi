@@ -81,10 +81,18 @@ class RegisterController extends Controller
             $gift_credit = setting('gift_referral_register_credit') ?? 0;
             $gift_cash = setting('gift_referral_register_cash') ?? 0;
             $targetUser = $user->referTo;
-            $targetUser->update([
-                'credit' => ($targetUser->credit + $gift_credit),
-                'cash' => ($targetUser->cash + $gift_cash),
-            ]);
+            if(count($targetUser->chestGift()->get()))
+            {
+                foreach ($targetUser->chestGift()->get() as $item)
+                {
+                    if($item->percentage_on && $item->percentage_on == 'REFERRALS')
+                    {
+                        $gift_credit = $gift_credit + ($gift_credit * ($item->percentage/100));
+                    }
+                }
+            }
+            $targetUser->addCash($gift_cash);
+            $targetUser->addCredit($gift_credit);
 
             $description = generateCashAndCreditNotificationDescription($gift_credit,$gift_cash);
             $user->notifiable()->create([

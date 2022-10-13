@@ -317,13 +317,14 @@ class User extends Authenticatable
     {
         $now = Carbon::now();
         return UserChestGift::query()
-            ->where('user_id','=',$this->id)
-            ->where('chest_id','=',$chest_id)
             ->whereDate('expire_at','=',$now)
             ->whereTime('expire_at','>',$now)
             ->orWhereDate('expire_at','>',$now)
+            ->where('user_id','=',$this->id)
+            ->where('chest_id','=',$chest_id)
             ->first();
     }
+
     public function hasActiveChest($chest_id):bool
     {
         return (bool) $this->activeChest($chest_id);
@@ -331,7 +332,7 @@ class User extends Authenticatable
 
     public function chestGift()
     {
-        return $this->hasMany(UserChestGift::class);
+        return $this->hasMany(UserChestGift::class)->notExpired();
     }
 
     public function chestActivities()
@@ -339,6 +340,15 @@ class User extends Authenticatable
         return $this->hasMany(UserChestActivity::class);
     }
 
+    public function calculateChestActivityPercentage(Chest $chest)
+    {
+        $activities = $this->chestActivities()->where('chest_id','=',$chest->id)->count() + 1;
+        if($activities > 0)
+        {
+            return ( ($activities / $chest->required_online_days) * 100);
+        }
+        return 0;
+    }
     public function checkActivityAndGetGift($chest_id)
     {
         $chest = Chest::find($chest_id);
@@ -379,5 +389,17 @@ class User extends Authenticatable
         $this->chestActivities()
             ->where('chest_id','=',$chest_id)
             ->delete();
+    }
+
+    public function newGifts()
+    {
+        $new_gifts = $this->chestGift()->notSeen()->get();
+        foreach ($new_gifts as $item)
+        {
+            $item->update([
+                'seen' => 1
+            ]);
+        }
+        return $new_gifts;
     }
 }

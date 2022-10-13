@@ -658,6 +658,27 @@
     </script>
 
 @endforeach
+@if(isset($new_gifts))
+@foreach ($new_gifts as $gift)
+    <script>
+        {{--swal.fire('{{$error}}')--}}
+        Swal.fire({
+            title: 'You win `{{$gift->gift->title}}` chest',
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            background: '#fff url(/images/trees.png)',
+            backdrop: `
+    rgba(0,0,123,0.4)
+    url("/images/nyan-cat.gif")
+    left top
+    no-repeat
+  `
+        })
+    </script>
+
+@endforeach
+@endif
 @if(auth()->check() && auth()->user()->isUser())
     <script>
         let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
