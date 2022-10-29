@@ -21,6 +21,7 @@ class SettingGroupSeeder extends Seeder
             'Gifts',
             'Withdrawal',
             'Where To Start',
+            'Telegram Bot',
         ];
         foreach ($groups as $group)
         {

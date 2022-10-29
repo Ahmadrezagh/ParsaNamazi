@@ -9,9 +9,11 @@ use Illuminate\Support\Facades\Http;
 
 trait RequestTrait
 {
+
     private function apiRequest($method, $parameters = [])
     {
-        $url = "https://api.telegram.org/bot".env('TELEGRAM_TOKEN').'/'.$method;
+
+        $url = "https://api.telegram.org/bot".setting('telegram_token').'/'.$method;
         $response = Http::post($url,$parameters);
         Test::create([
             'data' => json_encode([
