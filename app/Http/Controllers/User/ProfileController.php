@@ -73,7 +73,7 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $image = $user->profile();
-        if($request->profile)
+        if($request->hasFile('profile'))
         {
             $image = upload_file($request->profile,'/profiles/'.$user->id);
         }
