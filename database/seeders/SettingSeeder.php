@@ -117,8 +117,8 @@ This website should not be considered a solicitation or obligation to buy or mak
             [   'name' => 'telegram_token',
                 'type'=>'file',
                 'description'=>'Telegram token',
-                'value'=>'#',
-                'setting_group_id'=>'5427984914:AAG23XmzjMhv9E1jdh2oVu1UL2GHkDLW5cU'
+                'value'=>'5427984914:AAG23XmzjMhv9E1jdh2oVu1UL2GHkDLW5cU',
+                'setting_group_id'=>'7'
             ],
         ];
         foreach ($settings as $setting)
