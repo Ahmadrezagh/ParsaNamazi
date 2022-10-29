@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('password')->nullable();
             $table->double('credit')->default(0);
+            $table->double('store_credit')->default(0);
             $table->double('cash')->default(0);
             $table->string('referral_code')->nullable();
             $table->string('referral_to')->nullable();

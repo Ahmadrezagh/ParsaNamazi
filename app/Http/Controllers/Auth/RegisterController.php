@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Address;
+use App\Models\CountDown;
 use App\Notifications\WelcomeEmailNotification;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -76,7 +76,8 @@ class RegisterController extends Controller
             'referral_to' => $data['referral_code'],
             'ip'=> request()->getClientIp()
         ]);
-        if($user->referral_to)
+
+        if($user->referral_to )
         {
             $gift_credit = setting('gift_referral_register_credit') ?? 0;
             $gift_cash = setting('gift_referral_register_cash') ?? 0;
@@ -95,12 +96,16 @@ class RegisterController extends Controller
             $targetUser->addCredit($gift_credit);
 
             $description = generateCashAndCreditNotificationDescription($gift_credit,$gift_cash);
-            $user->notifiable()->create([
-                'user_id' => $targetUser->id,
-                'description' => $description.' from inviting '.$user->name,
-                'type' => 'web'
-            ]);
+            if($gift_credit > 0 || $gift_cash > 0){
+                $user->notifiable()->create([
+                    'user_id' => $targetUser->id,
+                    'description' => $description.' from inviting '.$user->name,
+                    'type' => 'web'
+                ]);
+            }
+
         }
+
         $user->notify(new WelcomeEmailNotification());
         return $user;
     }

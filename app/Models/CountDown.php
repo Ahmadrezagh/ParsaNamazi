@@ -84,4 +84,14 @@ class CountDown extends Model
         $difference['s'] = $now->diff($start_at)->format('%S');
         return $difference;
     }
+
+    public function scopeActiveCountDowns(Builder $query)
+    {
+        return $query->started()->notExpired();
+    }
+
+    public static function hasActiveCountDown()
+    {
+        return (CountDown::query()->ActiveCountDowns()->count() > 0);
+    }
 }

@@ -647,6 +647,10 @@
     $("textarea").each(function(){
         CKEDITOR.not(".swal2-textarea").replace( this );
     });
+
+    $(".ckeditor").each(function(){
+        CKEDITOR.replace( this );
+    });
 </script>
 @foreach ($errors->all() as $error)
     <script>

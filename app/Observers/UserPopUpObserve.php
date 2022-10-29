@@ -31,27 +31,30 @@ class UserPopUpObserve
         $user->addCash($popUp->cash);
         $user->addCredit($gift_credit);
         $description = generateCashAndCreditNotificationDescription($gift_credit,$popUp->cash);
-        $user->notifiable()->create([
-            'user_id' => $user->id,
-            'description' => $description.' from pop up',
-            'type' => 'web'
-        ]);
-
+        if($gift_credit > 0 || $popUp->cash > 0) {
+            $user->notifiable()->create([
+                'user_id' => $user->id,
+                'description' => $description . ' from pop up',
+                'type' => 'web'
+            ]);
+        }
         $parentalReferrals = $user->listOfAllParentReferrals();
         if(count($parentalReferrals) > 0)
         {
             $users = User::query()->whereIn('id',$parentalReferrals)->get();
             foreach ($users as $_user)
             {
-                $gift_credit = $popUp->referral_credit;
                 $_user->addCash($popUp->referral_cash);
-                $_user->addCredit($gift_credit);
+                $_user->addCredit($popUp->referral_credit);
                 $description = generateCashAndCreditNotificationDescription($popUp->referral_credit,$popUp->referral_cash);
-                $user->notifiable()->create([
-                    'user_id' => $_user->id,
-                    'description' => $description.' from '.$user->name,
-                    'type' => 'web'
-                ]);
+                if($popUp->referral_credit > 0 || $popUp->referral_cash > 0){
+                    $user->notifiable()->create([
+                        'user_id' => $_user->id,
+                        'description' => $description.' from '.$user->name,
+                        'type' => 'web'
+                    ]);
+                }
+
             }
         }
     }

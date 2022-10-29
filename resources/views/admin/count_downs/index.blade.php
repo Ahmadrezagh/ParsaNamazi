@@ -58,7 +58,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Description</label>
-                                                                    <textarea name="description" class="no-ck" id="" cols="30"
+                                                                    <textarea name="description" class="ckeditor" id="" cols="30"
                                                                               rows="10"></textarea>
                                                                 </div>
 
@@ -192,7 +192,7 @@
                                                                     </div>
                                                                     <div class="form-group">
                                                                         <label for="exampleInputEmail1">Description</label>
-                                                                        <textarea name="description" class="no-ck" id="" cols="30"
+                                                                        <textarea name="description" class="ckeditor" id="" cols="30"
                                                                                   rows="10">
                                                                             {{$count_down->description}}
                                                                         </textarea>

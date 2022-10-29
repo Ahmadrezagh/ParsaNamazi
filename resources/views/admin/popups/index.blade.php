@@ -58,8 +58,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Description</label>
-                                                                    <textarea name="description" id="" cols="30"
-                                                                              rows="10"></textarea>
+                                                                    <textarea name="description" class="ckeditor"></textarea>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Count</label>
@@ -204,8 +203,7 @@
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <label for="exampleInputEmail1">Description</label>
-                                                                            <textarea name="description" id="" cols="30"
-                                                                                      rows="10">
+                                                                            <textarea name="description" class="ckeditor">
                                                                                 {{$popup->description}}
                                                                             </textarea>
                                                                         </div>

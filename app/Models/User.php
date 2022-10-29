@@ -40,7 +40,8 @@ class User extends Authenticatable
         'referral_to',
         'telegram_user_id',
         'ip',
-        'user_group_id'
+        'user_group_id',
+        'store_credit'
     ];
 
     /**
@@ -159,10 +160,19 @@ class User extends Authenticatable
 
     public function addCredit($cash)
     {
-        $newCredit = $this->credit + $cash;
-        $this->update([
-            'credit' => $newCredit
-        ]);
+        if(CountDown::hasActiveCountDown())
+        {
+            $newCredit = $this->store_credit + $cash;
+            $this->update([
+                'store_credit' => $newCredit
+            ]);
+        }else{
+            $newCredit = $this->credit + $cash;
+            $this->update([
+                'credit' => $newCredit
+            ]);
+        }
+
     }
 
     public function listOfAllParentReferrals()
@@ -401,5 +411,10 @@ class User extends Authenticatable
             ]);
         }
         return $new_gifts;
+    }
+
+    public function getCreditAttribute($value)
+    {
+        return $value + $this->store_credit;
     }
 }

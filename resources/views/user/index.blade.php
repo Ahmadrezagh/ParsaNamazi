@@ -76,34 +76,6 @@
 
                 @foreach(\App\Models\CountDown::query()->started()->notExpired()->get() as $countDown)
                     @if($countDown->show_for_user)
-{{--                        <div class="row row-sm  col-12">--}}
-{{--                    <div class="col-sm-12 col-lg-12 col-xl-12">--}}
-{{--                        <div class="card bg-primary custom-card card-box">--}}
-{{--                            <div class="card-body p-4">--}}
-{{--                                <div class="row align-items-center">--}}
-{{--                                    <div class="col-12 img-bg ">--}}
-{{--                                        <h4 class="d-flex  mb-3">--}}
-{{--                                            --}}{{--                                                    <span class="font-weight-bold text-white ">{{$popUp->title}}</span>--}}
-{{--                                        </h4>--}}
-{{--                                        <div class="tx-white-7 mb-1 text-center">--}}
-{{--                                            {!! $countDown->description !!} <br>--}}
-{{--                                            <h5 id="cd-{{$countDown->id}}"></h5>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-12 text-center mt-3">--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                        <script>--}}
-{{--                            countDown('{{\Carbon\Carbon::parse(strtotime($countDown->show_for_user->show_at))->format('M d, Y H:i:s')}}','cd-{{$countDown->id}}')--}}
-{{--                        </script>--}}
-
-
-
                         <div class="row row-sm  col-12">
                             <div class="col-sm-12 col-lg-12 col-xl-12">
                                 <div class="card bg-primary custom-card card-box">
@@ -142,6 +114,23 @@
                             </div>
                         </div>
 
+                @else
+
+                        <div class="row row-sm  col-12">
+                            <div class="col-sm-12 col-lg-12 col-xl-12">
+                                <div class="card bg-primary custom-card card-box">
+                                    <div class="card-body p-4">
+                                        <div class="row align-items-center">
+                                            <div class="col-12 img-bg ">
+                                                <div class="tx-white-7 mb-1 text-center">
+                                                    <h5>You didn't reach the sufficient amount of credit for this pump</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 @endif
                 @endforeach
                 <!--Row-->
@@ -153,7 +142,7 @@
                         <!--Row-->
                         <!--Row -->
 
-                    @foreach(\App\Models\PopUp::query()->notExpired()->get() as $popUp)
+                    @foreach(\App\Models\PopUp::query()->notExpired()->latest()->get() as $popUp)
                         <!--Row-->
                         <div class="row row-sm  mt-lg-4">
                             <div class="col-sm-12 col-lg-12 col-xl-12">

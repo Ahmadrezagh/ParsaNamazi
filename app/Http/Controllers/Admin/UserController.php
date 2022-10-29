@@ -141,8 +141,10 @@ class UserController extends Controller
         $users = User::query()->get();
         foreach ($users as $user)
         {
+            $user_store_credit = $user->store_credit;
             $user->update([
-                'credit' => 0
+                'credit' => $user_store_credit,
+                'store_credit' => 0
             ]);
         }
         alert()->success('Credit reset successfully done!!');

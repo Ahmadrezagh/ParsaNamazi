@@ -30,7 +30,7 @@ class UpdateChestGiftRequest extends FormRequest
             'years' => ['required','numeric','min:0'],
             'months' => ['required','numeric','min:0','max:11'],
             'days' => ['required','numeric','min:0','max:29'],
-            'percentage' => ['nullable','numeric','min:0','max:100'],
+            'percentage' => ['nullable','numeric','min:0'],
             'percentage_on' => ['nullable'],
             'user_group_id' => ['nullable',Rule::exists('user_groups','id')],
             'active' => ['required','numeric','min:0','max:1']

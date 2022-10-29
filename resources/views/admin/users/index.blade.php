@@ -50,7 +50,7 @@
                                                 <select class="form-control" name="flag_id" id="flags">
                                                     <option value="-1">All users</option>
                                                     @foreach(\App\Models\Flag::all() as $flag)
-                                                        <option value="{{$flag->id}}" @if(request('flag_id') == $flag->id) selected @endif>{{$flag->name}}</option>
+                                                        <option value="{{$flag->id}}" @if(request('flag_id') == $flag->id) selected @endif>{{$flag->title}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -79,7 +79,7 @@
                                     <div class="container">
 
                                         <button class="btn btn-primary" data-toggle="modal" data-target="#modal-create">Create User</button>
-                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reset-credit">Reset All Credits</button>
+                                        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reset-credit">Reset + Store Credits</button>
                                         <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reset-cash">Reset All Cash</button>
                                         <hr>
                                         <!-- Create Modal -->
@@ -181,7 +181,7 @@
                                                             <!-- /.card-body -->
 
                                                             <div class="card-footer">
-                                                                <button type="submit" class="btn btn-danger">Reset</button>
+                                                                <button type="submit" class="btn btn-danger">Reset + Store</button>
                                                             </div>
                                                         </form>
                                                 </div>
@@ -247,7 +247,7 @@
 
                                                         <td>{{$user->email ?? ' - '}}</td>
 
-                                                        <td>{{$user->credit ?? ' - '}}</td>
+                                                        <td>{{$user->credit - $user->store_credit }} | {{$user->store_credit}}</td>
 
                                                         <td>$ {{$user->cash ?? ' - '}}</td>
                                                         <td >

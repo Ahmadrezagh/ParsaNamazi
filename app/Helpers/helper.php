@@ -60,7 +60,7 @@ function generateCashAndCreditNotificationDescription($credit,$cash)
     {
         if($credit > 0)
         {
-            $description = $description.' and'.$cash.' cash';
+            $description = $description.' and '.$cash.' cash';
         }else{
             $description = $description.$cash.' cash';
         }
