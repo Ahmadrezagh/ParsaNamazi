@@ -77,11 +77,12 @@ class CountDown extends Model
     public function getDifferenceTimeAttribute()
     {
         $now = Carbon::now();
-        $start_at =  Carbon::parse($this->first_show->show_at);
+        $show_at =  Carbon::parse($this->first_show->show_at);
+        $show_at_unix = strtotime($show_at);
         $difference = [];
-        $difference['h'] = $now->diff($start_at)->format('%H');
-        $difference['m'] = $now->diff($start_at)->format('%I');
-        $difference['s'] = $now->diff($start_at)->format('%S');
+        $difference['h'] = ($show_at_unix > time()) ? $now->diff($show_at)->format('%H')  : 0;
+        $difference['m'] =  ($show_at_unix > time()) ? $now->diff($show_at)->format('%I') : 0;
+        $difference['s'] =  ($show_at_unix > time()) ? $now->diff($show_at)->format('%S') : 0;
         return $difference;
     }
 

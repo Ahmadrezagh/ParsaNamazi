@@ -39,19 +39,19 @@ class CountDownGroups extends Model
     {
         $now = Carbon::now();
         $target = Carbon::parse($this->show_at);
-        return $now->diff($target)->format('%H');
+        return (strtotime($this->show_at) > time()) ? $now->diff($target)->format('%H') : 0;
     }
     public function getShowAtInMinuteAttribute()
     {
         $now = Carbon::now();
         $target = Carbon::parse($this->show_at);
-        return $now->diff($target)->format('%I');
+        return (strtotime($this->show_at) > time()) ? $now->diff($target)->format('%I') : 0;
     }
     public function getShowAtInSecondAttribute()
     {
         $now = Carbon::now();
         $target = Carbon::parse($this->show_at);
-        return $now->diff($target)->format('%S');
+        return (strtotime($this->show_at) > time()) ? $now->diff($target)->format('%S') : 0;
     }
 
 }

@@ -402,12 +402,12 @@
                             <div class="card">
                                 <div class="card-header" id="headingTwo">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <button class="btn btn-link " type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             Recent referrals
                                         </button>
                                     </h2>
                                 </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body" style="max-height: 23rem;overflow-y: scroll">
                                         <table class="table table-hover m-b-0 transcations " >
                                             <tbody >
@@ -497,7 +497,8 @@
                             },
                             success: function(data) {
                                 console.log('Success')
-                                countDownTextID.empty()
+                                $('#'+countDownTextID).empty()
+                                console.log(data)
                                 document.getElementById(countDownTextID).innerHTML = data.description;
                             },
                             error: function(data) {
