@@ -501,7 +501,7 @@
                             <div class="col-6">
                                 <a href="mailto:support@whalepumpers.com" class="btn btn-email" style="width: 100%">
                                     <i class="fa-solid fa-envelope"></i>
-                                    E-mail
+                                    E-mailaa
                                 </a>
                             </div>
                         </div>
@@ -546,13 +546,13 @@
                                 <div class="col-12 row mx-auto">
                                     <div class="col-6">
                                         <a href="https://t.me/whpsupport" target="_blank" class="btn btn-telegram" style="width: 100%;">
-                                            <i class="fab fa-telegram-plane"></i>
+                                            <i class="fab fa-telegram-plane d-block d-sm-block d-md-block d-lg-block d-xl-block"></i>
                                             Telegram
                                         </a>
                                     </div>
                                     <div class="col-6">
                                         <a href="mailto:support@whalepumpers.com" class="btn btn-email" style="width: 100%">
-                                            <i class="fas fa-envelope"></i>
+                                            <i class="fas fa-envelope d-block d-sm-block d-md-block d-lg-block d-xl-block"></i>
                                             E-mail
                                         </a>
                                     </div>

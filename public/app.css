@@ -1,11 +1,11 @@
 
 @font-face {
     font-family: sfpro-bold;
-    src: url(./fonts/SFPro-BlackItalic.ttf);
+    src: url(./fonts/SFPro-BlackItalic.woff);
 }
 @font-face {
     font-family: sfpro;
-    src: url(./fonts/SFPro-LightItalic.ttf);
+    src: url(./fonts/SFPro-LightItalic.woff);
 
 }
 
