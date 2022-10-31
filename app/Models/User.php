@@ -132,7 +132,7 @@ class User extends Authenticatable
 
     public function myRefers()
     {
-        return $this->hasMany(User::class,'referral_to','referral_code');
+        return $this->belongsToMany(User::class,'refer_logs','user_id','refer_id');
     }
 
     public function clickedPopUps()

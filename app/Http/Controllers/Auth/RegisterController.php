@@ -77,34 +77,39 @@ class RegisterController extends Controller
             'ip'=> request()->getClientIp()
         ]);
 
-        if($user->referral_to )
-        {
-            $gift_credit = setting('gift_referral_register_credit') ?? 0;
-            $gift_cash = setting('gift_referral_register_cash') ?? 0;
-            $targetUser = $user->referTo;
-            if(count($targetUser->chestGift()->get()))
+        $loopUser = $user;
+        while (!is_null($loopUser->referral_to))
             {
-                foreach ($targetUser->chestGift()->get() as $item)
+                $gift_credit = setting('gift_referral_register_credit') ?? 0;
+                $gift_cash = setting('gift_referral_register_cash') ?? 0;
+                $targetUser = $loopUser->referTo;
+                if(count($targetUser->chestGift()->get()))
                 {
-                    if($item->percentage_on && $item->percentage_on == 'REFERRALS')
+                    foreach ($targetUser->chestGift()->get() as $item)
                     {
-                        $gift_credit = $gift_credit + ($gift_credit * ($item->percentage/100));
+                        if($item->percentage_on && $item->percentage_on == 'REFERRALS')
+                        {
+                            $gift_credit = $gift_credit + ($gift_credit * ($item->percentage/100));
+                        }
                     }
                 }
-            }
-            $targetUser->addCash($gift_cash);
-            $targetUser->addCredit($gift_credit);
+                $targetUser->addCash($gift_cash);
+                $targetUser->addCredit($gift_credit);
 
-            $description = generateCashAndCreditNotificationDescription($gift_credit,$gift_cash);
-            if($gift_credit > 0 || $gift_cash > 0){
-                $user->notifiable()->create([
-                    'user_id' => $targetUser->id,
-                    'description' => $description.' from inviting '.$user->name,
-                    'type' => 'web'
-                ]);
+                $description = generateCashAndCreditNotificationDescription($gift_credit,$gift_cash);
+                if($gift_credit > 0 || $gift_cash > 0){
+                    $user->notifiable()->create([
+                        'user_id' => $targetUser->id,
+                        'description' => $description.' from inviting '.$user->name,
+                        'type' => 'web'
+                    ]);
+                }
+                $targetUser->myRefers()->attach($user->id);
+                $loopUser = $targetUser;
+                if(is_null($loopUser->referral_to))
+                    break;
             }
 
-        }
 
         $user->notify(new WelcomeEmailNotification());
         return $user;

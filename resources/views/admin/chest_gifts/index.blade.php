@@ -83,7 +83,7 @@
                                                                 <div class="row">
                                                                     <div class="form-group col-6 t1">
                                                                         <label for="exampleInputEmail1">Percentage</label>
-                                                                        <input name="percentage" type="number" min="0" max="100" value="0" class="form-control" id="exampleInputEmail1" placeholder="Enter days" required >
+                                                                        <input name="percentage" type="number" min="0"  value="0" class="form-control" id="exampleInputEmail1" placeholder="Enter days" required >
                                                                     </div>
                                                                     <div class="form-group col-6 t1">
                                                                         <label for="exampleInputEmail1">Percentage on</label>
@@ -235,7 +235,7 @@
                                                                             <div class="row">
                                                                                 <div class="form-group col-6 t1">
                                                                                     <label for="exampleInputEmail1">Percentage</label>
-                                                                                    <input name="percentage" type="number" min="0" max="100" value="{{ $chest_gift->percentage }}"  class="form-control" id="exampleInputEmail1" placeholder="Enter days" required >
+                                                                                    <input name="percentage" type="number" min="0"  value="{{ $chest_gift->percentage }}"  class="form-control" id="exampleInputEmail1" placeholder="Enter days" required >
                                                                                 </div>
                                                                                 <div class="form-group col-6 t1">
                                                                                     <label for="exampleInputEmail1">Percentage on</label>

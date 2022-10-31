@@ -67,6 +67,7 @@ function generateCashAndCreditNotificationDescription($credit,$cash)
     }
     return $description;
 }
+
 function findRefers($users)
 {
     foreach ($users as $user)
@@ -75,6 +76,17 @@ function findRefers($users)
         if($user->myRefers && count($user->myRefers))
         {
             findRefers($user->myRefers);
+        }
+    }
+}
+
+function RefersCount($users)
+{
+    foreach ($users as $user)
+    {
+        if($user->myRefers && count($user->myRefers))
+        {
+            RefersCount($user->myRefers);
         }
     }
 }
