@@ -323,7 +323,7 @@
                                                 <label class="main-content-label my-auto pt-2">{{$active_chest->title}}</label>
                                                 <div class="ml-auto mt-3 d-flex">
                                                     <div class="mr-3 d-flex text-muted tx-13"><span class="legend bg-primary rounded-circle"></span>Your activity</div>
-                                                    <div class="d-flex text-muted tx-13"><span class="legend bg-light rounded-circle"></span>Inprogress</div>
+                                                    <div class="d-flex text-muted tx-13"><span class="legend  rounded-circle" style="color: #f16d75!important;background-color: #f16d75!important"></span>Inprogress</div>
                                                 </div>
                                             </div>
                                             <span class="d-block tx-12 mt-2 mb-0 text-muted"> {{$active_chest->title}} </span>
@@ -335,14 +335,21 @@
                                                 <h6 class="mb-3 font-weight-normal">Activity</h6>
                                                 <div class="text-left">
                                                     <h3 class="font-weight-bold mr-3 mb-2 text-primary">{{auth()->user()->chestActivities()->where('chest_id','=',$active_chest->id)->count() + 1}} / {{$active_chest->required_online_days}} Days</h3>
-                                                    <p class="tx-13 my-auto text-muted">May 28 - June 01 (2018)</p>
+{{--                                                    <p class="tx-13 my-auto text-muted">May 28 - June 01 (2018)</p>--}}
                                                 </div>
                                             </div>
                                             <div class="col-md-6 my-auto">
-                                                <div class="forth circle">
-                                                    <div class="chart-circle-value circle-style"><div class="tx-16 font-weight-bold">{{auth()->user()->calculateChestActivityPercentage($active_chest)}}%</div></div>
-                                                </div>
+{{--                                                <div class="forth circle">--}}
+{{--                                                    <div class="chart-circle-value circle-style">--}}
+{{--                                                        <div class="tx-16 font-weight-bold">{{auth()->user()->calculateChestActivityPercentage($active_chest)}}%</div>--}}
+{{--                                                    </div>--}}
+{{--                                                    --}}
+{{--                                                </div>--}}
+
+                                                <div class="morris-wrapper-demo" id="chest-{{$active_chest->id}}" style="max-height: 150px"></div>
+
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -465,5 +472,23 @@
                 });
             </script>
         @endif
+    @endforeach
+
+    @foreach(\App\Models\Chest::query()->active()->get() as $active_chest)
+        @if(!auth()->user()->chestGift()->where('chest_id','=',$active_chest->id)->NotExpired()->first())
+            <script>
+                let active_days = {{auth()->user()->chestActivities()->where('chest_id','=',$active_chest->id)->count() + 1}};
+                let required_days = {{$active_chest->required_online_days}};
+            new Morris.Donut({
+                element: 'chest-{{$active_chest->id}}',
+                data: [
+                    {label: "Activity", value: ((active_days / required_days) *100)},
+                    {label: "Inproggress", value: (((required_days - active_days) /required_days )*100)},
+                ],
+                colors:["#6259ca","#f16d75",],
+                formatter:function (y, data) { return '%' + y }
+            });
+        </script>
+            @endif
     @endforeach
 @endsection

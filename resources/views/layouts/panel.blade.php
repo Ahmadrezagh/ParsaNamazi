@@ -58,6 +58,9 @@
 
 
 <link rel="stylesheet" href="{{url('css/countdown-timer.css')}}">
+
+    <!-- Internal Morrirs Chart css-->
+    <link href="{{url('panel/assets/plugins/morris.js/morris.css')}}" rel="stylesheet">
 </head>
 
 <body class="main-body leftmenu">
@@ -607,8 +610,8 @@
 <script src="{{url('panel/assets/plugins/peity/jquery.peity.min.js')}}"></script>
 
 <!-- Internal Morris js -->
-<script src="{{url('panel/assets/plugins/raphael/raphael.min.js')}}"></script>
-<script src="{{url('panel/assets/plugins/morris.js/morris.min.js')}}"></script>
+{{--<script src="{{url('panel/assets/plugins/raphael/raphael.min.js')}}"></script>--}}
+{{--<script src="{{url('panel/assets/plugins/morris.js/morris.min.js')}}"></script>--}}
 
 <!-- Circle Progress js-->
 <script src="{{url('panel/assets/js/circle-progress.min.js')}}"></script>
@@ -633,6 +636,10 @@
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/dataTables.responsive.min.js'}}"></script>
 <script src="{{URL::to('/').'/plugins/datatables-responsive/js/responsive.bootstrap4.min.js'}}"></script>
 <script src="{{url('plugins/countdown-timer/jquery.countdown.min.js')}}"></script>
+
+<script src="{{url('panel/assets/plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{url('panel/assets/plugins/morris.js/morris.min.js')}}"></script>
+<script src="{{url('panel/assets/js/chart.morris.js')}}"></script>
 <script>
     $(function () {
         $("#table").DataTable({

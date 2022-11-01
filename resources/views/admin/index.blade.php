@@ -574,7 +574,7 @@
                                     </div>
                                     <div class="card-item mt-4">
                                         <div class="card-item-icon bg-transparent card-icon">
-                                            <span class="peity-donut" data-peity='{ "fill": ["#6259ca", "rgba(204, 204, 204,0.3)"], "innerRadius": 15, "radius": 20}'>5/7</span>
+                                            <span class="peity-donut" data-peity='{ "fill": ["#6259ca", "rgba(204, 204, 204,0.3)"], "innerRadius": 15, "radius": 20}'>1/10</span>
                                         </div>
                                         <div class="card-item-body">
                                             <div class="card-item-stat">
