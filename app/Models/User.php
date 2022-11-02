@@ -177,14 +177,7 @@ class User extends Authenticatable
 
     public function listOfAllParentReferrals()
     {
-        $listOfUserIds = [];
-        $user = User::find($this->id);
-        while($user && $user->referral_to)
-        {
-            $user = User::findByReferralCode($user->referral_to);
-            array_push($listOfUserIds,$user->id);
-        }
-        return $listOfUserIds;
+        return $this->belongsToMany(User::class,'refer_logs','refer_id','user_id');
     }
 
     public function getUserGroupAttribute()
