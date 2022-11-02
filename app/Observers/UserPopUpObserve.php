@@ -38,7 +38,7 @@ class UserPopUpObserve
                 'type' => 'web'
             ]);
         }
-        $parentalReferrals = $user->listOfAllParentReferrals;
+        $parentalReferrals = $user->listOfAllParentReferrals()->pluck('user_id')->toArray();
         if(count($parentalReferrals) > 0)
         {
             $users = User::query()->whereIn('id',$parentalReferrals)->get();
