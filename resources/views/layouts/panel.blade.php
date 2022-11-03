@@ -124,6 +124,9 @@
                         <li class="nav-sub-item">
                             <a class="nav-sub-link" href="{{route('user_groups.index')}}">User Groups list</a>
                         </li>
+                        <li class="nav-sub-item">
+                            <a class="nav-sub-link" href="{{route('user_chest_gifts.index')}}">User Chest list</a>
+                        </li>
                     </ul>
                 </li>
                 @endif

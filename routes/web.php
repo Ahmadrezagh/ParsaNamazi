@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('chests/test/{id}', 'Admin\ChestController@testChest')->name('testChest');
         Route::resource('chest_gifts', 'Admin\ChestGiftController');
         Route::resource('withdrawal_requests', 'Admin\WithdrawalController');
+        Route::resource('user_chest_gifts', 'Admin\UserChestGiftController');
         Route::get('change_status/{poll}', 'Admin\PollController@changeStatus')->name('polls.changeStatus');
     });
 

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PopUp;
-use App\Models\UserPopUp;
+use App\Models\UserChestGift;
 use Illuminate\Http\Request;
 
-class PopUpController extends Controller
+class UserChestGiftController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,8 @@ class PopUpController extends Controller
      */
     public function index()
     {
-        //
+        $chest_gifts = UserChestGift::query()->latest()->get();
+        return view('admin.users.chest_gifts.index',compact('chest_gifts'));
     }
 
     /**
@@ -37,6 +37,7 @@ class PopUpController extends Controller
      */
     public function store(Request $request)
     {
+        //
     }
 
     /**
@@ -47,34 +48,7 @@ class PopUpController extends Controller
      */
     public function show($id)
     {
-        $user = auth()->user();
-        $pop_up = PopUp::find($id);
-        if($pop_up)
-        {
-            if($pop_up->not_expired)
-            {
-                if($pop_up->count_limit > $pop_up->total_clicks)
-                {
-                    if(!$pop_up->already_clicked)
-                    {
-                        UserPopUp::create([
-                            'user_id' => $user->id,
-                            'pop_up_id' => $pop_up->id
-                        ]);
-                        alert()->success('Pop up successfully got clicked');
-                        return back();
-                    }
-                    alert()->warning('You already clicked on this pop up');
-                    return back();
-                }
-                alert()->warning('You late, maybe next time');
-                return back();
-            }
-            alert()->warning('Pop up has expired');
-            return back();
-        }
-        alert()->warning('Pop up not found');
-        return back();
+        //
     }
 
     /**
