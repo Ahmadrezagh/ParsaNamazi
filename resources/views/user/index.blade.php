@@ -106,6 +106,50 @@
                     </div>
                 @endif
 
+                <div class="card d-none d-sm-none d-md-block d-lg-block d-xl-block">
+                    <div class="card-header">
+                        <h3>Last Pump</h3>
+                    </div>
+                    <div class="card-body">
+
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container" style="height: 400px !important;">
+                            <div id="tradingview_4b49c" style="height: 400px !important;"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                            <script type="text/javascript">
+                                new TradingView.widget(
+                                    {
+                                        "autosize": true,
+                                        "symbol": "{{setting('trading_view_symbol')}}",
+                                        "interval": "D",
+                                        "timezone": "Etc/UTC",
+                                        "theme": "light",
+                                        "style": "1",
+                                        "locale": "en",
+                                        "toolbar_bg": "#f1f3f6",
+                                        "enable_publishing": false,
+                                        "allow_symbol_change": true,
+                                        "container_id": "tradingview_4b49c",
+                                        "width" : "100%",
+
+
+                                        // "withdateranges": true,
+                                        // "range": "YTD",
+                                        // "hide_side_toolbar": false,
+                                        // "details": true,
+                                        // "hotlist": true,
+                                        // "calendar": true,
+                                        // "show_popup_button": true,
+                                        // "popup_width": "1000",
+                                        // "popup_height": "650",
+                                    }
+                                );
+                            </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+
+                    </div>
+                </div>
                 <!--Row-->
                 <div class="row row-sm">
                     <!--Row-->

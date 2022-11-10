@@ -22,6 +22,7 @@ class SettingGroupSeeder extends Seeder
             'Withdrawal',
             'Where To Start',
             'Telegram Bot',
+            'TradingView',
         ];
         foreach ($groups as $group)
         {

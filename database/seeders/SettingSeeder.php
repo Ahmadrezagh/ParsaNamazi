@@ -120,6 +120,12 @@ This website should not be considered a solicitation or obligation to buy or mak
                 'value'=>'5721221324:AAFs8MCDrnUn7Z3J6ON9mlJpFWBZdjN4tsw',
                 'setting_group_id'=>'7'
             ],
+            [   'name' => 'trading_view_symbol',
+                'type'=>'string',
+                'description'=>'Trading view symbol',
+                'value'=>'BINANCEUS:USDTUSD',
+                'setting_group_id'=>'8'
+            ],
         ];
         foreach ($settings as $setting)
         {
