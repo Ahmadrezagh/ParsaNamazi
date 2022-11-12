@@ -18,7 +18,8 @@ class ChestGift extends Model
         'percentage',
         'percentage_on',
         'user_group_id',
-        'active'
+        'promote_credits_time',
+        'active',
     ];
 
     public static array $Types = [
@@ -29,6 +30,10 @@ class ChestGift extends Model
       [
           'id' => 2,
           'title' => 'User Group'
+      ],
+      [
+          'id' => 3,
+          'title' => 'Promote current credit x times'
       ],
     ];
 

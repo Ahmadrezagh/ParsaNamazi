@@ -301,6 +301,14 @@
                             <span class="sidemenu-label">Contact us</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('where_to_start')}}" target="_blank" >
+                            <span class="shape1"></span>
+                            <span class="shape2"></span>
+                            <i class="fas fa-network-wired sidemenu-icon"></i>
+                            <span class="sidemenu-label">Where to start</span>
+                        </a>
+                    </li>
                 @endif
 
                 <li class="nav-item">

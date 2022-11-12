@@ -380,6 +380,13 @@ class User extends Authenticatable
                 'user_group_id' => $gift->user_group_id
             ]);
         }
+        if($gift->type == 3)
+        {
+            $new_credit = $this->credit + ($this->credit * intval($gift->promote_credits_time));
+            $this->update([
+                'credit' => $new_credit
+            ]);
+        }
         $this->chestGift()->create([
             'chest_id' => $chest_id,
             'gift_id' => $gift_id,

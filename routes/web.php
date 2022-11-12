@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/where', function () {
     return view('where');
-});
+})->name('where_to_start');
 
 Auth::routes();
 

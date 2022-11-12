@@ -27,6 +27,8 @@ return new class extends Migration
 
             $table->foreignId('user_group_id')->nullable()->constrained('user_groups')->onDelete('CASCADE');
 
+            $table->integer('promote_credits_time')->default(0);
+
             $table->integer('active')->default(1);
             $table->timestamps();
         });

@@ -105,6 +105,10 @@
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
+                                                                <div class="form-group t3">
+                                                                    <label for="exampleInputEmail1">Promote current gift x times</label>
+                                                                    <input type="number" value="1" name="promote_credits_time" class="form-control">
+                                                                </div>
 
                                                             </div>
                                                             <!-- /.card-body -->
@@ -257,6 +261,10 @@
                                                                                     @endforeach
                                                                                 </select>
                                                                             </div>
+                                                                            <div class="form-group t3">
+                                                                                <label for="exampleInputEmail1">Promote current gift x times</label>
+                                                                                <input type="number" class="form-control" value="{{$chest_gift->promote_credits_time}}" name="promote_credits_time">
+                                                                            </div>
 
                                                                         </div>
                                                                     </div>
@@ -304,9 +312,17 @@
             {
                 $(".t1").fadeIn()
                 $(".t2").fadeOut()
-            }else{
-                $(".t2").fadeIn()
+                $(".t3").fadeOut()
+            }
+            if(val === '2'){
                 $(".t1").fadeOut()
+                $(".t2").fadeIn()
+                $(".t3").fadeOut()
+            }
+            if(val === '3'){
+                $(".t1").fadeOut()
+                $(".t2").fadeOut()
+                $(".t3").fadeIn()
             }
         })
 
