@@ -110,7 +110,7 @@
         <div class="modal-body">
             @if($where_to_start->type == 'file')
             <div id="videoPlayer">
-                <video src="{{url($where_to_start->value)}}" type="video/mp4"  playsinline>
+                <video src="{{url($where_to_start->value)}}" type="video/mp4" style="max-width: 100%;" playsinline>
                     <source src="{{url($where_to_start->value)}}" type="video/mp4">
                 </video>    
             </div>
