@@ -688,7 +688,7 @@
             title: 'You win `{{$gift->gift->title}}` chest',
             width: 600,
             padding: '3em',
-            color: '#716add',
+            color: '#007d00',
             background: '#fff url(/images/trees.png)',
             backdrop: `
     rgba(0,0,123,0.4)
