@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\User\StoreUserRequest;
 use App\Http\Requests\Admin\User\UpdateUserRequest;
 use App\Models\User;
+use App\Models\UserChestGift;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -178,6 +179,13 @@ class UserController extends Controller
             'deleted_at' => null
         ]);
         alert()->success('User unblocked successfully');
+        return back();
+    }
+
+    public function resetGifts()
+    {
+        UserChestGift::query()->delete();
+        alert()->success('All gifts deleted successfully');
         return back();
     }
 }

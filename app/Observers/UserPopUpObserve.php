@@ -44,8 +44,20 @@ class UserPopUpObserve
             $users = User::query()->whereIn('id',$parentalReferrals)->get();
             foreach ($users as $_user)
             {
+                $_gift_credit = $popUp->credit;
+                if(count($_user->chestGift()->get()))
+                {
+                    foreach ($_user->chestGift()->get() as $_item)
+                    {
+                        if($_item->percentage_on && $_item->percentage_on == 'REFERRALS')
+                        {
+                            $_gift_credit = $_gift_credit  + ($_gift_credit * ($_item->percentage/100));
+                        }
+                    }
+                }
+
                 $_user->addCash($popUp->referral_cash);
-                $_user->addCredit($popUp->referral_credit);
+                $_user->addCredit($_gift_credit);
                 $description = generateCashAndCreditNotificationDescription($popUp->referral_credit,$popUp->referral_cash);
                 if($popUp->referral_credit > 0 || $popUp->referral_cash > 0){
                     $user->notifiable()->create([

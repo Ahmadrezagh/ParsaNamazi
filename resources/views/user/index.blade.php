@@ -107,8 +107,8 @@
                 @endif
 
                 <div class="card d-none d-sm-none d-md-block d-lg-block d-xl-block">
-                    <div class="card-header">
-                        <h3>Last Pump</h3>
+                    <div class="card-header text-center">
+                        <h3>Live chart</h3>
                     </div>
                     <div class="card-body">
 
@@ -432,7 +432,7 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="row">
-                                                    <h5>
+                                                    <h5 style="color: #007d00">
                                                         You won {{ $chest_gift->gift->title }} in {{ $chest_gift->chest->title  }} chest
                                                     </h5>
                                                 </div>
