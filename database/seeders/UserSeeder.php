@@ -23,17 +23,17 @@ class UserSeeder extends Seeder
               'password'=>'1234567890'
             ],
             [
-                'name' => 'Admin',
-                'type_id' => '2',
-                'email'=>'admin@site.com',
+                'name' => 'Dev',
+                'type_id' => '1',
+                'email'=>'dev@site.com',
                 'password'=>'1234567890'
             ],
-            [
-                'name' => 'User',
-                'type_id' => '3',
-                'email'=>'user@site.com',
-                'password'=>'1234567890'
-            ],
+//            [
+//                'name' => 'User',
+//                'type_id' => '3',
+//                'email'=>'user@site.com',
+//                'password'=>'1234567890'
+//            ],
         ];
         foreach ($users as $user)
         {

@@ -36,14 +36,14 @@ class Kernel extends ConsoleKernel
                 if(!$count_down->showed)
                 {
                     $count_down_expire = $count_down->difference_time;
-                    if(Carbon::parse($count_down->start_at)->diffInSeconds() < 60)
-                    {
-                        $telegram_users = TelegramUser::all();
-                        foreach ($telegram_users as $telegram_user)
-                        {
-                            $this->sendMessage($telegram_user->user_id,"New countdown just got started, never miss a pump");
-                        }
-                    }
+//                    if(Carbon::parse($count_down->start_at)->diffInSeconds() < 60)
+//                    {
+//                        $telegram_users = TelegramUser::all();
+//                        foreach ($telegram_users as $telegram_user)
+//                        {
+//                            $this->sendMessage($telegram_user->user_id,"New countdown just got started, never miss a pump");
+//                        }
+//                    }
                     if($count_down_expire['h'] == "04" && $count_down_expire['m'] == "00")
                     {
                         $telegram_users = TelegramUser::all();

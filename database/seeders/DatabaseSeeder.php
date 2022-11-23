@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             WithdrawalStatusSeeder::class,
             //Fake data
-            PollSeeder::class
+//            PollSeeder::class
         ]);
     }
 }
